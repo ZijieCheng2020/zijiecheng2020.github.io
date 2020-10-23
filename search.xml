@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Welcome</title>
+    <url>/2020/10/14/Welcome/</url>
+    <content><![CDATA[<p>Welcome to my blog! This is my first post. You are able to get some knowledge about Mathematics and Statistics from the blog. Welcome to contact with me through social links on the left. </p>
+]]></content>
+      <categories>
+        <category>简介</category>
+      </categories>
+      <tags>
+        <tag>-简介</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一元线性回归一</title>
+    <url>/2020/10/16/%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%80/</url>
+    <content><![CDATA[<h4 id="I-引言"><a href="#I-引言" class="headerlink" title="I. 引言"></a>I. 引言</h4><h5 id="1-期望与中位数的另一种定义"><a href="#1-期望与中位数的另一种定义" class="headerlink" title="1. 期望与中位数的另一种定义:"></a>1. 期望与中位数的另一种定义:</h5><p> $<br> \min\limits_{b}E(X-b)^2\Rightarrow E(X)=b<br> $</p>
+<p> $\min\limits_bE\ |X-b|\Rightarrow med(X)=b$<br>$\quad$<br>  $proof.$</p>
+<p>  $E(X-b)^2=E(X^2-2bX+b^2)=E(X^2)-2bE(X)+b^2\quad (1)$</p>
+<p>$\ \quad$可将 $(1)$ 式看为 $b$ 的一个一元二次函数,现求 $b$ 的最小值。可由公式得：$b=E(X).$</p>
+<p>$\ \quad$对于中位数，我们只考虑连续的情况，离散时类似可证。令随机变量 $X$ 的概率密度为 $p(x)$, 概率分布为 $F(X)$ ，则有等式成立：</p>
+<p> $E |X-b|=\int_{-\infty}^{\infty}|x-b|\ p(x)dx$<br> $\qquad\qquad\ =\int_{-\infty}^{b}(b-x)p(x)dx+\int_{b}^{\infty}(x-b)p(x)dx$  </p>
+<p>$\ \quad$现要求 $b$ 的最小值，两边对 $b$ 求导，并令导数为 $0$ .</p>
+<script type="math/tex; mode=display">\int_{-\infty}^{b}p(x)dx-\int_{b}^{\infty}p(x)dx=0</script><p>$\Rightarrow F(b)-(1-F(b))=0$ , 即 $F(b)=\dfrac{1}{2},b=med(X).$</p>
+<p>$\quad$</p>
+<h5 id="2-Conditional-Expectation"><a href="#2-Conditional-Expectation" class="headerlink" title="2. Conditional Expectation :"></a>2. Conditional Expectation :</h5><h6 id="i-Law-of-Total-Expectation"><a href="#i-Law-of-Total-Expectation" class="headerlink" title="i.) Law of Total Expectation :"></a>i.) Law of Total Expectation :</h6><script type="math/tex; mode=display">E \ [E(X|Y)]=E(X)</script><h6 id="ii-Law-of-Total-Variance"><a href="#ii-Law-of-Total-Variance" class="headerlink" title="ii.) Law of Total Variance"></a>ii.) Law of Total Variance</h6><script type="math/tex; mode=display">Var(X)=Var\ [E(X|Y)]+E\ [Var(X|Y)]</script><p>$proof.$</p>
+<p>$\ \quad$设随机变量 $X,Y$的联合密度为$f(x,y)$,边缘密度分别为$f_X(x),f_Y(y)$,则成立等式：</p>
+<p>i.) $E(X)=\int xf_X(x)dx$<br>$\qquad\quad\ \ \ =\int\int xf(x,y)dxdy$<br>$\qquad\quad\ \ \ =\int\int x\ [\ f(x|y)\cdot f_Y(y)\ ]\ dx\ dy$<br>$\qquad\quad\ \ \ =\int[\int x\cdot f(x|y)\ dx]\ f_Y(y)\ dy$<br>$\qquad\quad\ \ \ =\int E(X|y)\cdot f_Y(y)\ dy=E[E(X|Y)].$</p>
+<p>ii.)$Var(X)=E(X-E(X))^2$<br>$\qquad\qquad\ \ =E[X-E(X|Y)+E(X|Y)-E(X)]^2$<br>$\qquad\qquad\ \ =E[X-E(X|Y)]^2+E[E(X|Y)-E(X)]^2+2E[(X-E(X|Y))(E(X|Y)-E(X))]\quad\quad (1)$</p>
+<p>$\quad$</p>
+<p>而$E[X-E(X|Y)]^2$<br>$=E\begin{Bmatrix}E[(X-E(X|Y))^2|Y)]\end{Bmatrix}$<br>$=E\begin{Bmatrix}E[(X^2+(E(X|Y))^2-2XE(X|Y))|Y]\end{Bmatrix}$<br>$=E\begin{Bmatrix}E(X^2|Y)+(E(X|Y))^2-2(E(X|Y))^2\end{Bmatrix}$<br>$=E\begin{Bmatrix}E(X^2|Y)-(E(X|Y))^2\end{Bmatrix}$<br>$=E[Var(X|Y)]$</p>
+<p>$\quad$<br>$E[E(X|Y)-E(X)]^2=E\begin{Bmatrix}E(X|Y)-E[E(X|Y)]\end{Bmatrix}^2$<br>$\qquad\qquad\qquad\qquad\quad\ =Var[E(X|Y)]$</p>
+<p>$\quad$</p>
+<p>$E[(X-E(X|Y))(E(X|Y)-E(X))]$<br>$=E\begin{Bmatrix}E[(X-E(X|Y))(E(X|Y)-E(X))]|Y\end{Bmatrix}$<br>$=(E(X|Y))^2-E(X)E(X|Y)-(E(X|Y))^2+E(X|Y)E(X)$<br>$=0$</p>
+<p>$\ \quad$所以 $(1)=Var(E(X|Y))+E(Var(X|Y)).$</p>
+<p>$\quad$</p>
+<h4 id="II-一元回归模型"><a href="#II-一元回归模型" class="headerlink" title="II. 一元回归模型"></a>II. 一元回归模型</h4><h5 id="1-OLSE下的参数估计"><a href="#1-OLSE下的参数估计" class="headerlink" title="1. OLSE下的参数估计"></a>1. <strong>OLSE</strong>下的参数估计</h5><p>$\ \quad$<strong>OLSE</strong>的主要思想是寻找参数 $\beta_0,\beta_1$ 的估计值使离差平方和达到最小。从而可转化为如下问题：</p>
+<script type="math/tex; mode=display">\min\limits_{\beta_0,\beta_1}\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2</script><p>$\ \quad$分别对 $\beta_0,\beta_1$ 求偏导，并令偏导为 $0$，结果如下：</p>
+<script type="math/tex; mode=display">\left\{\begin{array}{l}
+-2\sum\limits_{i=1}^n(y_i-\hat{\beta_0}-\hat{\beta_1}x_i)=0
+\\-2\sum\limits_{i=1}^n(y_i-\hat{\beta_0}-\hat{\beta_1}x_i)x_i=0
+\end{array}\right.</script><p>$\ \quad$整理后可得：</p>
+<script type="math/tex; mode=display">\left\{\begin{array}{l}
+n\hat{\beta_0}+(\sum_{i=1}^nx_i)\hat{\beta_1}=\sum\limits_{i=1}^ny_i\quad\quad (1)
+\\(\sum_{i=1}^nx_i)\hat{\beta_0}+(\sum\limits_{i=1}^nx_i^2)\hat{\beta_1}=\sum\limits_{i=1}^nx_iy_i\quad\quad (2)
+\end{array}\right.</script><p>$\ \quad$对 $(1)$ 两边同时除以 $n$ ，整理后可得：</p>
+<script type="math/tex; mode=display">\hat{\beta_0}=\bar{y}-\bar{x}\hat{\beta_1}</script><p>$\ \quad$对于 $(2)$ 注意到有如下两个等式：<br>i. ) $\sum\limits_{i=1}^n(x_i-\bar{x})^2=\sum\limits_{i=1}^n(x_i^2-2x_i\cdot\bar{x}+\bar{x}^2)$<br>$\quad\quad\qquad\qquad\ \  =\sum\limits_{i=1}^nx_i^2+n\bar{x}^2-2\bar{x}\sum\limits_{i=1}^nx_i$<br>$\quad\quad\qquad\qquad\ \  =\sum\limits_{i=1}^nx_i^2-n\bar{x}^2.$</p>
+<p>ii. ) $\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})=\sum\limits_{i=1}^n(x_iy_i+\bar{x}\bar{y}-\bar{x}y_i-\bar{y}x_i)$<br>$\qquad\qquad\qquad\qquad\quad\  \ =\sum\limits_{i=1}^nx_iy_i+n\bar{x}\bar{y}-\bar{x}\sum\limits_{i=1}^ny_i-\bar{y}\sum\limits_{i=1}^nx_i$<br>$\qquad\qquad\qquad\qquad\quad\  \ =\sum\limits_{i=1}^nx_iy_i+n\bar{x}\bar{y}-n\bar{x}\bar{y}-n\bar{x}\bar{y}$<br>$\qquad\qquad\qquad\qquad\quad\  \ =\sum\limits_{i=1}^nx_iy_i-n\bar{x}\bar{y}$</p>
+<p>$\ \quad$由上述公式，$(2)$ 变为：</p>
+<script type="math/tex; mode=display">n\bar{x}\hat{\beta_0}+(\sum\limits_{i=1}^n(x_i-\bar{x})^2+n\bar{x}^2)\hat{\beta_1}=\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})+n\bar{x}\bar{y}</script><p>$\ \quad$再由 $(1)$ 整理后可得：</p>
+<script type="math/tex; mode=display">\left\{\begin{array}{l}
+\hat{\beta_0}=\bar{y}-\hat{\beta_1}\bar{x}
+\\\hat{\beta_1}=\dfrac{\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}
+\end{array}\right.</script><script type="math/tex; mode=display">$$
+$$\quad</script><h5 id="2-MLE下的参数估计"><a href="#2-MLE下的参数估计" class="headerlink" title="2. MLE下的参数估计"></a>2. <strong>MLE</strong>下的参数估计</h5><p>$\ \quad$<strong>MLE</strong>的主要思想是利用总体的概率密度及其样本提供的信息构造似然函数，通过似然函数取值最大得到对应参数的估计。</p>
+<p>$\ \quad$对于一元线性回归模型参数的MLE，我们假设 $\varepsilon_i\sim N(0,\sigma^2)$ 时，$y_i$ 服从如下正态分布：</p>
+<script type="math/tex; mode=display">y_i\sim N(\beta_0+\beta_1x_i,\sigma^2)</script><p>$\ \quad$则 $y_i$的概率密度为:</p>
+<script type="math/tex; mode=display">f_i(y_i)=\dfrac{1}{\sqrt{2\pi}\sigma}e^{-\dfrac{(y_i-\beta_0-\beta_1x_i)^2}{2\sigma^2}}</script><p>$\ \quad$构造似然函数：</p>
+<script type="math/tex; mode=display">L(\beta_0,\beta_1,\sigma)=\prod\limits_{i=1}^nf_i(y_i)</script><p>$\qquad\qquad\quad\ \ \ \ =\dfrac{1}{(\sqrt{2\pi}\sigma)^{n}}e^{-\dfrac{\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2}{2\sigma^2}}$</p>
+<p>$\ \quad$对似然函数取对数：</p>
+<script type="math/tex; mode=display">ln(L)=-nln((\sqrt{2\pi}\sigma))-\dfrac{\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2}{2\sigma^2}</script><p>$\ \quad$为了使似然函数 $L$取得最大值,等价的我们只需使<br>$\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2$ 取得最小值，即</p>
+<script type="math/tex; mode=display">\min\limits_{\beta_0,\beta_1}\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2</script><p>至此与<strong>OLSE</strong>一致。</p>
+<script type="math/tex; mode=display">\quad</script><h5 id="3-OLSE估计的性质"><a href="#3-OLSE估计的性质" class="headerlink" title="3. OLSE估计的性质"></a>3. <strong>OLSE</strong>估计的性质</h5><h6 id="i-线性"><a href="#i-线性" class="headerlink" title="i. ) 线性"></a>i. ) 线性</h6><script type="math/tex; mode=display">\hat{\beta_1}=\dfrac{\sum\limits_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}y_i-\bar{y}\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}</script><p>$\ \quad$注意到：</p>
+<script type="math/tex; mode=display">\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=\dfrac{n\bar{x}-n\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=0</script><p>所以</p>
+<script type="math/tex; mode=display">\hat{\beta_1}=\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}y_j</script><p>是关于 $y_j$ 的线性组合。</p>
+<p>$\ \quad$由于 $\hat{\beta_0}=\bar{y}-\hat{\beta_1}\bar{x}$ 且 $\bar{x}$ 是常数，结合上式可得：</p>
+<script type="math/tex; mode=display">\beta_0=\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})y_j</script><p>也是关于 $y_j$ 的线性组合。</p>
+<p>$\quad$</p>
+<h6 id="ii-无偏性"><a href="#ii-无偏性" class="headerlink" title="ii. ) 无偏性"></a>ii. ) 无偏性</h6><p>$\ \quad$注意到由 $y_i=\beta_0+\beta_1x_i+\varepsilon_i$ 可得:</p>
+<script type="math/tex; mode=display">E(y_i)=\beta_0+\beta_1x_i\ \ (Markov-Gauss\ Condition)</script><p>所以</p>
+<p>$E(\hat{\beta_1})=\sum\limits_{j=1}^n\dfrac{x_j-\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}E(y_j)$<br>$\qquad\ \ \ =\sum\limits_{j=1}^n\dfrac{x_j-\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}(\beta_0+\beta_1x_j)$<br>$\qquad\ \ \ =\beta_0\cdot \sum\limits_{j=1}^n\dfrac{x_j-\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}+\beta_1\cdot\sum\limits_{j=1}^n\dfrac{x_j^2-x_j\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2} \qquad (1)$</p>
+<p>$\qquad$注意到</p>
+<p>$\sum\limits_{j=1}^n\dfrac{x_j-\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=\dfrac{n\bar{x}-n\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=0 $</p>
+<p>$\sum\limits_{j=1}^n\dfrac{x_j^2-x_j\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=\dfrac{\sum\limits_{j=1}^nx_j^2-n\bar{x}^2}{\sum\limits_{i=1}^nx_i^2+n\bar{x}^2-2\bar{x}\sum\limits_{i=1}^nx_i}$<br>$\qquad\qquad\quad\quad\ \ \ \ =\dfrac{\sum\limits_{j=1}^nx_j^2-n\bar{x}^2}{\sum\limits_{i=1}^nx_i^2-n\bar{x}^2}=1$</p>
+<p>所以 </p>
+<script type="math/tex; mode=display">E(\hat{\beta_1})=(1)=\beta_1.</script><p>$\quad$<br>$E(\hat{\beta_0})=\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})E(y_j)$<br>$\quad\quad\ \ \ =\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})(\beta_0+\beta_1x_j)$<br>$\quad\quad\ \ \ =\beta_0-\beta_0\bar{x}\cdot\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}+\beta_1\bar{x}-\beta_1\bar{x}\sum\limits_{j=1}^n\dfrac{x_j^2-x_j\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}$</p>
+<p>$\quad\quad$由上述两个已证公式,可得 :</p>
+<script type="math/tex; mode=display">E(\hat{\beta_0})=\beta_0-\beta_0\bar{x}\cdot 0+\beta_1\bar{x}-\beta_{1}\bar{x}\cdot 1=\beta_0.</script><script type="math/tex; mode=display">\quad</script><h6 id="iii-hat-beta-0-hat-beta-1-的方差"><a href="#iii-hat-beta-0-hat-beta-1-的方差" class="headerlink" title="iii. ) $\hat{\beta_0},\hat{\beta_1}$ 的方差 :"></a>iii. ) $\hat{\beta_0},\hat{\beta_1}$ 的方差 :</h6><p>$Var(\hat{\beta_1})$<br>$=Var(\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}y_j)$<br>$=\sum\limits_{j=1}^n(\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})^2Var(y_j)\qquad(Markov-Gauss\ Condition)$<br>$=\dfrac{\sum\limits_{j=1}^n(x_j-\bar{x})^2}{(\sum\limits_{i=1}^n(x_i-\bar{x})^2)^2}\sigma^2$<br>$=\dfrac{\sigma^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}$</p>
+<script type="math/tex; mode=display">\quad</script><p>$Var(\hat{\beta_0})$<br>$=Var(\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})y_j)$<br>$=\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})^2Var(y_i)\quad (Markov-Gauss\ Condition)$<br>$=\sum(\dfrac{1}{n^2}+(\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})^2-\dfrac{2}{n}\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})\sigma^2$<br>$=\sigma^2(\sum\dfrac{1}{n^2}+\dfrac{\bar{x}^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}-\dfrac{2\bar{x}}{n}\sum\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}$<br>$=\sigma^2(\dfrac{1}{n}+\dfrac{\bar{x}^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}).$</p>
+<script type="math/tex; mode=display">\quad</script><h6 id="beta-1-与-beta-0-的协方差："><a href="#beta-1-与-beta-0-的协方差：" class="headerlink" title="$\beta_1$ 与 $\beta_0$ 的协方差："></a>$\beta_1$ 与 $\beta_0$ 的协方差：</h6><p>$\quad\quad$由于 $y_i\sim N(\beta_0+\beta_1x_i,\sigma^2)$,故对于统计量 $\bar{y}$ 有：</p>
+<p>$Var(\bar{y})=Var(\hat{\beta_0}+\hat{\beta_1}\bar{x})$<br>$\qquad\quad\ \ =Var(\hat{\beta_0})+\bar{x}^2Var(\hat{\beta_1})+2\bar{x}Cov(\hat{\beta_1},\hat{\beta_0})$<br>$\Rightarrow \quad \dfrac{\sigma^2}{n}=\sigma^2(\dfrac{1}{n}+\dfrac{\bar{x}^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})+\dfrac{\bar{x}^2\sigma^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}+2\bar{x}Cov(\hat{\beta_1},\hat{\beta_0})$<br>$\Rightarrow \quad Cov(\hat{\beta_1},\hat{\beta_0})=-\dfrac{\bar{x}\sigma^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}$<br>$\Rightarrow \quad Cov(\hat{\beta_1},\hat{\beta_0})=-\dfrac{\bar{x}\sigma^2}{L_{xx}}$</p>
+<script type="math/tex; mode=display">\quad</script><p>$\qquad$由于 $\hat{\beta_0}$ 和 $\hat{\beta_1}$ 都是 $y_i$ 的线性组合，且 $y_i$ 间独立同分布，故 $\hat{\beta_0}$ 和 $\hat{\beta_1}$ 也服从正态分布，即：</p>
+<script type="math/tex; mode=display">\hat{\beta_0}\sim N(\beta_0,(\dfrac{1}{n}+\dfrac{\bar{x}^2}{L_{xx}})\sigma^2)</script><script type="math/tex; mode=display">\hat{\beta_1}\sim N(\beta_1,\dfrac{\sigma^2}{L_{xx}})</script>]]></content>
+      <categories>
+        <category>应用回归分析</category>
+        <category>统计</category>
+      </categories>
+      <tags>
+        <tag>应用回归分析</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一元线性回归二</title>
+    <url>/2020/10/16/%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%BA%8C/</url>
+    <content><![CDATA[<h4 id="III-回归方程的显著性检验"><a href="#III-回归方程的显著性检验" class="headerlink" title="III 回归方程的显著性检验"></a>III 回归方程的显著性检验</h4><h5 id="1-t-检验"><a href="#1-t-检验" class="headerlink" title="1.  $t$ 检验"></a>1.  $t$ 检验</h5><p>目的：$t$ 检验是用于检验回归系数的显著性。</p>
+<p>步骤：</p>
+<p>$Step1.$ 建立检验假设。<br>原假设 $H_0:\beta_1=0$, 备择假设：$H_1:\beta_1\ne0$</p>
+<p>$Step2.$ 构造检验统计量。<br>由于 $\hat{\beta_1}\sim (\beta_1，\dfrac{\sigma^2}{L_{xx}})$，所以当 $H_0:\beta_1=0$ 成立时有：$\hat{\beta_1}\sim (0，\dfrac{\sigma^2}{L_{xx}})$<br>构造 $t$ 统计量：</p>
+<script type="math/tex; mode=display">t=\dfrac{\hat{\beta_1} \sqrt{L_{xx}}}{\sigma}\sim t(n-2)</script><p>$Step3.$ 根据所给数据计算 $P$ 值，并给出检验结果。</p>
+<h5 id="2-F-检验"><a href="#2-F-检验" class="headerlink" title="2. $F$ 检验"></a>2. $F$ 检验</h5><p>目的：$F$ 检验是根据平方和分解式，直接从回归效果检验回归方程的显著性。</p>
+<p>平方和分解式 (<strong>注意：无截距项时不一定成立</strong>) ：</p>
+<script type="math/tex; mode=display">\sum\limits_{i=1}^n(y_i-\bar{y})^2=\sum\limits_{i=1}^n(\hat{y_i}-\bar{y})^2+\sum\limits_{i=1}^n(y_i-\hat{y_i})^2</script><p>其中：<br>总的离差平方和：$SST=\sum\limits_{i=1}^n(y_i-\bar{y})^2$<br>回归平方和：$SSR=\sum\limits_{i=1}^n(\hat{y_i}-\bar{y})^2$<br>残差平方和：$SSE=\sum\limits_{i=1}^n(y_i-\hat{y_i})^2$<br>所以分解式可简记如下：</p>
+<script type="math/tex; mode=display">SST=SSR+SSE</script><p>$Proof.$</p>
+<p>$\sum\limits_{i=1}^n(y_i-\bar{y})^2=\sum\limits_{i=1}^n(y_i-\hat{y_i}+\hat{y_i}-\bar{y})^2$<br>$\qquad\qquad\quad\  =\sum\limits_{i=1}^n[(y_i-\hat{y_i})^2+(\hat{y_i}-\bar{y})^2+2(y_i-\hat{y_i})(\hat{y_i}-\bar{y})]$</p>
+<p>其中：</p>
+<p>$\sum\limits_{i=1}^n(y_i-\hat{y_i})(\hat{y_i}-\bar{y})=\hat{\beta_1}\sum\limits_{i=1}^nx_i(y_i-\hat{y_i})+(\beta_0-\bar{y})\sum\limits_{i=1}^n(y_i-\hat{y_i})$</p>
+<p>注意到：</p>
+<p>$\sum\limits_{i=1}^ne_i=0,\sum\limits_{i=1}^nx_ie_i=0$</p>
+<p>所以：</p>
+<p>$\sum\limits_{i=1}^n(y_i-\hat{y_i})(\hat{y_i}-\bar{y})=0$</p>
+<p>综上:平方分解和式成立。</p>
+<p>$F$ 统计量：</p>
+<script type="math/tex; mode=display">F=\dfrac{SSR/1}{SSE/(n-2)}\sim F(1,n-2)</script><p>由此可得方差分析表如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方差来源</th>
+<th style="text-align:center">自由度</th>
+<th style="text-align:center">平方和</th>
+<th style="text-align:center">均方</th>
+<th style="text-align:center">$F$ 值</th>
+<th style="text-align:center">$P$ 值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">回归</td>
+<td style="text-align:center">$1$</td>
+<td style="text-align:center">$SSR$</td>
+<td style="text-align:center">$SSR/1$</td>
+<td style="text-align:center">$\dfrac{SSR/1}{SSE/(n-2)}$</td>
+<td style="text-align:center">$P(F&gt;F值)$</td>
+</tr>
+<tr>
+<td style="text-align:center">残差</td>
+<td style="text-align:center">$n-2$</td>
+<td style="text-align:center">$SSE$</td>
+<td style="text-align:center">$SSE/(n-2)$</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">总和</td>
+<td style="text-align:center">$n-1$</td>
+<td style="text-align:center">$SST$</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="3-相关系数-r-检验"><a href="#3-相关系数-r-检验" class="headerlink" title="3.相关系数 $r$ 检验"></a>3.相关系数 $r$ 检验</h5><p>目的：检验相关系数 $r$ 的显著性，即通过 $r$ 的大小来衡量变量 $x$ 与 $y$ 之间的线性相关程度。</p>
+<p>构造相关系数：</p>
+<script type="math/tex; mode=display">r=\dfrac{L_{xx}}{\sqrt{L_{xx}L_{yy}}}=\hat{\beta_1}\sqrt{\dfrac{L_{xx}}{L_{yy}}}</script><h5 id="4-三种检验的关系："><a href="#4-三种检验的关系：" class="headerlink" title="4.三种检验的关系："></a>4.三种检验的关系：</h5><p>对于一元线性回归而言，这三种检验的结果是完全一致的。<br>即</p>
+<p>$(1)\ t=\dfrac{\hat{\beta_1}\sqrt{L_{xx}}}{\hat{\sigma}}=\dfrac{\sqrt{n-2}\ r}{\sqrt{1-r^2}}$</p>
+<p>$(2)\ F=\dfrac{SSR/1}{SSE/(n-2)}=\dfrac{\hat{\beta_1}^2\cdot L_{xx}}{\hat{\sigma}^2}=t^2$</p>
+<p>$proof.$</p>
+<p>$(1)$ 注意到：</p>
+<p>$\hat{\sigma}^2=\dfrac{1}{n-2}\sum\limits_{i=1}^n(y_i-\hat{y_1})^2$</p>
+<p>$\ \ \ \ \ =\dfrac{1}{n-2}\sum\limits_{i=1}^n(L_{yy}-\sum\limits_{i=1}^n(\hat{y_i}-\bar{y})^2)$</p>
+<p>$\ \ \ \ \ =\dfrac{1}{n-2}(L_{yy}-\sum\limits_{i=1}^n(\hat{\beta_1}x_i+\hat{\beta_0}-(\hat{\beta_0}+\hat{\beta_1}\bar{x}))^2)$</p>
+<p>$\ \ \ \ \ =\dfrac{1}{n-2}(L_{yy}-\dfrac{L_{xy}^2}{L_{xx}^2}\sum\limits_{i=1}^n(x_i-\bar{x})^2)$</p>
+<p>$\ \ \ \ \ =\dfrac{1}{n-2}(L_{yy}-\dfrac{L_{xy}^2}{L_{xx}})$</p>
+<p>故有：</p>
+<p>$t=\dfrac{\hat{\beta_1}\sqrt{L_{xx}}}{\hat{\sigma}}=\dfrac{\sqrt{n-2}\hat{\beta_1}\sqrt{L_{xx}}}{\sqrt{L_{yy}-\dfrac{L^2_{xy}}{L_{xx}}}}$</p>
+<p>$\ \ =\dfrac{\sqrt{n-2}\hat{\beta_1}\sqrt{\dfrac{L_{xx}}{L_{yy}}}}{\sqrt{1-\dfrac{L_{xy}^2}{L_{xx}L_{yy}}}}$</p>
+<p>$\ \ =\dfrac{\sqrt{n-2}\ r}{\sqrt{1-r^2}}$</p>
+<p>$(2)$ 由 $(1)$ 得：</p>
+<p>$SSR=\dfrac{L_{xy}^2}{L_{xx}}，SSE=L_{yy}-\dfrac{L_{xy}^2}{L_{xx}}$</p>
+<p>所以：</p>
+<p>$F=\dfrac{SSR/1}{SSE/(n-2)}$</p>
+<p>$\quad=(n-2)\dfrac{\dfrac{L_{xy}^2}{L_{xx}}}{L_{yy}-\dfrac{L_{xy}^2}{L_{xx}}}$</p>
+<p>$\quad =(n-2)\dfrac{r^2}{1-r}$</p>
+<p>$\quad=t^2$</p>
+<p>$\quad=\dfrac{\hat{\beta_1}^2\cdot L_{xx}}{\hat{\sigma}^2}$</p>
+<h5 id="5-决定系数"><a href="#5-决定系数" class="headerlink" title="5. 决定系数"></a>5. 决定系数</h5><p>定义：回归平方和 $(SSR)$ 与总离差平方和 $(SST)$ 之比定义为决定系数，即回归平方和在总离差平方和中的占比，记为 $r^2$：</p>
+<p>$r^2=\dfrac{SSR}{SST}=\dfrac{L^2_{xy}}{L_{xx}L_{yy}}=(r)^2$</p>
+<p>意义：决定系数 $r^2$ 是一个反应直线与样本观测拟合优度的<strong>相对</strong>指标，将残差 $(e_i=y_i-\hat{\beta_0}-\hat{\beta_1}x_i)$ 作为误差 $(\varepsilon_i=y_i-\beta_0-\beta_1x_i)$ 的估计，我们认为 $r^2$ 越大，残差占比越小，拟合优度越好。</p>
+<h4 id="IV-残差分析"><a href="#IV-残差分析" class="headerlink" title="IV. 残差分析"></a>IV. 残差分析</h4><h5 id="1-残差的基本性质"><a href="#1-残差的基本性质" class="headerlink" title="1. 残差的基本性质"></a>1. 残差的基本性质</h5><p>$(i.)\ E(e_i)=0$</p>
+<p>$proof.$</p>
+<p>$E(e_i)=E(y_i)-E(\hat{y_i})$<br>$\quad\quad \ \ \  =(\beta_0+\beta_1x_i)-(\beta_0+\beta_1x_i)=0$</p>
+<p>$(ii.)\ Var(e_i)=[1-\dfrac{1}{n}-\dfrac{(x_i-\bar{x})^2}{L_{xx}}]\sigma^2$</p>
+<p>$(iii.)$ 残差满足约束条件：$\sum e_i=0,\sum x_ie_i=0$，即残差是相关的，不独立。</p>
+<h4 id="V-回归系数的区间估计"><a href="#V-回归系数的区间估计" class="headerlink" title="V. 回归系数的区间估计"></a>V. 回归系数的区间估计</h4><p>由 $\hat{\beta_1}\sim N(\beta_1,\dfrac{\sigma^2}{L_{xx}})$，可得：</p>
+<p>$t=\dfrac{(\hat{\beta_1}-\beta_1)\sqrt{L_{xx}}}{\sigma}\sim t(n-2)$</p>
+<p>在置信水平为 $1-\alpha$ 下有：</p>
+<p>$P(|\dfrac{(\hat{\beta_1}-\beta_1)\sqrt{L_{xx}}}{\sigma}|&lt;t_{\alpha/2}(n-2))=1-\alpha$</p>
+<p>故置信水平为 $1-\alpha$ 的置信区间为：</p>
+<script type="math/tex; mode=display">(\hat{\beta_1}-t_{\alpha/2}(n-2)\dfrac{\hat{\sigma}}{L_{xx}},\hat{\beta_1}+t_{\alpha/2}(n-2)\dfrac{\hat{\sigma}}{L_{xx}})</script>]]></content>
+      <categories>
+        <category>应用回归分析</category>
+        <category>统计</category>
+      </categories>
+      <tags>
+        <tag>应用回归分析</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>曲面的第二基本形式</title>
+    <url>/2020/10/23/%E6%9B%B2%E9%9D%A2%E7%9A%84%E7%AC%AC%E4%BA%8C%E5%9F%BA%E6%9C%AC%E5%BD%A2%E5%BC%8F/</url>
+    <content><![CDATA[<p>$\qquad$设 $S:r=r(u,v)$ 是一张正则曲面，曲面在 $P=(u_0,v_0)$ 处的切平面 $\Gamma$ 的单位法向量为 $\boldsymbol{n}=\dfrac{r_u\times r_v}{|r_u\times r_v|}$. </p>
+<p>$\qquad$对于第一基本形式而言，我们无法区分平面与柱面，其主要原因在于第一基本形式无法刻画曲面的弯曲程度。而直观上，我们发现可以通过曲面附近一点到切平面的距离 $\delta$ 来刻画其在该点处的弯曲程度，即曲面 $S$ 在 $P=(u_0,v_0)$ 处弯曲的越厉害，则 $\delta$ 变化的速率也越大。同时，$\delta$ 的符号还反应了曲面附近的一点落在切平面 $\Gamma$ 的哪一侧。<br><img src="\images\图4.1.png" alt=""></p>
+<p>$\qquad$下面我们设 $P=(u_0,v_0)$ 附近的一点为 $Q=(u_0+\Delta u,v_0+\Delta v)$，则该点到切平面的距离 $\delta$ 可以看成是 $\overrightarrow{PQ}$ 在单位法向量 $\boldsymbol{n}$ 上的投影，即：</p>
+<script type="math/tex; mode=display">
+|\delta|=\overrightarrow{PQ}\cdot \boldsymbol{n}=[r(u_0+\Delta u,v_0+\Delta v)-r(u_0,v_0)]\cdot \boldsymbol{n}</script><p>$\qquad$对于 $r(u_0+\Delta u,v_0+\Delta v)-r(u_0,v_0)$，我们做 $Taylor$ 展开：</p>
+<p>$r(u_0+\Delta u,v_0+\Delta v)-r(u_0,v_0)$<br>$=r_u\Delta u+r_v\Delta v+\dfrac{1}{2!}[r_{uu}(\Delta u)^2+2r_{uv}\Delta u\Delta v+r_{vv}(\Delta v)^2]+o((\Delta u)^2+(\Delta v)^2)$</p>
+<p>$\qquad$注意到，$r_u$ 和 $r_v$ 是切向量，所以 $r_u\cdot \boldsymbol{n}=0,r_v\cdot\boldsymbol{n}=0$，从而</p>
+<script type="math/tex; mode=display">
+|\delta|=\dfrac{1}{2}(L(\Delta u)^2+2M\Delta u\Delta v+N(\Delta v)^2)+o((\Delta u)^2+(\Delta v)^2</script><p>其中</p>
+<script type="math/tex; mode=display">\begin{matrix}
+    &L=r_{uu}\cdot \boldsymbol{n}\\
+&M=r_{uv}\cdot \boldsymbol{n}\\
+&N=r_{vv}\cdot \boldsymbol{n}
+\end{matrix}</script><p>此外，由于 $r_u\cdot\boldsymbol{n}=0,r_v\cdot\boldsymbol{n}=0$，我们有：</p>
+<script type="math/tex; mode=display">
+\begin{matrix}
+    L=r_{uu}\cdot\boldsymbol{n}=-r_u\cdot\boldsymbol{n}_u\\
+    M=r_{uv}\cdot\boldsymbol{n}=-r_u\cdot\boldsymbol{n}_v=-r_v\cdot\boldsymbol{n}_u\\
+    N=r_{vv}\cdot\boldsymbol{n}=-r_v\cdot\boldsymbol{n}_v
+\end{matrix}</script><p>$\qquad$ 我们取出其主要部分，忽略其高阶无穷小，记为微分形式：</p>
+<script type="math/tex; mode=display">\mathrm{II}=d^2r\cdot n=-dr\cdot dn=L(du)^2+2Mdudv+N(dv)^2</script><p>我们称 $\mathrm{II}$ 为曲面的<strong>第二基本形式</strong>，$L,M,N$ 为曲面的<strong>第二基本量</strong>。曲面第二基本形式的直接几何意义为有向距离 $\delta$ 在忽略高阶无穷小时的近似两倍。</p>
+<p>$\qquad$对于第二基本形式，我们有如下两个简单的性质：</p>
+<p>$\mathrm{Thm\ 1.}$ 一块正则曲面是平面的一部分 $\Leftrightarrow$ 它的第二基本形式恒为 $0$.</p>
+<p>$proof.$</p>
+<p>$\Rightarrow$ 由于其是平面的一部分，故在该部分，我们可以设其满足平面方程：</p>
+<script type="math/tex; mode=display">
+AX+BY+CZ+D=0</script><p>其中 $A,B,C$ 不全为 $0$.在此我们不妨设 $C\ne 0$，从而平面曲线可用参数方程表示如下：</p>
+<script type="math/tex; mode=display">r=r(x,y)=(x,y,-\dfrac{Ax+By+D}{C})</script><p>对 $x,y$ 分别求一阶偏导和二阶偏导：</p>
+<p>$r_x=(1,0,-\dfrac{A}{C})$</p>
+<p>$r_y=(0,1,-\dfrac{B}{C})$</p>
+<p>$r_{xx}=\boldsymbol{0}\rightarrow L=0$</p>
+<p>$r_{xy}=\boldsymbol{0}\rightarrow M=0$</p>
+<p>$r_{yy}=\boldsymbol{0}\rightarrow N=0$</p>
+<p>所以曲面的第二基本形式：$\mathrm{II}=0$</p>
+<p>$\Leftarrow$ 由于曲面的第二基本形式恒为 $0$，所以我们有:</p>
+<script type="math/tex; mode=display">
+\begin{matrix}
+    L=&-r_u\cdot n_u&=0\\
+    M=&-r_u\cdot n_v=-r_v\cdot n_u&=0\\
+    N=&-r_v\cdot n_v&=0&
+\end{matrix}</script><p>与此同时，$n$ 是单位向量，所以满足 $n\cdot n_u=0,n\cdot n_v=0$</p>
+<p>$\qquad$然而 $\{O;r_u,r_v,n\}$ 是空间中的一个标架，通过以上的式子，我们发现 $n_u,n_u$ 对于各个标架方向的投影均为 $0$，即 $n_u=0,n_v=0$，从而 $d_u=0$，这说明 $n$ 是一个常向量。</p>
+<p>$\qquad$ 所以，该曲面是经过点 $r_(u_0,v_0)$，并以 $n$ 为法向量的平面。</p>
+<p>$\blacksquare$</p>
+<p>$\mathrm{Thm\ 2.}$ 一块正则曲面是球面的一部分 $\Leftrightarrow$ 在曲面的每一点，它的第二基本形式是第一基本形式的非零倍数。</p>
+]]></content>
+      <categories>
+        <category>微分几何</category>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>微分几何</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实变函数例题二</title>
+    <url>/2020/10/21/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E4%BE%8B%E9%A2%98%E4%BA%8C/</url>
+    <content><![CDATA[<h5 id="例题-2-1"><a href="#例题-2-1" class="headerlink" title="例题 2.1"></a>例题 2.1</h5><p>证明下列条件等价：<br>(1) $x\in \overline{E};$<br>(2) 对任意 $\delta&gt;0$，有 $B(x,\delta)\bigcap E\ne\varnothing;$<br>(3) 存在 $E$ 中点列 $\{x_k\}$，使 $\lim\limits_{k\rightarrow\infty}x_k=x.$</p>
+<p>$proof.$</p>
+<p>$(1)\Rightarrow (2)$</p>
+<p>$\qquad\forall\, x \in \overline{E}=E\bigcup E’$，若 $x\in E$，有 $\forall\,\delta&gt;0，B(x,\delta)\bigcap E\ne \varnothing.$ 若 $x\notin E$，则 $x\in E’$，根据导集的性质，有 $\forall\, \delta&gt;0,(B(x,\delta)-\{x\})\bigcap E\ne \varnothing.$ </p>
+<p>$\qquad$从而我们有 $\forall\, x\in E,B(x,\delta)\bigcap E\ne \varnothing.$</p>
+<p>$(2)\Rightarrow (3)$</p>
+<p>$\qquad$可以构造如下区间 $B_k=B(x,\dfrac{1}{2^k})$，由于 $B_k\bigcap E\ne \varnothing$，我们从中选取一点记为 $x_k$，从而构造了 $E$ 中的点列 $\{x_k\}$ 且 $\lim\limits_{k\rightarrow \infty}x_k=x.$</p>
+<p>$(3)\Rightarrow (1)$</p>
+<p>$\qquad$ 若点 $x$ 在 $E$ 中存在点列 $\{x_k\}$，使 $\lim\limits_{k\rightarrow\infty}x_k=x.$ 由于 $x_k\in E,\forall\, k$，所以根据闭集的等价条件我们有 $x\in \overline{E}.$</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-2"><a href="#例题-2-2" class="headerlink" title="例题 2.2"></a>例题 2.2</h5><p>设 $A,B\subset\mathbb{R}^n.$ 若 $A\bigcap B=\varnothing$，证明：$\mathring{A}\bigcap \overline{B}=\varnothing.$</p>
+<p>$proof.$</p>
+<p>$\qquad$由于 $A\bigcap B=\varnothing$，所以 $\mathring{A}\bigcap B=\varnothing$，从而 $B\subset (\mathring{A})^c$。由于 $(\mathring{A})^c$ 是闭集，所以有 $\overline{B}\subset\overline{(\mathring{A})^c}=(\mathring{A})^c$，所以 $\mathring{A}\bigcap \overline{B}=\varnothing.$</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-3"><a href="#例题-2-3" class="headerlink" title="例题 2.3"></a>例题 2.3</h5><p>设 $E\subset \mathbb{R}^n$，证明：孤立点集 $E\verb||E’$ 是至多可数集。</p>
+<p>$proof.$</p>
+<p>$\qquad$ 我们记以有理点为中心，以有理数为半径的有理球全体为集合 $\Gamma$，则由第一章结论可知：$\overline{\overline{\Gamma}}=\aleph_0.$ 对于任意的 $x\in E\verb||E’,\exists\, \delta&gt;0$，使得 $B(x,\delta)\bigcap E\verb||E’=\{x\}.$ 注意到，由于有理数的稠密性，我们可以从 $\Gamma$ 中取得一个有理球 $B_x$，使得 $x\in B_x\subset B(x,\delta)$，从而我们可以诱导出一个从 $E\verb||E’$ 到 $\Gamma$ 的映射 $f.$ 对于任意的 $x,y\in E\verb||E’$ 且 $x\ne y,\exists\, \delta_x,\delta_y&gt;0$，使得 $B(x,\delta_x)\bigcap E\verb||E’=\{x\},B(y,\delta_y)\bigcap E\verb||E’=\{y\}$，所以 $B_x\bigcap B_y=\varnothing$，即 $f(x)\ne f(y)$，故 $f$ 是单射，$\overline{\overline{E\verb||E’}}\le \overline{\overline{\Gamma}}=\aleph_0$，这说明孤立点集 $E\verb||E’$ 是至多可数集。</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-4"><a href="#例题-2-4" class="headerlink" title="例题 2.4"></a>例题 2.4</h5><p>设 $E\subset \mathbb{R}^n$，若 $E’$ 是至多可数集，证明：$E$ 是至多可数集。</p>
+<p>$proof.$</p>
+<p>$\qquad$ 注意到，$E\subset (E-E’)\bigcup E’$，其中孤立点集 $E-E’$ 是至多可数集，$E’$ 也是至多可数集，所以 $(E-E’)\bigcup E’$ 也是至多可数集，从而 $E$ 是至多可数集。</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-5"><a href="#例题-2-5" class="headerlink" title="例题 2.5"></a>例题 2.5</h5><p>设 $\overline{A}=\mathbb{R}^n$，开集 $U\subset\mathbb{R}^n$，则 $U\subset \overline{A\bigcap U}.$</p>
+<p>$proof.$</p>
+<p>$\qquad\forall\, x\in U$，由于 $U$ 是开集，所以对于任意的 $\delta&gt;0,\exists\, r&gt;0$，使得 $B(x,r)\subset U$. 由 $\delta$ 的任意性，我们不妨设 $r&lt;\delta$. 由于 $\overline{A}=\mathbb{R}^n$，所以 $A$ 是稠密集，从而 $A\bigcup B(x,r)\ne \varnothing.$ 下面我们考虑 $(A\bigcap U)\bigcap B(x,\delta)\supset A\bigcap(U\bigcap B(x,r))=A\bigcap B(x,r)\ne \varnothing$，根据闭集的等价条件，我们得：$x\in\overline{A\bigcap U}$，即 $U\subset \overline{A\bigcap U}.$</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-6"><a href="#例题-2-6" class="headerlink" title="例题 2.6"></a>例题 2.6</h5><p>设 $G\subset \mathbb{R}^n$，证明 $G$ 是开集当且仅当：对任意的 $E\subset \mathbb{R}^n$，有 $G\bigcap \overline{E}\subset \overline{G\bigcap E}.$</p>
+<p>$proof.$</p>
+<p>$\Leftarrow\quad$ 我们取 $E=G^c$，则有 $G\bigcap \overline{G^c}\subset \overline{G\bigcap G^c}=\varnothing$，从而有 $\overline{G^c}\subset G^c$，而注意到另一方面 $G^c\subset\overline{G^c}$，所以 $G^c=\overline{G^c}$，即 $G^c$ 是闭集，从而 $G$ 是开集。</p>
+<p>$\Rightarrow\quad\forall\, x\in G\bigcap \overline{E}$，有 $x\in G$. 由于 $G$ 是开集，所以存在 $r&gt;0$，使得 $B(x,r)\subset G$，对于任意的 $\delta&gt;0$，取 $\eta=\min\{r,\delta\}$，则由 $x\in \overline{E}$，我们有 $B(x,\eta)\bigcap E\ne \varnothing$，从而有 $B(x,\eta)\bigcap (G\bigcap E)=B(x,\eta)\bigcap E\ne \varnothing$，从而有 $x\in \overline{G\bigcap E}$，即 $G\bigcap\overline{E}\subset \overline{G\bigcap E}$.</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-7"><a href="#例题-2-7" class="headerlink" title="例题 2.7"></a>例题 2.7</h5><p>证明：$\mathbb{R}^n$ 中开集的全体所成之集具有连续基数 $c$.</p>
+<p>$proof.$</p>
+<p>$\qquad$我们记 $\mathbb{R}^n$ 中的所有开集构成的集合为 $H$，记以有理点为中心，以有理数为半径的有理球全体所构成的集合为 $\Gamma$，根据第一章知识可知：$\overline{\overline{\Gamma}}=\aleph_0$，从而 $\Gamma$ 可表示为 $\{B_1,B_2,\cdots\}$。设 $E$ 是 $\mathbb{R}^n$ 中的任一开集，将所有含于 $E$ 内部的有理球取出，将它们记为$B_{k1},B_{k2},\cdots$,下断言 $\bigcup\limits_{i=1}^\infty B_{ki}=E.$</p>
+<p>断言的证明：</p>
+<p>$\qquad$首先由于$B_{ki}\subset E,\forall\, ki$，所以 $\bigcup\limits_{i=1}^\infty B_{ki}\subset E$ 是显然的。另一方面，$\forall\, x\in E$，由于 $E$ 是开集，所以 $\exists\, \delta&gt;0$，使得 $B(x,\delta)\subset E.$ 由于有理数的稠密性，存在有理球 $B_{ki}$，使得$x\in B_{ki}\subset B(X,\delta)\subset E$，从而 $x\in \bigcup\limits_{i=1}^\infty B_{ki}$，即 $\bigcup\limits_{i=1}^\infty B_{ki}\supset E$，综上所述，断言成立。</p>
+<p>$\qquad$根据断言，可以诱导处一个从 $E$ 到 $P(\mathbb{N})$ 的映射 $f$，即 $f(E)=f(\bigcup\limits_{i=1}^\infty B_{ki})=\{k_1,k_2,\cdots\}.$ 注意到，$\mathbb{R}^n$ 中不同的开集所含的有理球是不相同的，所以 $f$ 是单射，从而有 $\overline{\overline{H}}\le \overline{\overline{P(\mathbb{N})}}=c.$</p>
+<p>$\qquad$另一方面，记 $F=\{B(0,r)|r\in(0,+\infty)\}$，则 $F\subset H$，然而 $\overline{\overline{F}}=\overline{\overline{\mathbb{R}^+}}=c$，所以 $\overline{\overline{H}}\ge \overline{\overline{F}}=c.$ 综上所述，$\overline{\overline{H}}=c.$</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-8"><a href="#例题-2-8" class="headerlink" title="例题 2.8"></a>例题 2.8</h5><p>证明：$\mathbb{R}^n$ 中闭集的全体所成之集具连续基数 $c$.</p>
+<p>$proof.$</p>
+<p>$\qquad$我们知道，对于 $\mathbb{R}^n$ 中任一开集 $E$，$E^c$ 是闭集；同样的，对于 $\mathbb{R}^n$ 中任一闭集 $E$，$E^c$ 是开集。所以可以构造从 $\mathbb{R}^n$ 中全体开集构成的集合 $H$ 到 $\mathbb{R}^n$ 中全体闭集构成的集合 $T$ 的一个双射 $f$，从而可得 $\overline{\overline{T}}=\overline{\overline{H}}=c.$</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-9"><a href="#例题-2-9" class="headerlink" title="例题 2.9"></a>例题 2.9</h5><p>设 $f$ 为定义在 $\mathbb{R}^n$ 上的函数，证明下列条件等价：<br>(1) $f$ 是连续函数;<br>(2) 对任意的 $A\in \mathbb{R}^n$，有 $f(\overline{A})\subset \overline{f(A)};$<br>(3) 对任意的 $B\in \mathbb{R}^1$，有 $f^{-1}(\overline{B})\supset \overline{f^{-1}(B).}$</p>
+<p>$proof.$</p>
+<p>$(1)\Rightarrow (2)$ </p>
+<p>$\qquad$设 $A\subset \mathbb{R}^n$，则有 $A\subset f^{-1}(f(A))$，从而有 $A\subset f^{-1}(\overline{f(A)})$，由于 $f$ 是连续函数，所以 $f^{-1}(\overline{f(A)})$ 也是闭集，故 $\overline{A}\subset f^{-1}(\overline{f(A)})$，即 $f(\overline{A})\subset \overline{f(A)}.$</p>
+<p>$(2)\Rightarrow (3)$ </p>
+<p>$\qquad$ 设 $B\subset \mathbb{R}^1$，则有 $f^{-1}(B)\subset \mathbb{R}^n$，从而我们可得 $f(\overline{f^{-1}(B)})\subset \overline{f(f^{-1}(B))}\subset\overline{B}$，所以 $f^{-1}(\overline{B})\supset \overline{f^{-1}(B)}.$</p>
+<p>$(3)\Rightarrow (1)$</p>
+<p>$\qquad$ 设 $B$ 是 $\mathbb{R}^1$ 中的任一闭集，我们有$\overline{f^{-1}(B)}\subset f^{-1}(\overline{B})=f^{-1}(B)$，从另一方面，$f^{-1}(B)\subset \overline{f^{-1}(B)}$，所以 $f^{-1}(B)= \overline{f^{-1}(B)}$，即 $f^{-1}(B)$ 是闭集，$f$ 是连续函数。<br>$\blacksquare$</p>
+<h5 id="例题-2-10"><a href="#例题-2-10" class="headerlink" title="例题 2.10"></a>例题 2.10</h5><p>设 $F\subset \mathbb{R}^n$ 是闭集，证明：存在 $F$ 的至多可数子集 $A$，使得 $\overline{A}=F.$</p>
+<p>$proof.$</p>
+<p>$\qquad$我们记以有理点为中心，以有理数为半径的有理球全体构成的集合为 $\Gamma$，根据第一章的知识，我们已经知道 $\overline{\overline{\Gamma}}=\aleph_0$，所以 $\Gamma$ 可以记为 $\{B_1,B_2,\cdots\}$. 设 $F$ 是 $\mathbb{R}^n$ 中的一个闭集，对于每个 $B_k$，若 $F\bigcap B_k\ne \varnothing$，我们就取点 $x_k\in B_k\bigcap F$，显然所取点列 $\{x_k\}$ 是一个 $F$ 的至多可数子集，我们将其记为 $A$，下证：$F=\overline{A}.$</p>
+<p>$\qquad$任取 $x\in F$，则由闭集的性质，对于任意的 $\delta&gt;0$，存在$B_k\in \Gamma$，我们有 $x\in B_k\subset B(x,\delta)$，使得 $F\bigcap B_k\ne \varnothing$，从而有 $A\bigcap B_k\ne \varnothing$，进而 $A\bigcap B(x,\delta)\ne \varnothing$，即 $x\in\overline{A}$，所以 $F\subset \overline{A}$。另一方面，$A\subset F$，故 $\overline{A}\subset\overline{F}=F$. 综上所述，$F=\overline{A}$.</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-11"><a href="#例题-2-11" class="headerlink" title="例题 2.11"></a>例题 2.11</h5><p>设 $F_1,F_2$ 为 $\mathbb{R}^n$ 中两个互不相交的闭集，则存在 $\mathbb{R}^n$ 中的开集 $G_1,G_2$，满足 $G_1\bigcap G_2=\varnothing$，且 $F_1\subset G_1,F_2\subset G_2.$</p>
+<p>$proof.$</p>
+<p>$\qquad$我们构造距离函数 $f(x)=d(x,F_1)-d(x,F_2)$，则 $f(x)$ 显然是一个连续函数，下面我们记 $G_1=f^{-1}((-\infty,0)),G_2=f^{-1}((0,+\infty))$。首先，由于 $f$ 是连续函数，所以 $G_1,G_2$ 均是开集；其次，由于 $(-\infty,0)$ 和 $(0,+\infty)$ 不相交，所以 $G_1$ 和 $G_2$ 不相交。对于任意的 $x\in F_1,f(x)=-d(x,F_2)&lt;0$，故 $x\in G_1$，从而 $F_1\subset G_1.$ 同样的，我们可以证明，$F_2\subset G_2.$</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-12"><a href="#例题-2-12" class="headerlink" title="例题 2.12"></a>例题 2.12</h5><p>设 $\{F_\lambda\}_{\lambda\in\Lambda}$ 是 $\mathbb{R}^n$ 中的一族有界闭集，若任取其中有限个：$F_{\lambda_1},F_{\lambda_2},\cdots,F_{\lambda_m}$，都有 $\bigcap\limits_{i=1}^m F_{\lambda_i}\ne \varnothing$. 试证明：$\bigcap\limits_{\lambda\in\Lambda}F_\lambda\ne \varnothing.$</p>
+<p>$proof.$</p>
+<p>$\qquad$假若$\bigcap\limits_{\lambda\in\Lambda}F_\lambda= \varnothing$，则 $\bigcup\limits_{\lambda\in\Lambda}F_\lambda^c=\mathbb{R}^n$. 我们取定一个指标 $\mu\in \Lambda$，则有 $F_\mu\subset\bigcup\limits_{\lambda\in\Lambda}F_\lambda^c$. 由于 $\{F_\lambda\}_{\lambda\in\Lambda}$ 是 $\mathbb{R}^n$ 中的一族有界闭集，所以 $F_\lambda^c$ 是开集，从而 $\{F_\lambda^c\}$ 构成了 $F_\mu$ 的一个开覆盖。根据有限开覆盖定理，我们可以从中选取有限子覆盖 $\{F_{\lambda_1}^c,F_{\lambda_2}^c,\cdots,F_{\lambda_m}^c\}$. 由于 $F_\mu \subset \bigcup\limits_{i=1}^m F_{\lambda_i}^c=(\bigcap\limits_{i=1}^m F_{\lambda_i})^c$，从而我们有 $F_\mu\bigcap(\bigcap\limits_{i=1}^m F_{\lambda_i})=\varnothing$，这与题设矛盾，从而 $\bigcap\limits_{\lambda\in\Lambda}F_\lambda\ne \varnothing.$</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-13"><a href="#例题-2-13" class="headerlink" title="例题 2.13"></a>例题 2.13</h5><p>设 $F\subset\mathbb{R}^n,f(x)$ 是 $F$ 上的连续函数。证明：若 $F$ 是 $\mathbb{R}^n$ 中的有界闭集，则 $f(F)$ 也是 $\mathbb{R}^1$ 中的有界闭集。</p>
+<p>$proof.$</p>
+<p>根据延拓定理，我们不妨设 $f$ 在 $\mathbb{R}^n$ 上连续。我们即开集族 $\Gamma=\{G_\lambda\}_{\lambda\in\Lambda}$ 构成了 $f(F)$ 的一个开覆盖，由于 $f$ 是连续函数，故任意的 $G_\lambda\in \Gamma$，我们有 $f^{-1}(G_\lambda)$ 也是开集，同时开集族 $\{f^{-1}(G_\lambda)\}$ 构成了 $F$ 的一个开覆盖。由于 $F$ 是有界闭集，根据有限开覆盖定理，我们可以从中选出有限子覆盖，我们不妨记为 $\{f^{-1}(G_1),f^{-1}(G_2),\cdots,f^{-1}(G_m)\}$，与此同时 $\{G_1,G_2,\cdots,G_m\}$ 构成了 $f(F)$ 的一个子覆盖，所以 $f(F)$ 是有界闭集。</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-14"><a href="#例题-2-14" class="headerlink" title="例题 2.14"></a>例题 2.14</h5><p>设 $f(x)$ 是 $E\subset \mathbb{R}^n$ 上的连续函数，若 $E$ 是紧集，则<br>$(1)\ f(x)$ 是 $E$ 上的有界函数；<br>$(2)\ f(x)$ 在 $E$ 上可以取到最大值与最小值；<br>$(3)\ f(x)$ 是 $E$ 上的一致连续函数。</p>
+<p>$proof.$</p>
+<p>(1) 由例题 2.13 可知，$f(E)$ 是紧集，从而 $f(E)$ 是有界闭集，即 $f(x)$ 是 $\mathbb{R}^n$ 上的有界函数。</p>
+<p>(2) 我们记 $m=\inf\limits_{x\in E}\{f(x)\},M=m=\sup\limits_{x\in E}\{f(x)\}$，由于 $f(E)$ 是 $\mathbb{R}^1$ 中的有界闭集，所以 $m\in f(E),M\in f(E)$，从而存在 $a,b\in E$，使得 $f(a)=m,f(b)=M.$ 故 $f(x)$ 在 $E$ 上可以取到最大值与最小值.</p>
+<p>(3) 由连续的定义可知，对于任意的 $\varepsilon&gt;0$，对每个 $x\in E$，存在 $\delta_x&gt;0$，当 $y\in E\bigcap B(x,\delta_x)$，有 $|f(x)-f(y)|&lt;\dfrac{\varepsilon}{2}$. 现在我们令 $r_x=\dfrac{\delta_x}{2}$，则 $\{B(x,r_x)|x\in E\}$ 构成了 $E$ 的一个开覆盖。由于 $E$ 是紧集，所以可以从中选取一个有限子覆盖 $\{B(x_k,r_{x_k})|x\in E,k=1,2,\cdots,n\}$，我们令 $r=\min\{r_{x_k}|k=1,2,\cdots,n\}$，则当 $x,y\in E$ 且满足 $|x-y|&lt;r$ 时，我们设 $x\in B(x_k,r_{x_k})$，有 $|x_k-y|\le|x_k-x|+|x-y|\le \delta_x$，从而 $|f(x)-f(y)|\le|f(x)-f(x_k)|+|f(x_k)-f(y)|\le \varepsilon.$ 所以 $f(x)$ 是 $E$ 上的一致连续函数。</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-15"><a href="#例题-2-15" class="headerlink" title="例题 2.15"></a>例题 2.15</h5><p>设 $f(x)$ 是 $\mathbb{R}^n$ 上具有紧支集的连续函数，则<br>$(1)\ f(x)$ 是 $\mathbb{R}^n$ 上的有界函数；<br>$(2)\ f(x)$ 在 $\mathbb{R}^n$ 上可以取到最大值与最小值；<br>$(3)\ f(x)$ 是 $\mathbb{R}^n$ 上的一致连续函数。</p>
+<p>$proof.$</p>
+<p>记 $f(x)$ 在 $\mathbb{R}^n$ 上的紧支集为 $H$，由紧支集的定义可知 $H$ 是紧集。</p>
+<p>(1) 由例题 2.15 可知 $f(x)$ 在 $H$ 是有界函数，而 $f$ 在 $\mathbb{R}^n-H$ 上的取值恒为 $0$，故 $f$ 是 $\mathbb{R}^n$ 上的有界函数。</p>
+<p>(2) 由例题 2.15 可知 $f(x)$ 在 $H$ 上可取得最大最小值，而在 $\mathbb{R}^n-H$ 上 $f(x)$ 取值为 $0$，故只需比较 $H$ 上最大最小值和 $0$ 的关系，便可确定最大最小值，且可在 $E$ 中取到。</p>
+<p>(3) 由于 $H$ 是有界闭集，故 $H\subset B(0,k)$，而由于 $f(x)$ 是<br>$\mathbb{R}^n$ 的连续函数，所以 $f(x)$ 在 $\overline{B(0,k+1)}$ 上是一致连续的，即对任意的 $\varepsilon&gt;0$，存在 $\delta&gt;0$，使得当 $x,y\in \overline{B(0,k+1)}$ 且 $|x-y|&lt;\delta$ 时，有 $|f(x)-f(y)|&lt;\varepsilon$，所以当 $x,y\in\mathbb{R}^n$ 且 $|x-y|&lt;\min\{\delta,1\}时$，有 $x,y\in \overline{B(0,k+1)}$ 或 $x,y\in (B(0,k))^c$，所以 $|f(x)-f(y)|&lt;\varepsilon$，即 $f(x)$ 是 $\mathbb{R}^n$ 上的一致连续函数。</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-16"><a href="#例题-2-16" class="headerlink" title="例题 2.16"></a>例题 2.16</h5><p>设 $f(x)$ 是定义在 $\mathbb{R}^1$ 上的可微函数. 若对任意 $t\in \mathbb{R}^1$，点集 $\{x:f’(x)=t\}$ 是闭集，试证明：$f’(x)$ 是 $\mathbb{R}^1$ 上的连续函数。</p>
+<p>$proof.$</p>
+<p>$\qquad$对于任意的 $t\in\mathbb{R}^1$，由于点集 $\{x:f’(x)=t\}$ 是闭集，所以点集 $G=\{x:f’(x)\ne t\}$ 是开集。从而由开区间构造定理可知，$G$ 可表示为可数个互不相交的构成区间的并，即 $G=\bigcup\limits_{k=1}^\infty (a_k,b_k)$。由于 $f$ 是可微函数，根据达布定理我们可知，在每个构成区间 $(a_k,b_k)$ 上 $f(x)-t$ 不改变符号。我们将 $G$ 中满足 $f’(x)&gt;t$ 的那些构成区间取出，记为 $H$，由于 $H$ 也是一些构成区间的并，所以 $H$ 也是开集。同理，$G$ 中满足 $f’(x)&gt;t$ 的那些构成区间组成的集合也是开集。再根据 $t$ 的任意性，我们可以发现，对于 $f’(x)$，任一开区间的原像是开集，从而任一开集的原像是开集，即 $f’(x)$ 是 $\mathbb{R}^1$ 上的连续函数。</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-17"><a href="#例题-2-17" class="headerlink" title="例题 2.17"></a>例题 2.17</h5><p>设 $A,B\subset\mathbb{R}^n$，且 $A\bigcap\overline{B}=\overline{A}\bigcap B=\varnothing$，则存在开集 $U,V$ 满足 $U\bigcap V=\varnothing$，且 $A\subset U,B\subset V.$</p>
+<p>$proof.$</p>
+<p>$\qquad$我们设 $S=(\overline{A}\bigcap\overline{B})^c$，则 $(S\bigcap \overline{A}) \bigcap (S\bigcap \overline{B})=S\bigcap(\overline{A}\bigcap \overline{B})=\varnothing.$ 由此，我们可以构造距离函数 $f(x)=d(x,S\bigcap \overline{A})-d(x,S\bigcap \overline{B})$，显然 $f$ 是 $\mathbb{R}^n$ 上的连续函数，下面我们令 $U=f^{-1}((-\infty,0)),V=f^{-1}(0,+\infty)$,则 $U,V$ 是开集，且 $U\bigcap V=\varnothing.$ 对于任意的 $x\in A$，由于 $A\bigcap S^c=A\bigcap(\overline{A}\bigcap\overline{B})=A\bigcap \overline{B}=\varnothing$，所以 $x\in (A\bigcap S^c)^c=A^c\bigcup S=A^c\bigcap\overline{B}^c$，即 $x\in S,x\notin \overline{B}$，从而 $x\in S\bigcap\overline{A},x\notin S\overline{B}$，即 $f(x)&lt;0,x\in U$。所以 $A\subset U$. 同理可证：$B\subset V$.</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-18"><a href="#例题-2-18" class="headerlink" title="例题 2.18"></a>例题 2.18</h5><p>设 $F$ 是 $\mathbb{R}^n$ 中的有界闭集，$G$ 是 $\mathbb{R}^n$ 中的开集且 $F\subset G$，则存在 $\delta&gt;0$，使得当 $|x|&lt;\delta$ 时，有 $F+\{x\}=\{y+x:y\in F\}\subset G.$</p>
+<p>$proof.$</p>
+<p>$\qquad$由于 $G$ 是 $\mathbb{R}^n$ 中的开集，且$F\subset G$，所以 $G^c$ 是 $\mathbb{R}^n$ 中的闭集，且 $F\bigcap G^c=\varnothing$. 由于 $F$ 是有界闭集，所以 $d(F,G^c)=\delta&gt;0$，下面断言，当 $|x|&lt;\delta$ 时，有 $F+\{x\}=\{y+x:y\in F\}\subset G.$<br>$\qquad$事实上，任意的 $s\in F+\{x\}=\{y+x:y\in F\}$，存在 $y\in F$，使得 $y+x=s$，然而 $|s-y|=|x|&lt;\delta,d(y,G^c)\ge d(F,G^c)=\delta$，所以 $s\notin G^c$，即 $s\in G$，综上所述，$F+\{x\}=\{y+x:y\in F\}\subset G.$</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-19"><a href="#例题-2-19" class="headerlink" title="例题 2.19"></a>例题 2.19</h5><p>设 $C$ 为 $[0,1]$ 中的 $Cantor$ 集，证明：$C+C=\{x+y:x\in C,y<br>\in C\}=[0,2].$</p>
+<p>$proof.$</p>
+<p>$\qquad$由于 $C\subset [0,1]$，所以 $C+C\subset [0,2]$. 另一方面，我们取 $t\in[0,2]$，对于每个 $n$，记 $F_n$ 为第 $n$ 次构造 $Cantor$ 集后剩余的部分。我们构造一个平面的点集 $D_n=(F_n\times F_n)\bigcap\{(x,y)\in\mathbb{R}^2|x+y=t\}$，下断言 $D_n$ 是一个非空有界单调递减的闭集列。<br>$\qquad$ 事实上，由于 $(F_n\times F_n)\subset [0,1]\times [0,1]$ 有界，所以 $D_n$ 有界。由于 $F_n\supset F_{n+1}$，所以 $(F_n\times F_n)\supset(F_{n+1}\times F_{n+1})$，从而 $D_n\supset D_{n+1}.$ 由于 $F_n$ 是闭集，所以$(F_n\times F_n)$ 是闭集，而 $\{(x,y)\in\mathbb{R}^2|x+y=t\}$ 是闭集，所以 $D_n$ 是闭集。最后关于非空，事实上我们只需考虑 $D_1$ 非空。通过他们的几何意义，我们可以将两个集合的交可表示为如下图形的相交。<br><img src="/images/例题2.19.png" alt=""></p>
+<p>$\qquad$注意到，由于相交直线的斜率为 $45^\circ$，所以等价的，我们可以将右下方的小正方形以 $45^\circ$ 角上移到中心，这样正方形的反对角线是完整的含于阴影部分的，其必与相交直线有交点，从而 $D_1$ 是非空的。而 $D_n$ 是将阴影部分的小正方形进行对应操作。完全同样的道理，整个反对角线任含于阴影部分，所以 $D_n$ 也非空。</p>
+<p>$\qquad$ 根据闭集套定理，存在 $(x,y)\in\bigcap\limits_{i=1}^\infty D_i\subset C\times C$，从而有 $t=x+y\in C+C$，即 $C+C\supset [0,2]$。综上所述：$[0,2]=C+C$.</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-20"><a href="#例题-2-20" class="headerlink" title="例题 2.20"></a>例题 2.20</h5><p>证明：$A$ 是疏朗集 $\Leftrightarrow\ \overline{A}$ 的余集是稠密集. </p>
+<p>$proof.$</p>
+<p>$\qquad A$是疏朗集 $\Leftrightarrow (\overline{A})^\circ=\varnothing\Leftrightarrow (\overline{A})^{c-c}=\varnothing\Leftrightarrow(\overline{A})^{c-}=\mathbb{R}^n\Leftrightarrow\overline{A}$ 的余集是稠密集.</p>
+<p>$\blacksquare$</p>
+]]></content>
+      <categories>
+        <category>实变函数</category>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>实变函数</tag>
+        <tag>练习题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实变函数练习题一</title>
+    <url>/2020/10/14/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E7%BB%83%E4%B9%A0%E9%A2%98%E4%B8%80/</url>
+    <content><![CDATA[<h5 id="题目1"><a href="#题目1" class="headerlink" title="题目1."></a>题目1.</h5><p>证明：$(A_1\verb||B_1)\bigcap(A_2\verb||B_2)=(A_1\bigcap A_2)\verb||(B_1\bigcup B_2)$</p>
+<p>$proof.$</p>
+<p>$(A_1\verb||B_1)\bigcap(A_2\verb||B_2)=(A_1\bigcap B_1^C)\bigcap (A_2\bigcap B_2^C)$</p>
+<p>$\qquad \qquad\qquad\quad\quad\ \ =(A_1\bigcap A_2)\bigcap(B_1^C\bigcap B_2^C)$</p>
+<p>$\qquad \qquad\qquad\quad\quad\ \ =(A_1\bigcap A_2)\bigcap(B_1\bigcup B_2)^C$</p>
+<p>$\qquad \qquad\qquad\quad\quad\ \ =(A_1\bigcap A_2)\verb||(B_1\bigcup B_2)$</p>
+<p>$\blacksquare$ </p>
+<h5 id="题目2"><a href="#题目2" class="headerlink" title="题目2."></a>题目2.</h5><p>证明：$(\bigcup\limits_{\lambda\in\Lambda}A_\lambda)\verb||(\bigcup\limits_{\lambda\in\Lambda}B_\lambda)\subset \bigcup\limits_{\lambda\in\Lambda}(A_\lambda\verb||B_\lambda)$</p>
+<p>$proof.$</p>
+<p>$\forall\ x\in (\bigcup\limits_{\lambda\in\Lambda}A_\lambda)\verb||(\bigcup\limits_{\lambda\in\Lambda}B_\lambda),\exists\ \lambda_0\in\Lambda,使得\ x\in A_{\lambda_0}，\forall\ \lambda\in\Lambda,x\notin B_\lambda$</p>
+<p>故 $x\in A_{\lambda_0}\verb||B_{\lambda_0}\subset\bigcup\limits_{\lambda\in\Lambda}(A_\lambda\verb||B_\lambda)$</p>
+<p>即 $(\bigcup\limits_{\lambda\in\Lambda}A_\lambda)\verb||(\bigcup\limits_{\lambda\in\Lambda}B_\lambda)\subset \bigcup\limits_{\lambda\in\Lambda}(A_\lambda\verb||B_\lambda)$</p>
+<p>$\blacksquare$ </p>
+<h5 id="题目3"><a href="#题目3" class="headerlink" title="题目3."></a>题目3.</h5><p>证明：$(\bigcup\limits_{k=1}^\infty A_k)\times B=\bigcup\limits_{k=1}^\infty (A_k\times B)$</p>
+<p>$proof.$</p>
+<p>$(x,y)\in (\bigcup\limits_{k=1}^\infty A_k)\times B\Leftrightarrow \exists\ k_0，(x,y)\in A_{k_0}\times B$</p>
+<p>$\qquad\qquad\qquad\qquad\quad\ \Leftrightarrow (x,y)\in \bigcup\limits_{k=1}^\infty (A_k\times B)$</p>
+<p>故 $(\bigcup\limits_{k=1}^\infty A_k)\times B=\bigcup\limits_{k=1}^\infty (A_k\times B)$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目4"><a href="#题目4" class="headerlink" title="题目4."></a>题目4.</h5><p>设映射 $f:X\rightarrow Y,A\subset B\subset X$,证明：$f(B)\verb||f(A)\subset f(B\verb||A)$</p>
+<p>$proof.$</p>
+<p>由 $y\in f(B)\verb||f(A)$ , 可知 $y\in f(B)$ , 但 $y\notin f(A)$</p>
+<p>即 $x=f^{-1}(y)\in B$ 但 $x \notin A$ , 所以 $x\in B\verb|| A$</p>
+<p>从而 $y=f(x)\in f(B\verb||A),$ 即 $f(B)\verb||f(A)\subset f(B\verb||A)$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目5"><a href="#题目5" class="headerlink" title="题目5."></a>题目5.</h5><p>设映射 $f:X\rightarrow Y,A\subset B \subset Y,$ 证明：</p>
+<p>$f^{-1}(B\verb||A)=f^{-1}(B)\verb||f^{-1}(A)$</p>
+<p>$proof.$</p>
+<p>$x\in f^{-1}(B\verb||A)\Leftrightarrow f(x)\in B\verb|| A$</p>
+<p>$\qquad\qquad\qquad\ \Leftrightarrow f(x)\in B$ 但 $f(x)\notin A$</p>
+<p>$\qquad\qquad\qquad\ \Leftrightarrow x\in f^{-1}(B)$ 但 $x\notin f^{-1}(A)$</p>
+<p>$\qquad\qquad\qquad\ \Leftrightarrow x\in f^{-1}(B)\verb||f^{-1}(A)$</p>
+<p>故 $f^{-1}(B\verb||A)=f^{-1}(B)\verb||f^{-1}(A)$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目6"><a href="#题目6" class="headerlink" title="题目6."></a>题目6.</h5><p>设 $f:X\rightarrow Y$ 是单射 ，则有 $f(\bigcap\limits_{\lambda\in\Lambda}A_\lambda)=\bigcap\limits_{\lambda\in\Lambda}f(A_\lambda)$</p>
+<p>$proof.$</p>
+<p>$f(\bigcap\limits_{\lambda\in\Lambda}A_\lambda)\subset \bigcap\limits_{\lambda\in\Lambda}f(A_\lambda)$ 已证，我们只需证另一边。</p>
+<p>由 $y\in\bigcap\limits_{\lambda\in\Lambda}f(A_\lambda)$ 可得：$\exists\ x_\lambda \in A_\lambda$ , 使 $f(x_\lambda)=y$</p>
+<p>由于 $f$ 是单射，故所有的 $x_\lambda$ 均相等。</p>
+<p>所以 $x_\lambda \in \bigcap\limits_{\lambda\in\Lambda}A_\lambda\ ,\ y=f(x_\lambda)\in f(\bigcap\limits_{\lambda\in\Lambda}A_\lambda)$ , </p>
+<p>即$\bigcap\limits_{\lambda\in\Lambda}f(A_\lambda)\subset f(\bigcap\limits_{\lambda\in\Lambda}A_\lambda)$</p>
+<p>综上所述：$f(\bigcap\limits_{\lambda\in\Lambda}A_\lambda)=\bigcap\limits_{\lambda\in\Lambda}f(A_\lambda)$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目7"><a href="#题目7" class="headerlink" title="题目7."></a>题目7.</h5><p>设 $f:X\rightarrow Y\ ;\ g:Y\rightarrow X.$ 若对任意的 $x\in X$，必有 $g[f(x)]=x$, 则 $f$ 是单射，$g$ 是满射。</p>
+<p>$proof.$</p>
+<p>若 $f(x_1)=f(x_2)$ , 则 $x_1=g[f(x_1)]=g[f(x_2)]=x_2$ ,故 $f$ 是单射。</p>
+<p>任意的 $x\in X$ ,$f(x)\in Y$ , 取 $y=f(x)$ , 有 $g(y)=x$. 故 $g$ 是满射。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目8"><a href="#题目8" class="headerlink" title="题目8."></a>题目8.</h5><p>若 $(A\verb|| B)\sim （B\verb|| A）$,证明：$A\sim B.$</p>
+<p>$proof.$</p>
+<p>$A=(A\bigcap B)\bigcup(A\verb||B)\sim (A\bigcap B)\bigcup(B\verb|| A)=B$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目9"><a href="#题目9" class="headerlink" title="题目9."></a>题目9.</h5><p>对任意两个基数 $\alpha,\beta,$ 证明下述三个关系，至多成立一式：$\alpha &lt;\beta ,\alpha=\beta,\alpha&gt;\beta.$</p>
+<p>$proof.$</p>
+<p>若 $\alpha=\beta$ 成立，由 $\alpha&lt;\beta$ 和 $\alpha&gt;\beta$ 的定义知，两者无法成立。故此时只能成立唯一一式 $\alpha=\beta$</p>
+<p>若$\alpha&lt;\beta$ 和 $\alpha&gt;\beta$ 同时成立，则有 $Cantor-Bernstein$ 定理得： $\alpha=\beta$，这与 $\alpha&lt;\beta$ 和 $\alpha&gt;\beta$ 的定义矛盾。故上述两者只能同时成立其中一式。</p>
+<p>综上：对任意两个基数 $\alpha,\beta,$ 证明下述三个关系，至多成立一式：$\alpha &lt;\beta ,\alpha=\beta,\alpha&gt;\beta.$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目10"><a href="#题目10" class="headerlink" title="题目10."></a>题目10.</h5><p>试作双射 $f:[0,1]\rightarrow (0,1).$</p>
+<p>$proof.$</p>
+<p>由于 $(0,1)\bigcap \mathbb{Q}$ 是可数集，故可以写成集合 $\{r_1,r_2,\cdots,r_n\}$</p>
+<p>下构造如下双射：</p>
+<script type="math/tex; mode=display">
+f(x)=\begin{cases}x& x\notin Q\bigcap[0,1]\\
+r_1& x=0\\
+r_2&x=1\\
+r_{k+2}&x=r_k\end{cases}</script><p>$\blacksquare$</p>
+<h5 id="题目11"><a href="#题目11" class="headerlink" title="题目11."></a>题目11.</h5><p>证明：全体代数数(整系数方程的根)所成之集合是可数集。</p>
+<p>$proof.$</p>
+<p>记 $k$ 次整系数方程全体为 $\Gamma_k$，则$\Gamma_k\sim \mathbb{Z}^{k+1}$</p>
+<p>而每个 $k$ 次整系数方程至多只有 $k$ 个根，故由可数个可数集的并还是可数集得：所有 $k$ 次整系数方程的根构成的集合 $S_k$ 还是可数集。</p>
+<p>则全体代数数为：$\bigcup\limits_{k=1}^\infty S_k$ 是可数集。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目12"><a href="#题目12" class="headerlink" title="题目12."></a>题目12.</h5><p>设 $E\subset \mathbb{R}^2$,若对任意的矩形 $I$ ,集合 $E\bigcap I$是可数的，证明：$E$ 是可数集。</p>
+<p>$proof.$</p>
+<p>构造如下的正方形列：</p>
+<p>$T_k$ 为以 $(0,0)$ 为中心，边长为 $2k$ 的正方形，则 $\{T_k\}$ 为一可数集。</p>
+<p>根据 $T_k\bigcap E$ 为可数集，从而有 $E=\bigcup\limits_{k=0}^\infty (E\bigcap T_k)$ 为可数集。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目13"><a href="#题目13" class="headerlink" title="题目13."></a>题目13.</h5><p>设 $\Gamma$ 是 $\mathbb{R}^2$ 中的一族三角形，若每个三角形的顶点为有理点，则 $\Gamma$ 是至多可数集。</p>
+<p>$proof.$</p>
+<p>记三角形的三个顶点按顺时针方向为$A(a_1,a_2),B(b_1,b_2),C(c_1,c_2)$</p>
+<p>则可构造如下单射：$f:\Gamma\rightarrow \mathbb{Q}^6$</p>
+<p>$\qquad\qquad\qquad\ \bigtriangleup ABC\rightarrow (a_1,a_2,b_1,b_2,c_1,c_2)$</p>
+<p>则显然 $f$ 是单射，$\overline{\overline{\Gamma}}\le \aleph_0$，故 $\Gamma$ 是至多可数集。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目14"><a href="#题目14" class="headerlink" title="题目14."></a>题目14.</h5><p>设 $\Gamma$ 是 $\mathbb{R}^2$ 中的一族矩形，若其中任意两个矩形互不相交，则 $\Gamma$ 是至多可数集。 </p>
+<p>$proof.$</p>
+<p>由有理数的稠密性可知，每个 $\Gamma$ 中的矩形内部都存在一个有理数 $P(a,b)$，由于每个矩形互不相交，故可取 $P$ 来代替每一个矩形。从而构建了如下单射：</p>
+<script type="math/tex; mode=display">f:\Gamma\rightarrow \mathbb{Q}^2</script><p>$\qquad\qquad\quad\ 矩形ABCD\rightarrow (a,b)$</p>
+<p>从而有 $\overline{\overline{\Gamma}}\le \aleph_0$，故 $\Gamma$ 是至多可数集。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目15"><a href="#题目15" class="headerlink" title="题目15."></a>题目15.</h5><p>设 $E\subset \mathbb{R}^2$,若 $E$ 中任意两点间的距离大于 $1$ ,证明：$E$ 是至多可数集。</p>
+<p>$proof.$<br>对于 $E$ 中任一点 $x$ ，可以取圆盘 $B(x,\dfrac{1}{3})$,则 $B(x,\dfrac{1}{3})$ 只含 $E$ 中一点，从而所有 $E$ 中点与一圆盘对应，记上述圆盘所构成的集合为 $\Gamma$，而 $\Gamma$ 中任意两圆盘互不相交，故 $\Gamma$ 为至多可数集，从而 $\overline{\overline{E}}=\overline{\overline{\Gamma}}$ 也是可数集。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目16"><a href="#题目16" class="headerlink" title="题目16."></a>题目16.</h5><p>设 $E\subset \mathbb{R}$，若 $E$ 中任意两点间的距离为有理数，证明：$E$ 是至多可数集。</p>
+<p>$proof.$</p>
+<p>任取 $x_0\in E$ , 构造如下集合：</p>
+<p>$F=\{x-x_0|x\in E\}$</p>
+<p>由于 $E$ 中任意两点间的距离为有理数，故 $F\subset \mathbb{Q}$ 是至多可数集。</p>
+<p>从而由 $\overline{\overline{E}}=\overline{\overline{F}}$ 得 $E$ 也是至多可数集。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目17"><a href="#题目17" class="headerlink" title="题目17."></a>题目17.</h5><p>证明：$[0,1]$ 中的全体无理数所成之集合具有连续基数 $c$.</p>
+<p>$proof.$</p>
+<p>$[0,1]$ 中的全体无理数是一个无限集，而 $[0,1]\bigcap \mathbb{Q}$ 是可数集。</p>
+<p>则 $\overline{\overline{[0,1]\verb||\mathbb{Q}}}=\overline{\overline{([0,1]\verb||\mathbb{Q})\bigcup([0,1]\bigcap \mathbb{Q})}}=\overline{\overline{[0,1]}}=c$ </p>
+<p>(即任意无限集并上一可数集，其势不改变)</p>
+<p>$\blacksquare$</p>
+<h5 id="题目18"><a href="#题目18" class="headerlink" title="题目18."></a>题目18.</h5><p>证明：全体超越数所成之集合具有连续基数 $c$</p>
+<p>$proof.$</p>
+<p>记全体超越数所成之集合为 $\Gamma$，全体代数数所成集合为 $\Lambda$。根据题$11$可知，$\Lambda$ 为一可数集。故 $\overline{\overline{\Gamma}}=\overline{\overline{\Gamma\bigcup\Lambda}}=\overline{\overline{\mathbb{R}}}=c.$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目19"><a href="#题目19" class="headerlink" title="题目19."></a>题目19.</h5><p>设 $E$ 是 $\mathbb{R}^3$ 中的不可数集，则存在以原点为中心的一个球，它包含 $E$ 中不可数个点。</p>
+<p>$proof.$</p>
+<p>假设所有以原点为中心的球均含 $E$ 中可数个点，那么可以构造如下一个集合 $\Gamma_K=\{|x|=k|x\in\mathbb{R}^3\}$，则 $\Gamma_k\bigcap E$ 为可数集。从而 $E=\bigcup\limits_{k=0}^\infty(\Gamma_k\bigcap E)$ 也是可数集，这与 $E$ 是不可数集矛盾，从而存在以原点为中心的一个球，它包含 $E$ 中不可数个点。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目20"><a href="#题目20" class="headerlink" title="题目20."></a>题目20.</h5><p>设 $\Gamma$ 为直线上所有开区间的全体，证明：$\Gamma$ 具有连续基数 $c.$</p>
+<p>$proof.$</p>
+<p>可以构造映射：$f:\mathbb{R}\rightarrow\Gamma$</p>
+<p>$\qquad\qquad\qquad\quad\  x\rightarrow(x,x+1)$</p>
+<p>则 $f$ 显然是单射，从而有 $c=\overline{\overline{\mathbb{R}}}\le\overline{\overline{\Gamma}}$.</p>
+<p>同时还可以构造映射：$g:\Gamma\rightarrow\mathbb{R}^2$</p>
+<p>$\qquad\qquad\qquad\qquad (a,b)\rightarrow(a,b)$</p>
+<p>显然 $g$ 也是单射，从而有 $\overline{\overline{\Gamma}}\le \overline{\overline{\mathbb{R}^2}}=c$</p>
+<p>综上：$\overline{\overline{\Gamma}}=c$.</p>
+<p>$\blacksquare$</p>
+<h5 id="题目21"><a href="#题目21" class="headerlink" title="题目21."></a>题目21.</h5><p>设 $E=A\bigcup B,\overline{\overline{E}}=c$，<br>则 $A$ 与 $B$ 中至少有一个集合的基数为 $c.$ </p>
+<p>$proof.$</p>
+<p>若 $A$ 与 $B$ 的基数均为 $\aleph_0$，则 $\overline{\overline{E}}=\overline{\overline{A\bigcup B}}=\aleph_0$，矛盾。所以 $A$ 与 $B$ 中至少有一个集合的基数为 $c.$</p>
+<h5 id="题目22"><a href="#题目22" class="headerlink" title="题目22."></a>题目22.</h5><p>试做双射 $f:[0,1]\rightarrow\mathbb{R}.$</p>
+<p>$proof.$</p>
+<p>可作如下一系列映射：</p>
+<p>$f_1:[0,1]\rightarrow(0,1)$ (习题10所作映射)</p>
+<p>$f_2(x)=2x-1\quad[(0,1)\rightarrow(-1,1)]$</p>
+<p>$f_3(x)=\arctan\dfrac{\pi}{2}x\quad[(-1,1)\rightarrow\mathbb{R}]$</p>
+<p>由于上述映射均为双射，故复合映射 $g=f_3[f_2(f_1(x))]$ 即为从 $[0,1]$ 到 $\mathbb{R}$ 的双射。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目23"><a href="#题目23" class="headerlink" title="题目23."></a>题目23.</h5><p>试做双射 $f:\mathbb{R}\rightarrow \mathbb{R}\verb||\mathbb{Q}$</p>
+<p>$proof.$</p>
+<p>可从 $\mathbb{R}\verb||\mathbb{Q}$ 中取出一可数集 $S=\{s_1,s_2,\cdots\}$，则 $S\bigcup \mathbb{Q}$ 也是可数集，从而存在双射 $g:S\rightarrow S\bigcup \mathbb{Q}.$ 从而可构造如下双射：$f:\mathbb{R}\verb||\mathbb{Q}\rightarrow \mathbb{R}$.</p>
+<script type="math/tex; mode=display">
+f(x)=\begin{cases}x& x\notin S\\
+g(x)&x\in S\end{cases}</script><p>$\blacksquare$</p>
+<h5 id="题目24"><a href="#题目24" class="headerlink" title="题目24."></a>题目24.</h5><p>设 $E\subset \mathbb{R}$ 为可数集，试作 $\mathbb{R}$ 上的递增函数 $f(x)$ 使 $f(x)$ 的不连续点集恰为 $E.$</p>
+<p>$proof.$</p>
+<p>$f(x)=\sum\limits_{x_n&lt;x}\dfrac{1}{2^n}$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目25"><a href="#题目25" class="headerlink" title="题目25."></a>题目25.</h5><p>证明：不存在定义在 $\mathbb{R}$ 上的连续函数 $f(x)$ 使 $f(\mathbb{R}\verb|| \mathbb{Q})\subset<br>\mathbb{Q}$ 及 $f(\mathbb{Q})\subset \mathbb{R}\verb|| \mathbb{Q}.$</p>
+<p>$proof.$</p>
+<p>注意到 $f(\mathbb{Q})$ 为至多可数集，$f(\mathbb{R}\verb|| \mathbb{Q})\subset<br>\mathbb{Q}$ 也是至多可数集，故 $f(\mathbb{R})=f(\mathbb{Q}\bigcup \mathbb{R}\verb|| \mathbb{Q})=(\mathbb{R}\verb|| \mathbb{Q})\bigcup f(\mathbb{Q})$ 也是至多可数集。</p>
+<p>再根据 $f(\mathbb{R}\verb|| \mathbb{Q})\subset<br>\mathbb{Q}$ 及 $f(\mathbb{Q})\subset \mathbb{R}\verb|| \mathbb{Q}$ 知 $f(1)\ne f(\sqrt{2})$。</p>
+<p>在这儿我们不妨设 $f(1)&lt; f(\sqrt{2})$ ，则由连续函数的性质可知： $[f(1),f(\sqrt{2}] \supset f(\mathbb{R})$ 即 $c=\overline{\overline{[f(1),f(\sqrt{2}]}}\leq\overline{\overline{f(\mathbb{R})}}$，这与 $f(\mathbb{R})$ 至多可数矛盾。</p>
+<p>综上所述：不存在定义在 $\mathbb{R}$ 上的连续函数 $f(x)$ 使 $f(\mathbb{R}\verb|| \mathbb{Q})\subset<br>\mathbb{Q}$ 及 $f(\mathbb{Q})\subset \mathbb{R}\verb|| \mathbb{Q}.$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目26"><a href="#题目26" class="headerlink" title="题目26."></a>题目26.</h5><p>设 $f(x)$ 在 $\mathbb{R}$ 上可微，且除可数集外，有 $f’(x)&gt;0$，证明：$f(x)$ 是严格递增函数。</p>
+<p>$proof.$</p>
+<p>(i) 若存在 $x_1<x_2$ 满足 $f(x_1)>f(x_2)$，则由微分中值定理可知，存在 $\xi\in(x_1,x_2)$，使 $f’(\xi)&lt;0$，再由导数介值性定理可知，存在 $E\subset \mathbb{R}$，使得 $f(E)=(f’(\xi),0)$，而 $\overline{\overline{E}}\ge\overline{\overline{f(E)}}=c$，则存在不可数集使得 $f’(x)&lt;0$，矛盾。</p>
+<p>（ii）若 $f(x)$ 单调递增，且存在 $x_1&lt;x_2$ 使得 $f(x_1)=f(x_2)$，则 $f(x)$ 在区间 $[x_1.x_2]$ 上取常值，导数为 $0$。然而 $\overline{\overline{[x_1,x_2]}}=c$，即存在不可数集使得 $f’(x)=0$，矛盾。</p>
+<p>综上所述，$f(x)$是严格单调递增函数。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目27"><a href="#题目27" class="headerlink" title="题目27."></a>题目27.</h5><p>设 $f(x)$ 在闭区间 $[0,1]$ 上连续，在开区间 $(0,1)$ 内可微，且除可数集外，有 $f’(x)=1$，证明：$f(x)=x+c(常数)$.</p>
+<p>$proof.$</p>
+<p>令 $g(x)=f(x)-x$，则除可数集外 $g’(x)=0$。假设存在 $s\in(0,1)$，使得 $g’(s)=t\ne0$，不妨设 $g’(s)&gt;0$，则由导函数的介值性定理可知，存在集合 $E\subset(0,1)$，使得 $f(E)=(0,g’(s))$，然而 $\overline{\overline{E}}\ge\overline{\overline{f(E)}}=c$，即存在不可数集使得 $g’(x)\ne0$，矛盾。从而 $g’(x)$ 在 $(0,1)$ 上处处为 $0$。所以 $g(x)=c,f(x)=x+c.$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目28"><a href="#题目28" class="headerlink" title="题目28."></a>题目28.</h5><p>记 $\Gamma$ 为在 $\mathbb{R}^2$ 上定义的二元连续函数 $f(x,y)$ 之全体，证明：$\Gamma$ 具有连续基数 $c$.</p>
+<p>$proof.$<br>首先由于常值函数也是二元连续函数，所以 $c=\overline{\overline{\mathbb{R}}}\le\overline{\overline{\Gamma}}.$</p>
+<p>其次对于二元连续函数而言，我们确定其有理点的取值即确定了整个函数。所以令 $\mathbb{Q}^2=\{r_1,r_2,\cdots\}$,可构造如下一个单射：</p>
+<p>$f:\Gamma\rightarrow\mathbb{R}^\infty$</p>
+<p>$\{r_1,r_2,\cdots\}\rightarrow(f(r_1),f(r_2),\cdots)$</p>
+<p>从而有 $\overline{\overline{\Gamma}}\le\overline{\overline{\mathbb{R}^\infty}}=c$</p>
+<p>综上所述：$\overline{\overline{\Gamma}}=c.$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目29"><a href="#题目29" class="headerlink" title="题目29."></a>题目29.</h5><p>设 $\Gamma$ 为自然数的一切严格单调序列所成之集，则 $\Gamma$ 具有连续基数 $c$.</p>
+<p>$proof.$</p>
+<p>可构造二进制序列 $E=\{(x_1,x_2,\cdots):x_k\in\{0,1\},k=1,2,\cdots\}$ 与 $\Gamma$ 之间的双射</p>
+<p>$f:\Gamma\rightarrow E$</p>
+<p>单调递增序列 $\{r_k\}\rightarrow (x_1,x_2,\cdots):x_{r_k}=1$</p>
+<p>所以 $\overline{\overline{\Gamma}}=\overline{\overline{E}}=c.$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目30"><a href="#题目30" class="headerlink" title="题目30."></a>题目30.</h5><p>设 $\Gamma$ 为自然数集 $\mathbb{N}$ 的无限子集群体，则 $\Gamma$ 具有连续基数 $c$.</p>
+<p>$proof.$</p>
+<p>注意到 $\mathbb{N}$ 的一切严格单调序列也是 $\mathbb{N}$ 的无限子集，故由 $29$ 题结论可知：$\overline{\overline{\Gamma}}\ge c$</p>
+<p>与此同时 $P(\mathbb{N})\subset P(\mathbb{Q})$,即$\overline{\overline{\Gamma}}\le\overline{\overline{P(\mathbb{Q})}}=c$</p>
+<p>综上所述：$\overline{\overline{\Gamma}}=c.$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目31"><a href="#题目31" class="headerlink" title="题目31."></a>题目31.</h5><p>设 $\{x_n\}$ 为一序列，其中元素彼此不同，则它的子序列全体组成基数为 $c$ 的集合。</p>
+<p>$proof.$</p>
+<p>由于 $\{x_n\}$ 为一无限序列，且其中的元素彼此不同，故 $\{x_n\}$ 是与 $\mathbb{N}$ 相互对等的，从而，$\{x_n\}$ 的子序列全体与 $\mathbb{N}$ 的子序列全体相互对等，即其基数为 $c$.</p>
+<p>$\blacksquare$</p>
+<h5 id="题目32"><a href="#题目32" class="headerlink" title="题目32."></a>题目32.</h5><p>设 $\Gamma$ 为实数集 $\mathbb{R}$ 的所有有限子集所成之集，则 $\Gamma$ 具有连续基数 $c$.</p>
+<p>$proof.$</p>
+<p>注意到，$\mathbb{R}$ 中的所有单点集与 $\mathbb{R}$ 构成了一个双射，从而 $\overline{\overline{\Gamma}}\ge \overline{\overline{\mathbb{R}}}=c$</p>
+<p>另一方面，将 $\mathbb{R}$ 的所有有限子集按从小到大的顺序排列,可以构成一个由有限序偶组成的集合，显然存在由该集合到 $R^{\infty}$ 的一个单射，从而 $\overline{\overline{\Gamma}}\le \overline{\overline{\mathbb{R}^\infty}}=c$</p>
+<p>综上所述：$\overline{\overline{\Gamma}}=c.$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目33"><a href="#题目33" class="headerlink" title="题目33."></a>题目33.</h5><p>证明：平面上存在边界线上不含有理点的正方形。</p>
+<p>$proof.$</p>
+<p>假设平面上所有正方形的边界线上均含有理点。</p>
+<p>下面，我们记 $\Gamma_k$ 为以原点为中心，边长为 $2k$ 的正方形，从而对于每一个 $k$，我们都可以在边界上取到一个各异的有理点 $(a_k,b_k)$。</p>
+<p>下面构造如下映射：$f:(0,+\infty)\rightarrow\mathbb{Q}^2$</p>
+<p>$\qquad\qquad\qquad\qquad\quad k\rightarrow(a_k,b_k)$</p>
+<p>显然这个 $f$ 是单射，即 $c=\overline{\overline{(0,+\infty)}}&gt;\overline{\overline{\mathbb{Q}^2}}=\aleph_0$，矛盾。</p>
+<p>所以，平面上存在边界线上不含有理点的正方形。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目34"><a href="#题目34" class="headerlink" title="题目34."></a>题目34.</h5><p>设 $a,b\in \mathbb{R}^2\verb||\mathbb{Q}^2,a\ne b$，则存在联结 $a,b$ 且不含有理点的折线。</p>
+<p>$proof.$</p>
+<p>假设所有联结 $a,b$ 的折线均含有有理点。</p>
+<p>作线段 $a,b$ 的中垂线，在中垂线上任取一点记为 $c$，分别联结 $a,b$，构成折线 $a-c-b$，由假设可知，该折线上存在有理点 $(a_k,b_k)(k\ 为点\ c\ 到线段 \ ab\ 的距离)$，从中我们可以构建一个从 $k$ 到$(a_k,b_k)$ 的一个单射 $f$，即：</p>
+<p>$f:(0,+\infty)\rightarrow \mathbb{Q}^2$</p>
+<p>$k\rightarrow (a_k,b_k)$</p>
+<p>由此可得：$c=\overline{\overline{(0,+\infty)}}&gt;\overline{\overline{\mathbb{Q}^2}}=\aleph_0$，矛盾。所以存在联结 $a,b$ 且不含有理点的折线。</p>
+<p>$\blacksquare$</p>
+]]></content>
+      <categories>
+        <category>实变函数</category>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>实变函数</tag>
+        <tag>练习题</tag>
+      </tags>
+  </entry>
+</search>

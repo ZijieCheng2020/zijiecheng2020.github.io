@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="应用回归分析,笔记," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="I. 引言1. 期望与中位数的另一种定义: $ \min\limits_{b}E(X-b)^2\Rightarrow E(X)&#x3D;b $  $\min\limits_bE\ |X-b|\Rightarrow med(X)&#x3D;b$$\quad$  $proof.$   $E(X-b)^2&#x3D;E(X^2-2bX+b^2)&#x3D;E(X^2)-2bE(X)+b^2\quad (1)$ $\ \quad$可将 $(1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一元线性回归一">
+<meta property="og:url" content="http://zijiecheng2020.top/2020/10/16/%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%80/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="I. 引言1. 期望与中位数的另一种定义: $ \min\limits_{b}E(X-b)^2\Rightarrow E(X)&#x3D;b $  $\min\limits_bE\ |X-b|\Rightarrow med(X)&#x3D;b$$\quad$  $proof.$   $E(X-b)^2&#x3D;E(X^2-2bX+b^2)&#x3D;E(X^2)-2bE(X)+b^2\quad (1)$ $\ \quad$可将 $(1">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-10-16T12:26:07.000Z">
+<meta property="article:modified_time" content="2020-10-16T13:03:40.652Z">
+<meta property="article:author" content="承子杰">
+<meta property="article:tag" content="应用回归分析">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zijiecheng2020.top/2020/10/16/一元线性回归一/"/>
+
+
+
+
+
+  <title>一元线性回归一 | 博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a target="_blank" rel="noopener" href="https://github.com/zijiecheng2020" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zijiecheng2020.top/2020/10/16/%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">一元线性回归一</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-16T20:26:07+08:00">
+                2020-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%BA%94%E7%94%A8%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" itemprop="url" rel="index">
+                    <span itemprop="name">应用回归分析</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%BA%94%E7%94%A8%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/%E7%BB%9F%E8%AE%A1/" itemprop="url" rel="index">
+                    <span itemprop="name">统计</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/10/16/%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%80/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/10/16/%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%80/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="I-引言"><a href="#I-引言" class="headerlink" title="I. 引言"></a>I. 引言</h4><h5 id="1-期望与中位数的另一种定义"><a href="#1-期望与中位数的另一种定义" class="headerlink" title="1. 期望与中位数的另一种定义:"></a>1. 期望与中位数的另一种定义:</h5><p> $<br> \min\limits_{b}E(X-b)^2\Rightarrow E(X)=b<br> $</p>
+<p> $\min\limits_bE\ |X-b|\Rightarrow med(X)=b$<br>$\quad$<br>  $proof.$</p>
+<p>  $E(X-b)^2=E(X^2-2bX+b^2)=E(X^2)-2bE(X)+b^2\quad (1)$</p>
+<p>$\ \quad$可将 $(1)$ 式看为 $b$ 的一个一元二次函数,现求 $b$ 的最小值。可由公式得：$b=E(X).$</p>
+<p>$\ \quad$对于中位数，我们只考虑连续的情况，离散时类似可证。令随机变量 $X$ 的概率密度为 $p(x)$, 概率分布为 $F(X)$ ，则有等式成立：</p>
+<p> $E |X-b|=\int_{-\infty}^{\infty}|x-b|\ p(x)dx$<br> $\qquad\qquad\ =\int_{-\infty}^{b}(b-x)p(x)dx+\int_{b}^{\infty}(x-b)p(x)dx$  </p>
+<p>$\ \quad$现要求 $b$ 的最小值，两边对 $b$ 求导，并令导数为 $0$ .</p>
+<script type="math/tex; mode=display">\int_{-\infty}^{b}p(x)dx-\int_{b}^{\infty}p(x)dx=0</script><p>$\Rightarrow F(b)-(1-F(b))=0$ , 即 $F(b)=\dfrac{1}{2},b=med(X).$</p>
+<p>$\quad$</p>
+<h5 id="2-Conditional-Expectation"><a href="#2-Conditional-Expectation" class="headerlink" title="2. Conditional Expectation :"></a>2. Conditional Expectation :</h5><h6 id="i-Law-of-Total-Expectation"><a href="#i-Law-of-Total-Expectation" class="headerlink" title="i.) Law of Total Expectation :"></a>i.) Law of Total Expectation :</h6><script type="math/tex; mode=display">E \ [E(X|Y)]=E(X)</script><h6 id="ii-Law-of-Total-Variance"><a href="#ii-Law-of-Total-Variance" class="headerlink" title="ii.) Law of Total Variance"></a>ii.) Law of Total Variance</h6><script type="math/tex; mode=display">Var(X)=Var\ [E(X|Y)]+E\ [Var(X|Y)]</script><p>$proof.$</p>
+<p>$\ \quad$设随机变量 $X,Y$的联合密度为$f(x,y)$,边缘密度分别为$f_X(x),f_Y(y)$,则成立等式：</p>
+<p>i.) $E(X)=\int xf_X(x)dx$<br>$\qquad\quad\ \ \ =\int\int xf(x,y)dxdy$<br>$\qquad\quad\ \ \ =\int\int x\ [\ f(x|y)\cdot f_Y(y)\ ]\ dx\ dy$<br>$\qquad\quad\ \ \ =\int[\int x\cdot f(x|y)\ dx]\ f_Y(y)\ dy$<br>$\qquad\quad\ \ \ =\int E(X|y)\cdot f_Y(y)\ dy=E[E(X|Y)].$</p>
+<p>ii.)$Var(X)=E(X-E(X))^2$<br>$\qquad\qquad\ \ =E[X-E(X|Y)+E(X|Y)-E(X)]^2$<br>$\qquad\qquad\ \ =E[X-E(X|Y)]^2+E[E(X|Y)-E(X)]^2+2E[(X-E(X|Y))(E(X|Y)-E(X))]\quad\quad (1)$</p>
+<p>$\quad$</p>
+<p>而$E[X-E(X|Y)]^2$<br>$=E\begin{Bmatrix}E[(X-E(X|Y))^2|Y)]\end{Bmatrix}$<br>$=E\begin{Bmatrix}E[(X^2+(E(X|Y))^2-2XE(X|Y))|Y]\end{Bmatrix}$<br>$=E\begin{Bmatrix}E(X^2|Y)+(E(X|Y))^2-2(E(X|Y))^2\end{Bmatrix}$<br>$=E\begin{Bmatrix}E(X^2|Y)-(E(X|Y))^2\end{Bmatrix}$<br>$=E[Var(X|Y)]$</p>
+<p>$\quad$<br>$E[E(X|Y)-E(X)]^2=E\begin{Bmatrix}E(X|Y)-E[E(X|Y)]\end{Bmatrix}^2$<br>$\qquad\qquad\qquad\qquad\quad\ =Var[E(X|Y)]$</p>
+<p>$\quad$</p>
+<p>$E[(X-E(X|Y))(E(X|Y)-E(X))]$<br>$=E\begin{Bmatrix}E[(X-E(X|Y))(E(X|Y)-E(X))]|Y\end{Bmatrix}$<br>$=(E(X|Y))^2-E(X)E(X|Y)-(E(X|Y))^2+E(X|Y)E(X)$<br>$=0$</p>
+<p>$\ \quad$所以 $(1)=Var(E(X|Y))+E(Var(X|Y)).$</p>
+<p>$\quad$</p>
+<h4 id="II-一元回归模型"><a href="#II-一元回归模型" class="headerlink" title="II. 一元回归模型"></a>II. 一元回归模型</h4><h5 id="1-OLSE下的参数估计"><a href="#1-OLSE下的参数估计" class="headerlink" title="1. OLSE下的参数估计"></a>1. <strong>OLSE</strong>下的参数估计</h5><p>$\ \quad$<strong>OLSE</strong>的主要思想是寻找参数 $\beta_0,\beta_1$ 的估计值使离差平方和达到最小。从而可转化为如下问题：</p>
+<script type="math/tex; mode=display">\min\limits_{\beta_0,\beta_1}\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2</script><p>$\ \quad$分别对 $\beta_0,\beta_1$ 求偏导，并令偏导为 $0$，结果如下：</p>
+<script type="math/tex; mode=display">\left\{\begin{array}{l}
+-2\sum\limits_{i=1}^n(y_i-\hat{\beta_0}-\hat{\beta_1}x_i)=0
+\\-2\sum\limits_{i=1}^n(y_i-\hat{\beta_0}-\hat{\beta_1}x_i)x_i=0
+\end{array}\right.</script><p>$\ \quad$整理后可得：</p>
+<script type="math/tex; mode=display">\left\{\begin{array}{l}
+n\hat{\beta_0}+(\sum_{i=1}^nx_i)\hat{\beta_1}=\sum\limits_{i=1}^ny_i\quad\quad (1)
+\\(\sum_{i=1}^nx_i)\hat{\beta_0}+(\sum\limits_{i=1}^nx_i^2)\hat{\beta_1}=\sum\limits_{i=1}^nx_iy_i\quad\quad (2)
+\end{array}\right.</script><p>$\ \quad$对 $(1)$ 两边同时除以 $n$ ，整理后可得：</p>
+<script type="math/tex; mode=display">\hat{\beta_0}=\bar{y}-\bar{x}\hat{\beta_1}</script><p>$\ \quad$对于 $(2)$ 注意到有如下两个等式：<br>i. ) $\sum\limits_{i=1}^n(x_i-\bar{x})^2=\sum\limits_{i=1}^n(x_i^2-2x_i\cdot\bar{x}+\bar{x}^2)$<br>$\quad\quad\qquad\qquad\ \  =\sum\limits_{i=1}^nx_i^2+n\bar{x}^2-2\bar{x}\sum\limits_{i=1}^nx_i$<br>$\quad\quad\qquad\qquad\ \  =\sum\limits_{i=1}^nx_i^2-n\bar{x}^2.$</p>
+<p>ii. ) $\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})=\sum\limits_{i=1}^n(x_iy_i+\bar{x}\bar{y}-\bar{x}y_i-\bar{y}x_i)$<br>$\qquad\qquad\qquad\qquad\quad\  \ =\sum\limits_{i=1}^nx_iy_i+n\bar{x}\bar{y}-\bar{x}\sum\limits_{i=1}^ny_i-\bar{y}\sum\limits_{i=1}^nx_i$<br>$\qquad\qquad\qquad\qquad\quad\  \ =\sum\limits_{i=1}^nx_iy_i+n\bar{x}\bar{y}-n\bar{x}\bar{y}-n\bar{x}\bar{y}$<br>$\qquad\qquad\qquad\qquad\quad\  \ =\sum\limits_{i=1}^nx_iy_i-n\bar{x}\bar{y}$</p>
+<p>$\ \quad$由上述公式，$(2)$ 变为：</p>
+<script type="math/tex; mode=display">n\bar{x}\hat{\beta_0}+(\sum\limits_{i=1}^n(x_i-\bar{x})^2+n\bar{x}^2)\hat{\beta_1}=\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})+n\bar{x}\bar{y}</script><p>$\ \quad$再由 $(1)$ 整理后可得：</p>
+<script type="math/tex; mode=display">\left\{\begin{array}{l}
+\hat{\beta_0}=\bar{y}-\hat{\beta_1}\bar{x}
+\\\hat{\beta_1}=\dfrac{\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}
+\end{array}\right.</script><script type="math/tex; mode=display">$$
+$$\quad</script><h5 id="2-MLE下的参数估计"><a href="#2-MLE下的参数估计" class="headerlink" title="2. MLE下的参数估计"></a>2. <strong>MLE</strong>下的参数估计</h5><p>$\ \quad$<strong>MLE</strong>的主要思想是利用总体的概率密度及其样本提供的信息构造似然函数，通过似然函数取值最大得到对应参数的估计。</p>
+<p>$\ \quad$对于一元线性回归模型参数的MLE，我们假设 $\varepsilon_i\sim N(0,\sigma^2)$ 时，$y_i$ 服从如下正态分布：</p>
+<script type="math/tex; mode=display">y_i\sim N(\beta_0+\beta_1x_i,\sigma^2)</script><p>$\ \quad$则 $y_i$的概率密度为:</p>
+<script type="math/tex; mode=display">f_i(y_i)=\dfrac{1}{\sqrt{2\pi}\sigma}e^{-\dfrac{(y_i-\beta_0-\beta_1x_i)^2}{2\sigma^2}}</script><p>$\ \quad$构造似然函数：</p>
+<script type="math/tex; mode=display">L(\beta_0,\beta_1,\sigma)=\prod\limits_{i=1}^nf_i(y_i)</script><p>$\qquad\qquad\quad\ \ \ \ =\dfrac{1}{(\sqrt{2\pi}\sigma)^{n}}e^{-\dfrac{\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2}{2\sigma^2}}$</p>
+<p>$\ \quad$对似然函数取对数：</p>
+<script type="math/tex; mode=display">ln(L)=-nln((\sqrt{2\pi}\sigma))-\dfrac{\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2}{2\sigma^2}</script><p>$\ \quad$为了使似然函数 $L$取得最大值,等价的我们只需使<br>$\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2$ 取得最小值，即</p>
+<script type="math/tex; mode=display">\min\limits_{\beta_0,\beta_1}\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2</script><p>至此与<strong>OLSE</strong>一致。</p>
+<script type="math/tex; mode=display">\quad</script><h5 id="3-OLSE估计的性质"><a href="#3-OLSE估计的性质" class="headerlink" title="3. OLSE估计的性质"></a>3. <strong>OLSE</strong>估计的性质</h5><h6 id="i-线性"><a href="#i-线性" class="headerlink" title="i. ) 线性"></a>i. ) 线性</h6><script type="math/tex; mode=display">\hat{\beta_1}=\dfrac{\sum\limits_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}y_i-\bar{y}\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}</script><p>$\ \quad$注意到：</p>
+<script type="math/tex; mode=display">\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=\dfrac{n\bar{x}-n\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=0</script><p>所以</p>
+<script type="math/tex; mode=display">\hat{\beta_1}=\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}y_j</script><p>是关于 $y_j$ 的线性组合。</p>
+<p>$\ \quad$由于 $\hat{\beta_0}=\bar{y}-\hat{\beta_1}\bar{x}$ 且 $\bar{x}$ 是常数，结合上式可得：</p>
+<script type="math/tex; mode=display">\beta_0=\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})y_j</script><p>也是关于 $y_j$ 的线性组合。</p>
+<p>$\quad$</p>
+<h6 id="ii-无偏性"><a href="#ii-无偏性" class="headerlink" title="ii. ) 无偏性"></a>ii. ) 无偏性</h6><p>$\ \quad$注意到由 $y_i=\beta_0+\beta_1x_i+\varepsilon_i$ 可得:</p>
+<script type="math/tex; mode=display">E(y_i)=\beta_0+\beta_1x_i\ \ (Markov-Gauss\ Condition)</script><p>所以</p>
+<p>$E(\hat{\beta_1})=\sum\limits_{j=1}^n\dfrac{x_j-\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}E(y_j)$<br>$\qquad\ \ \ =\sum\limits_{j=1}^n\dfrac{x_j-\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}(\beta_0+\beta_1x_j)$<br>$\qquad\ \ \ =\beta_0\cdot \sum\limits_{j=1}^n\dfrac{x_j-\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}+\beta_1\cdot\sum\limits_{j=1}^n\dfrac{x_j^2-x_j\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2} \qquad (1)$</p>
+<p>$\qquad$注意到</p>
+<p>$\sum\limits_{j=1}^n\dfrac{x_j-\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=\dfrac{n\bar{x}-n\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=0 $</p>
+<p>$\sum\limits_{j=1}^n\dfrac{x_j^2-x_j\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=\dfrac{\sum\limits_{j=1}^nx_j^2-n\bar{x}^2}{\sum\limits_{i=1}^nx_i^2+n\bar{x}^2-2\bar{x}\sum\limits_{i=1}^nx_i}$<br>$\qquad\qquad\quad\quad\ \ \ \ =\dfrac{\sum\limits_{j=1}^nx_j^2-n\bar{x}^2}{\sum\limits_{i=1}^nx_i^2-n\bar{x}^2}=1$</p>
+<p>所以 </p>
+<script type="math/tex; mode=display">E(\hat{\beta_1})=(1)=\beta_1.</script><p>$\quad$<br>$E(\hat{\beta_0})=\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})E(y_j)$<br>$\quad\quad\ \ \ =\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})(\beta_0+\beta_1x_j)$<br>$\quad\quad\ \ \ =\beta_0-\beta_0\bar{x}\cdot\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}+\beta_1\bar{x}-\beta_1\bar{x}\sum\limits_{j=1}^n\dfrac{x_j^2-x_j\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}$</p>
+<p>$\quad\quad$由上述两个已证公式,可得 :</p>
+<script type="math/tex; mode=display">E(\hat{\beta_0})=\beta_0-\beta_0\bar{x}\cdot 0+\beta_1\bar{x}-\beta_{1}\bar{x}\cdot 1=\beta_0.</script><script type="math/tex; mode=display">\quad</script><h6 id="iii-hat-beta-0-hat-beta-1-的方差"><a href="#iii-hat-beta-0-hat-beta-1-的方差" class="headerlink" title="iii. ) $\hat{\beta_0},\hat{\beta_1}$ 的方差 :"></a>iii. ) $\hat{\beta_0},\hat{\beta_1}$ 的方差 :</h6><p>$Var(\hat{\beta_1})$<br>$=Var(\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}y_j)$<br>$=\sum\limits_{j=1}^n(\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})^2Var(y_j)\qquad(Markov-Gauss\ Condition)$<br>$=\dfrac{\sum\limits_{j=1}^n(x_j-\bar{x})^2}{(\sum\limits_{i=1}^n(x_i-\bar{x})^2)^2}\sigma^2$<br>$=\dfrac{\sigma^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}$</p>
+<script type="math/tex; mode=display">\quad</script><p>$Var(\hat{\beta_0})$<br>$=Var(\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})y_j)$<br>$=\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})^2Var(y_i)\quad (Markov-Gauss\ Condition)$<br>$=\sum(\dfrac{1}{n^2}+(\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})^2-\dfrac{2}{n}\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})\sigma^2$<br>$=\sigma^2(\sum\dfrac{1}{n^2}+\dfrac{\bar{x}^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}-\dfrac{2\bar{x}}{n}\sum\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}$<br>$=\sigma^2(\dfrac{1}{n}+\dfrac{\bar{x}^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}).$</p>
+<script type="math/tex; mode=display">\quad</script><h6 id="beta-1-与-beta-0-的协方差："><a href="#beta-1-与-beta-0-的协方差：" class="headerlink" title="$\beta_1$ 与 $\beta_0$ 的协方差："></a>$\beta_1$ 与 $\beta_0$ 的协方差：</h6><p>$\quad\quad$由于 $y_i\sim N(\beta_0+\beta_1x_i,\sigma^2)$,故对于统计量 $\bar{y}$ 有：</p>
+<p>$Var(\bar{y})=Var(\hat{\beta_0}+\hat{\beta_1}\bar{x})$<br>$\qquad\quad\ \ =Var(\hat{\beta_0})+\bar{x}^2Var(\hat{\beta_1})+2\bar{x}Cov(\hat{\beta_1},\hat{\beta_0})$<br>$\Rightarrow \quad \dfrac{\sigma^2}{n}=\sigma^2(\dfrac{1}{n}+\dfrac{\bar{x}^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})+\dfrac{\bar{x}^2\sigma^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}+2\bar{x}Cov(\hat{\beta_1},\hat{\beta_0})$<br>$\Rightarrow \quad Cov(\hat{\beta_1},\hat{\beta_0})=-\dfrac{\bar{x}\sigma^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}$<br>$\Rightarrow \quad Cov(\hat{\beta_1},\hat{\beta_0})=-\dfrac{\bar{x}\sigma^2}{L_{xx}}$</p>
+<script type="math/tex; mode=display">\quad</script><p>$\qquad$由于 $\hat{\beta_0}$ 和 $\hat{\beta_1}$ 都是 $y_i$ 的线性组合，且 $y_i$ 间独立同分布，故 $\hat{\beta_0}$ 和 $\hat{\beta_1}$ 也服从正态分布，即：</p>
+<script type="math/tex; mode=display">\hat{\beta_0}\sim N(\beta_0,(\dfrac{1}{n}+\dfrac{\bar{x}^2}{L_{xx}})\sigma^2)</script><script type="math/tex; mode=display">\hat{\beta_1}\sim N(\beta_1,\dfrac{\sigma^2}{L_{xx}})</script>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Gifts of roses, hand there are lingering fragrance</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%BA%94%E7%94%A8%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-send-o"></i>应用回归分析</a>
+          
+            <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-send-o"></i>笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/10/14/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E7%BB%83%E4%B9%A0%E9%A2%98%E4%B8%80/" rel="next" title="实变函数练习题一">
+                <i class="fa fa-chevron-left"></i> 实变函数练习题一
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/10/16/%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%BA%8C/" rel="prev" title="一元线性回归二">
+                一元线性回归二 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f75affde873e08d" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7Carchive">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zijiecheng2020" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zijiecheng2020@outlook.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/xiaofengwinner" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#I-%E5%BC%95%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">I. 引言</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E6%9C%9F%E6%9C%9B%E4%B8%8E%E4%B8%AD%E4%BD%8D%E6%95%B0%E7%9A%84%E5%8F%A6%E4%B8%80%E7%A7%8D%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">1. 期望与中位数的另一种定义:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Conditional-Expectation"><span class="nav-number">1.2.</span> <span class="nav-text">2. Conditional Expectation :</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#i-Law-of-Total-Expectation"><span class="nav-number">1.2.1.</span> <span class="nav-text">i.) Law of Total Expectation :</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#ii-Law-of-Total-Variance"><span class="nav-number">1.2.2.</span> <span class="nav-text">ii.) Law of Total Variance</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#II-%E4%B8%80%E5%85%83%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">II. 一元回归模型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-OLSE%E4%B8%8B%E7%9A%84%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1"><span class="nav-number">2.1.</span> <span class="nav-text">1. OLSE下的参数估计</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-MLE%E4%B8%8B%E7%9A%84%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1"><span class="nav-number">2.2.</span> <span class="nav-text">2. MLE下的参数估计</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-OLSE%E4%BC%B0%E8%AE%A1%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">2.3.</span> <span class="nav-text">3. OLSE估计的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#i-%E7%BA%BF%E6%80%A7"><span class="nav-number">2.3.1.</span> <span class="nav-text">i. ) 线性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#ii-%E6%97%A0%E5%81%8F%E6%80%A7"><span class="nav-number">2.3.2.</span> <span class="nav-text">ii. ) 无偏性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#iii-hat-beta-0-hat-beta-1-%E7%9A%84%E6%96%B9%E5%B7%AE"><span class="nav-number">2.3.3.</span> <span class="nav-text">iii. ) $\hat{\beta_0},\hat{\beta_1}$ 的方差 :</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#beta-1-%E4%B8%8E-beta-0-%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE%EF%BC%9A"><span class="nav-number">2.3.4.</span> <span class="nav-text">$\beta_1$ 与 $\beta_0$ 的协方差：</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">承子杰</span>
+
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'zijiecheng2020',
+            repo: 'COMMENTS# MUST HAVE, The repo you use to store Gitment comments',
+            
+            lang: "en" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'ddf53019a5ffae7a5ae43a8f868d40514f47b2a1',
+            
+                client_id: 'd0211270ff75f22e7ade'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
+    
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'LanC5gNP2geNE64QLVWJsL9v-gzGzoHsz',
+        appKey: 'hVe6L7IQuxAv2C1YJuUbnbn8',
+        placeholder: 'What do you want to say?',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

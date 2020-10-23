@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="实变函数,练习题," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="题目1.证明：$(A_1\verb||B_1)\bigcap(A_2\verb||B_2)&#x3D;(A_1\bigcap A_2)\verb||(B_1\bigcup B_2)$ $proof.$ $(A_1\verb||B_1)\bigcap(A_2\verb||B_2)&#x3D;(A_1\bigcap B_1^C)\bigcap (A_2\bigcap B_2^C)$ $\qquad \qquad\qqua">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实变函数练习题一">
+<meta property="og:url" content="http://zijiecheng2020.top/2020/10/14/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E7%BB%83%E4%B9%A0%E9%A2%98%E4%B8%80/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="题目1.证明：$(A_1\verb||B_1)\bigcap(A_2\verb||B_2)&#x3D;(A_1\bigcap A_2)\verb||(B_1\bigcup B_2)$ $proof.$ $(A_1\verb||B_1)\bigcap(A_2\verb||B_2)&#x3D;(A_1\bigcap B_1^C)\bigcap (A_2\bigcap B_2^C)$ $\qquad \qquad\qqua">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-10-14T11:13:58.000Z">
+<meta property="article:modified_time" content="2020-10-16T13:02:27.748Z">
+<meta property="article:author" content="承子杰">
+<meta property="article:tag" content="实变函数">
+<meta property="article:tag" content="练习题">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zijiecheng2020.top/2020/10/14/实变函数练习题一/"/>
+
+
+
+
+
+  <title>实变函数练习题一 | 博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a target="_blank" rel="noopener" href="https://github.com/zijiecheng2020" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zijiecheng2020.top/2020/10/14/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E7%BB%83%E4%B9%A0%E9%A2%98%E4%B8%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">实变函数练习题一</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-14T19:13:58+08:00">
+                2020-10-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">实变函数</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index">
+                    <span itemprop="name">数学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/10/14/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E7%BB%83%E4%B9%A0%E9%A2%98%E4%B8%80/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/10/14/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E7%BB%83%E4%B9%A0%E9%A2%98%E4%B8%80/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.8k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  17
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="题目1"><a href="#题目1" class="headerlink" title="题目1."></a>题目1.</h5><p>证明：$(A_1\verb||B_1)\bigcap(A_2\verb||B_2)=(A_1\bigcap A_2)\verb||(B_1\bigcup B_2)$</p>
+<p>$proof.$</p>
+<p>$(A_1\verb||B_1)\bigcap(A_2\verb||B_2)=(A_1\bigcap B_1^C)\bigcap (A_2\bigcap B_2^C)$</p>
+<p>$\qquad \qquad\qquad\quad\quad\ \ =(A_1\bigcap A_2)\bigcap(B_1^C\bigcap B_2^C)$</p>
+<p>$\qquad \qquad\qquad\quad\quad\ \ =(A_1\bigcap A_2)\bigcap(B_1\bigcup B_2)^C$</p>
+<p>$\qquad \qquad\qquad\quad\quad\ \ =(A_1\bigcap A_2)\verb||(B_1\bigcup B_2)$</p>
+<p>$\blacksquare$ </p>
+<h5 id="题目2"><a href="#题目2" class="headerlink" title="题目2."></a>题目2.</h5><p>证明：$(\bigcup\limits_{\lambda\in\Lambda}A_\lambda)\verb||(\bigcup\limits_{\lambda\in\Lambda}B_\lambda)\subset \bigcup\limits_{\lambda\in\Lambda}(A_\lambda\verb||B_\lambda)$</p>
+<p>$proof.$</p>
+<p>$\forall\ x\in (\bigcup\limits_{\lambda\in\Lambda}A_\lambda)\verb||(\bigcup\limits_{\lambda\in\Lambda}B_\lambda),\exists\ \lambda_0\in\Lambda,使得\ x\in A_{\lambda_0}，\forall\ \lambda\in\Lambda,x\notin B_\lambda$</p>
+<p>故 $x\in A_{\lambda_0}\verb||B_{\lambda_0}\subset\bigcup\limits_{\lambda\in\Lambda}(A_\lambda\verb||B_\lambda)$</p>
+<p>即 $(\bigcup\limits_{\lambda\in\Lambda}A_\lambda)\verb||(\bigcup\limits_{\lambda\in\Lambda}B_\lambda)\subset \bigcup\limits_{\lambda\in\Lambda}(A_\lambda\verb||B_\lambda)$</p>
+<p>$\blacksquare$ </p>
+<h5 id="题目3"><a href="#题目3" class="headerlink" title="题目3."></a>题目3.</h5><p>证明：$(\bigcup\limits_{k=1}^\infty A_k)\times B=\bigcup\limits_{k=1}^\infty (A_k\times B)$</p>
+<p>$proof.$</p>
+<p>$(x,y)\in (\bigcup\limits_{k=1}^\infty A_k)\times B\Leftrightarrow \exists\ k_0，(x,y)\in A_{k_0}\times B$</p>
+<p>$\qquad\qquad\qquad\qquad\quad\ \Leftrightarrow (x,y)\in \bigcup\limits_{k=1}^\infty (A_k\times B)$</p>
+<p>故 $(\bigcup\limits_{k=1}^\infty A_k)\times B=\bigcup\limits_{k=1}^\infty (A_k\times B)$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目4"><a href="#题目4" class="headerlink" title="题目4."></a>题目4.</h5><p>设映射 $f:X\rightarrow Y,A\subset B\subset X$,证明：$f(B)\verb||f(A)\subset f(B\verb||A)$</p>
+<p>$proof.$</p>
+<p>由 $y\in f(B)\verb||f(A)$ , 可知 $y\in f(B)$ , 但 $y\notin f(A)$</p>
+<p>即 $x=f^{-1}(y)\in B$ 但 $x \notin A$ , 所以 $x\in B\verb|| A$</p>
+<p>从而 $y=f(x)\in f(B\verb||A),$ 即 $f(B)\verb||f(A)\subset f(B\verb||A)$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目5"><a href="#题目5" class="headerlink" title="题目5."></a>题目5.</h5><p>设映射 $f:X\rightarrow Y,A\subset B \subset Y,$ 证明：</p>
+<p>$f^{-1}(B\verb||A)=f^{-1}(B)\verb||f^{-1}(A)$</p>
+<p>$proof.$</p>
+<p>$x\in f^{-1}(B\verb||A)\Leftrightarrow f(x)\in B\verb|| A$</p>
+<p>$\qquad\qquad\qquad\ \Leftrightarrow f(x)\in B$ 但 $f(x)\notin A$</p>
+<p>$\qquad\qquad\qquad\ \Leftrightarrow x\in f^{-1}(B)$ 但 $x\notin f^{-1}(A)$</p>
+<p>$\qquad\qquad\qquad\ \Leftrightarrow x\in f^{-1}(B)\verb||f^{-1}(A)$</p>
+<p>故 $f^{-1}(B\verb||A)=f^{-1}(B)\verb||f^{-1}(A)$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目6"><a href="#题目6" class="headerlink" title="题目6."></a>题目6.</h5><p>设 $f:X\rightarrow Y$ 是单射 ，则有 $f(\bigcap\limits_{\lambda\in\Lambda}A_\lambda)=\bigcap\limits_{\lambda\in\Lambda}f(A_\lambda)$</p>
+<p>$proof.$</p>
+<p>$f(\bigcap\limits_{\lambda\in\Lambda}A_\lambda)\subset \bigcap\limits_{\lambda\in\Lambda}f(A_\lambda)$ 已证，我们只需证另一边。</p>
+<p>由 $y\in\bigcap\limits_{\lambda\in\Lambda}f(A_\lambda)$ 可得：$\exists\ x_\lambda \in A_\lambda$ , 使 $f(x_\lambda)=y$</p>
+<p>由于 $f$ 是单射，故所有的 $x_\lambda$ 均相等。</p>
+<p>所以 $x_\lambda \in \bigcap\limits_{\lambda\in\Lambda}A_\lambda\ ,\ y=f(x_\lambda)\in f(\bigcap\limits_{\lambda\in\Lambda}A_\lambda)$ , </p>
+<p>即$\bigcap\limits_{\lambda\in\Lambda}f(A_\lambda)\subset f(\bigcap\limits_{\lambda\in\Lambda}A_\lambda)$</p>
+<p>综上所述：$f(\bigcap\limits_{\lambda\in\Lambda}A_\lambda)=\bigcap\limits_{\lambda\in\Lambda}f(A_\lambda)$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目7"><a href="#题目7" class="headerlink" title="题目7."></a>题目7.</h5><p>设 $f:X\rightarrow Y\ ;\ g:Y\rightarrow X.$ 若对任意的 $x\in X$，必有 $g[f(x)]=x$, 则 $f$ 是单射，$g$ 是满射。</p>
+<p>$proof.$</p>
+<p>若 $f(x_1)=f(x_2)$ , 则 $x_1=g[f(x_1)]=g[f(x_2)]=x_2$ ,故 $f$ 是单射。</p>
+<p>任意的 $x\in X$ ,$f(x)\in Y$ , 取 $y=f(x)$ , 有 $g(y)=x$. 故 $g$ 是满射。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目8"><a href="#题目8" class="headerlink" title="题目8."></a>题目8.</h5><p>若 $(A\verb|| B)\sim （B\verb|| A）$,证明：$A\sim B.$</p>
+<p>$proof.$</p>
+<p>$A=(A\bigcap B)\bigcup(A\verb||B)\sim (A\bigcap B)\bigcup(B\verb|| A)=B$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目9"><a href="#题目9" class="headerlink" title="题目9."></a>题目9.</h5><p>对任意两个基数 $\alpha,\beta,$ 证明下述三个关系，至多成立一式：$\alpha &lt;\beta ,\alpha=\beta,\alpha&gt;\beta.$</p>
+<p>$proof.$</p>
+<p>若 $\alpha=\beta$ 成立，由 $\alpha&lt;\beta$ 和 $\alpha&gt;\beta$ 的定义知，两者无法成立。故此时只能成立唯一一式 $\alpha=\beta$</p>
+<p>若$\alpha&lt;\beta$ 和 $\alpha&gt;\beta$ 同时成立，则有 $Cantor-Bernstein$ 定理得： $\alpha=\beta$，这与 $\alpha&lt;\beta$ 和 $\alpha&gt;\beta$ 的定义矛盾。故上述两者只能同时成立其中一式。</p>
+<p>综上：对任意两个基数 $\alpha,\beta,$ 证明下述三个关系，至多成立一式：$\alpha &lt;\beta ,\alpha=\beta,\alpha&gt;\beta.$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目10"><a href="#题目10" class="headerlink" title="题目10."></a>题目10.</h5><p>试作双射 $f:[0,1]\rightarrow (0,1).$</p>
+<p>$proof.$</p>
+<p>由于 $(0,1)\bigcap \mathbb{Q}$ 是可数集，故可以写成集合 $\{r_1,r_2,\cdots,r_n\}$</p>
+<p>下构造如下双射：</p>
+<script type="math/tex; mode=display">
+f(x)=\begin{cases}x& x\notin Q\bigcap[0,1]\\
+r_1& x=0\\
+r_2&x=1\\
+r_{k+2}&x=r_k\end{cases}</script><p>$\blacksquare$</p>
+<h5 id="题目11"><a href="#题目11" class="headerlink" title="题目11."></a>题目11.</h5><p>证明：全体代数数(整系数方程的根)所成之集合是可数集。</p>
+<p>$proof.$</p>
+<p>记 $k$ 次整系数方程全体为 $\Gamma_k$，则$\Gamma_k\sim \mathbb{Z}^{k+1}$</p>
+<p>而每个 $k$ 次整系数方程至多只有 $k$ 个根，故由可数个可数集的并还是可数集得：所有 $k$ 次整系数方程的根构成的集合 $S_k$ 还是可数集。</p>
+<p>则全体代数数为：$\bigcup\limits_{k=1}^\infty S_k$ 是可数集。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目12"><a href="#题目12" class="headerlink" title="题目12."></a>题目12.</h5><p>设 $E\subset \mathbb{R}^2$,若对任意的矩形 $I$ ,集合 $E\bigcap I$是可数的，证明：$E$ 是可数集。</p>
+<p>$proof.$</p>
+<p>构造如下的正方形列：</p>
+<p>$T_k$ 为以 $(0,0)$ 为中心，边长为 $2k$ 的正方形，则 $\{T_k\}$ 为一可数集。</p>
+<p>根据 $T_k\bigcap E$ 为可数集，从而有 $E=\bigcup\limits_{k=0}^\infty (E\bigcap T_k)$ 为可数集。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目13"><a href="#题目13" class="headerlink" title="题目13."></a>题目13.</h5><p>设 $\Gamma$ 是 $\mathbb{R}^2$ 中的一族三角形，若每个三角形的顶点为有理点，则 $\Gamma$ 是至多可数集。</p>
+<p>$proof.$</p>
+<p>记三角形的三个顶点按顺时针方向为$A(a_1,a_2),B(b_1,b_2),C(c_1,c_2)$</p>
+<p>则可构造如下单射：$f:\Gamma\rightarrow \mathbb{Q}^6$</p>
+<p>$\qquad\qquad\qquad\ \bigtriangleup ABC\rightarrow (a_1,a_2,b_1,b_2,c_1,c_2)$</p>
+<p>则显然 $f$ 是单射，$\overline{\overline{\Gamma}}\le \aleph_0$，故 $\Gamma$ 是至多可数集。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目14"><a href="#题目14" class="headerlink" title="题目14."></a>题目14.</h5><p>设 $\Gamma$ 是 $\mathbb{R}^2$ 中的一族矩形，若其中任意两个矩形互不相交，则 $\Gamma$ 是至多可数集。 </p>
+<p>$proof.$</p>
+<p>由有理数的稠密性可知，每个 $\Gamma$ 中的矩形内部都存在一个有理数 $P(a,b)$，由于每个矩形互不相交，故可取 $P$ 来代替每一个矩形。从而构建了如下单射：</p>
+<script type="math/tex; mode=display">f:\Gamma\rightarrow \mathbb{Q}^2</script><p>$\qquad\qquad\quad\ 矩形ABCD\rightarrow (a,b)$</p>
+<p>从而有 $\overline{\overline{\Gamma}}\le \aleph_0$，故 $\Gamma$ 是至多可数集。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目15"><a href="#题目15" class="headerlink" title="题目15."></a>题目15.</h5><p>设 $E\subset \mathbb{R}^2$,若 $E$ 中任意两点间的距离大于 $1$ ,证明：$E$ 是至多可数集。</p>
+<p>$proof.$<br>对于 $E$ 中任一点 $x$ ，可以取圆盘 $B(x,\dfrac{1}{3})$,则 $B(x,\dfrac{1}{3})$ 只含 $E$ 中一点，从而所有 $E$ 中点与一圆盘对应，记上述圆盘所构成的集合为 $\Gamma$，而 $\Gamma$ 中任意两圆盘互不相交，故 $\Gamma$ 为至多可数集，从而 $\overline{\overline{E}}=\overline{\overline{\Gamma}}$ 也是可数集。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目16"><a href="#题目16" class="headerlink" title="题目16."></a>题目16.</h5><p>设 $E\subset \mathbb{R}$，若 $E$ 中任意两点间的距离为有理数，证明：$E$ 是至多可数集。</p>
+<p>$proof.$</p>
+<p>任取 $x_0\in E$ , 构造如下集合：</p>
+<p>$F=\{x-x_0|x\in E\}$</p>
+<p>由于 $E$ 中任意两点间的距离为有理数，故 $F\subset \mathbb{Q}$ 是至多可数集。</p>
+<p>从而由 $\overline{\overline{E}}=\overline{\overline{F}}$ 得 $E$ 也是至多可数集。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目17"><a href="#题目17" class="headerlink" title="题目17."></a>题目17.</h5><p>证明：$[0,1]$ 中的全体无理数所成之集合具有连续基数 $c$.</p>
+<p>$proof.$</p>
+<p>$[0,1]$ 中的全体无理数是一个无限集，而 $[0,1]\bigcap \mathbb{Q}$ 是可数集。</p>
+<p>则 $\overline{\overline{[0,1]\verb||\mathbb{Q}}}=\overline{\overline{([0,1]\verb||\mathbb{Q})\bigcup([0,1]\bigcap \mathbb{Q})}}=\overline{\overline{[0,1]}}=c$ </p>
+<p>(即任意无限集并上一可数集，其势不改变)</p>
+<p>$\blacksquare$</p>
+<h5 id="题目18"><a href="#题目18" class="headerlink" title="题目18."></a>题目18.</h5><p>证明：全体超越数所成之集合具有连续基数 $c$</p>
+<p>$proof.$</p>
+<p>记全体超越数所成之集合为 $\Gamma$，全体代数数所成集合为 $\Lambda$。根据题$11$可知，$\Lambda$ 为一可数集。故 $\overline{\overline{\Gamma}}=\overline{\overline{\Gamma\bigcup\Lambda}}=\overline{\overline{\mathbb{R}}}=c.$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目19"><a href="#题目19" class="headerlink" title="题目19."></a>题目19.</h5><p>设 $E$ 是 $\mathbb{R}^3$ 中的不可数集，则存在以原点为中心的一个球，它包含 $E$ 中不可数个点。</p>
+<p>$proof.$</p>
+<p>假设所有以原点为中心的球均含 $E$ 中可数个点，那么可以构造如下一个集合 $\Gamma_K=\{|x|=k|x\in\mathbb{R}^3\}$，则 $\Gamma_k\bigcap E$ 为可数集。从而 $E=\bigcup\limits_{k=0}^\infty(\Gamma_k\bigcap E)$ 也是可数集，这与 $E$ 是不可数集矛盾，从而存在以原点为中心的一个球，它包含 $E$ 中不可数个点。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目20"><a href="#题目20" class="headerlink" title="题目20."></a>题目20.</h5><p>设 $\Gamma$ 为直线上所有开区间的全体，证明：$\Gamma$ 具有连续基数 $c.$</p>
+<p>$proof.$</p>
+<p>可以构造映射：$f:\mathbb{R}\rightarrow\Gamma$</p>
+<p>$\qquad\qquad\qquad\quad\  x\rightarrow(x,x+1)$</p>
+<p>则 $f$ 显然是单射，从而有 $c=\overline{\overline{\mathbb{R}}}\le\overline{\overline{\Gamma}}$.</p>
+<p>同时还可以构造映射：$g:\Gamma\rightarrow\mathbb{R}^2$</p>
+<p>$\qquad\qquad\qquad\qquad (a,b)\rightarrow(a,b)$</p>
+<p>显然 $g$ 也是单射，从而有 $\overline{\overline{\Gamma}}\le \overline{\overline{\mathbb{R}^2}}=c$</p>
+<p>综上：$\overline{\overline{\Gamma}}=c$.</p>
+<p>$\blacksquare$</p>
+<h5 id="题目21"><a href="#题目21" class="headerlink" title="题目21."></a>题目21.</h5><p>设 $E=A\bigcup B,\overline{\overline{E}}=c$，<br>则 $A$ 与 $B$ 中至少有一个集合的基数为 $c.$ </p>
+<p>$proof.$</p>
+<p>若 $A$ 与 $B$ 的基数均为 $\aleph_0$，则 $\overline{\overline{E}}=\overline{\overline{A\bigcup B}}=\aleph_0$，矛盾。所以 $A$ 与 $B$ 中至少有一个集合的基数为 $c.$</p>
+<h5 id="题目22"><a href="#题目22" class="headerlink" title="题目22."></a>题目22.</h5><p>试做双射 $f:[0,1]\rightarrow\mathbb{R}.$</p>
+<p>$proof.$</p>
+<p>可作如下一系列映射：</p>
+<p>$f_1:[0,1]\rightarrow(0,1)$ (习题10所作映射)</p>
+<p>$f_2(x)=2x-1\quad[(0,1)\rightarrow(-1,1)]$</p>
+<p>$f_3(x)=\arctan\dfrac{\pi}{2}x\quad[(-1,1)\rightarrow\mathbb{R}]$</p>
+<p>由于上述映射均为双射，故复合映射 $g=f_3[f_2(f_1(x))]$ 即为从 $[0,1]$ 到 $\mathbb{R}$ 的双射。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目23"><a href="#题目23" class="headerlink" title="题目23."></a>题目23.</h5><p>试做双射 $f:\mathbb{R}\rightarrow \mathbb{R}\verb||\mathbb{Q}$</p>
+<p>$proof.$</p>
+<p>可从 $\mathbb{R}\verb||\mathbb{Q}$ 中取出一可数集 $S=\{s_1,s_2,\cdots\}$，则 $S\bigcup \mathbb{Q}$ 也是可数集，从而存在双射 $g:S\rightarrow S\bigcup \mathbb{Q}.$ 从而可构造如下双射：$f:\mathbb{R}\verb||\mathbb{Q}\rightarrow \mathbb{R}$.</p>
+<script type="math/tex; mode=display">
+f(x)=\begin{cases}x& x\notin S\\
+g(x)&x\in S\end{cases}</script><p>$\blacksquare$</p>
+<h5 id="题目24"><a href="#题目24" class="headerlink" title="题目24."></a>题目24.</h5><p>设 $E\subset \mathbb{R}$ 为可数集，试作 $\mathbb{R}$ 上的递增函数 $f(x)$ 使 $f(x)$ 的不连续点集恰为 $E.$</p>
+<p>$proof.$</p>
+<p>$f(x)=\sum\limits_{x_n&lt;x}\dfrac{1}{2^n}$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目25"><a href="#题目25" class="headerlink" title="题目25."></a>题目25.</h5><p>证明：不存在定义在 $\mathbb{R}$ 上的连续函数 $f(x)$ 使 $f(\mathbb{R}\verb|| \mathbb{Q})\subset<br>\mathbb{Q}$ 及 $f(\mathbb{Q})\subset \mathbb{R}\verb|| \mathbb{Q}.$</p>
+<p>$proof.$</p>
+<p>注意到 $f(\mathbb{Q})$ 为至多可数集，$f(\mathbb{R}\verb|| \mathbb{Q})\subset<br>\mathbb{Q}$ 也是至多可数集，故 $f(\mathbb{R})=f(\mathbb{Q}\bigcup \mathbb{R}\verb|| \mathbb{Q})=(\mathbb{R}\verb|| \mathbb{Q})\bigcup f(\mathbb{Q})$ 也是至多可数集。</p>
+<p>再根据 $f(\mathbb{R}\verb|| \mathbb{Q})\subset<br>\mathbb{Q}$ 及 $f(\mathbb{Q})\subset \mathbb{R}\verb|| \mathbb{Q}$ 知 $f(1)\ne f(\sqrt{2})$。</p>
+<p>在这儿我们不妨设 $f(1)&lt; f(\sqrt{2})$ ，则由连续函数的性质可知： $[f(1),f(\sqrt{2}] \supset f(\mathbb{R})$ 即 $c=\overline{\overline{[f(1),f(\sqrt{2}]}}\leq\overline{\overline{f(\mathbb{R})}}$，这与 $f(\mathbb{R})$ 至多可数矛盾。</p>
+<p>综上所述：不存在定义在 $\mathbb{R}$ 上的连续函数 $f(x)$ 使 $f(\mathbb{R}\verb|| \mathbb{Q})\subset<br>\mathbb{Q}$ 及 $f(\mathbb{Q})\subset \mathbb{R}\verb|| \mathbb{Q}.$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目26"><a href="#题目26" class="headerlink" title="题目26."></a>题目26.</h5><p>设 $f(x)$ 在 $\mathbb{R}$ 上可微，且除可数集外，有 $f’(x)&gt;0$，证明：$f(x)$ 是严格递增函数。</p>
+<p>$proof.$</p>
+<p>(i) 若存在 $x_1<x_2$ 满足 $f(x_1)>f(x_2)$，则由微分中值定理可知，存在 $\xi\in(x_1,x_2)$，使 $f’(\xi)&lt;0$，再由导数介值性定理可知，存在 $E\subset \mathbb{R}$，使得 $f(E)=(f’(\xi),0)$，而 $\overline{\overline{E}}\ge\overline{\overline{f(E)}}=c$，则存在不可数集使得 $f’(x)&lt;0$，矛盾。</p>
+<p>（ii）若 $f(x)$ 单调递增，且存在 $x_1&lt;x_2$ 使得 $f(x_1)=f(x_2)$，则 $f(x)$ 在区间 $[x_1.x_2]$ 上取常值，导数为 $0$。然而 $\overline{\overline{[x_1,x_2]}}=c$，即存在不可数集使得 $f’(x)=0$，矛盾。</p>
+<p>综上所述，$f(x)$是严格单调递增函数。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目27"><a href="#题目27" class="headerlink" title="题目27."></a>题目27.</h5><p>设 $f(x)$ 在闭区间 $[0,1]$ 上连续，在开区间 $(0,1)$ 内可微，且除可数集外，有 $f’(x)=1$，证明：$f(x)=x+c(常数)$.</p>
+<p>$proof.$</p>
+<p>令 $g(x)=f(x)-x$，则除可数集外 $g’(x)=0$。假设存在 $s\in(0,1)$，使得 $g’(s)=t\ne0$，不妨设 $g’(s)&gt;0$，则由导函数的介值性定理可知，存在集合 $E\subset(0,1)$，使得 $f(E)=(0,g’(s))$，然而 $\overline{\overline{E}}\ge\overline{\overline{f(E)}}=c$，即存在不可数集使得 $g’(x)\ne0$，矛盾。从而 $g’(x)$ 在 $(0,1)$ 上处处为 $0$。所以 $g(x)=c,f(x)=x+c.$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目28"><a href="#题目28" class="headerlink" title="题目28."></a>题目28.</h5><p>记 $\Gamma$ 为在 $\mathbb{R}^2$ 上定义的二元连续函数 $f(x,y)$ 之全体，证明：$\Gamma$ 具有连续基数 $c$.</p>
+<p>$proof.$<br>首先由于常值函数也是二元连续函数，所以 $c=\overline{\overline{\mathbb{R}}}\le\overline{\overline{\Gamma}}.$</p>
+<p>其次对于二元连续函数而言，我们确定其有理点的取值即确定了整个函数。所以令 $\mathbb{Q}^2=\{r_1,r_2,\cdots\}$,可构造如下一个单射：</p>
+<p>$f:\Gamma\rightarrow\mathbb{R}^\infty$</p>
+<p>$\{r_1,r_2,\cdots\}\rightarrow(f(r_1),f(r_2),\cdots)$</p>
+<p>从而有 $\overline{\overline{\Gamma}}\le\overline{\overline{\mathbb{R}^\infty}}=c$</p>
+<p>综上所述：$\overline{\overline{\Gamma}}=c.$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目29"><a href="#题目29" class="headerlink" title="题目29."></a>题目29.</h5><p>设 $\Gamma$ 为自然数的一切严格单调序列所成之集，则 $\Gamma$ 具有连续基数 $c$.</p>
+<p>$proof.$</p>
+<p>可构造二进制序列 $E=\{(x_1,x_2,\cdots):x_k\in\{0,1\},k=1,2,\cdots\}$ 与 $\Gamma$ 之间的双射</p>
+<p>$f:\Gamma\rightarrow E$</p>
+<p>单调递增序列 $\{r_k\}\rightarrow (x_1,x_2,\cdots):x_{r_k}=1$</p>
+<p>所以 $\overline{\overline{\Gamma}}=\overline{\overline{E}}=c.$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目30"><a href="#题目30" class="headerlink" title="题目30."></a>题目30.</h5><p>设 $\Gamma$ 为自然数集 $\mathbb{N}$ 的无限子集群体，则 $\Gamma$ 具有连续基数 $c$.</p>
+<p>$proof.$</p>
+<p>注意到 $\mathbb{N}$ 的一切严格单调序列也是 $\mathbb{N}$ 的无限子集，故由 $29$ 题结论可知：$\overline{\overline{\Gamma}}\ge c$</p>
+<p>与此同时 $P(\mathbb{N})\subset P(\mathbb{Q})$,即$\overline{\overline{\Gamma}}\le\overline{\overline{P(\mathbb{Q})}}=c$</p>
+<p>综上所述：$\overline{\overline{\Gamma}}=c.$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目31"><a href="#题目31" class="headerlink" title="题目31."></a>题目31.</h5><p>设 $\{x_n\}$ 为一序列，其中元素彼此不同，则它的子序列全体组成基数为 $c$ 的集合。</p>
+<p>$proof.$</p>
+<p>由于 $\{x_n\}$ 为一无限序列，且其中的元素彼此不同，故 $\{x_n\}$ 是与 $\mathbb{N}$ 相互对等的，从而，$\{x_n\}$ 的子序列全体与 $\mathbb{N}$ 的子序列全体相互对等，即其基数为 $c$.</p>
+<p>$\blacksquare$</p>
+<h5 id="题目32"><a href="#题目32" class="headerlink" title="题目32."></a>题目32.</h5><p>设 $\Gamma$ 为实数集 $\mathbb{R}$ 的所有有限子集所成之集，则 $\Gamma$ 具有连续基数 $c$.</p>
+<p>$proof.$</p>
+<p>注意到，$\mathbb{R}$ 中的所有单点集与 $\mathbb{R}$ 构成了一个双射，从而 $\overline{\overline{\Gamma}}\ge \overline{\overline{\mathbb{R}}}=c$</p>
+<p>另一方面，将 $\mathbb{R}$ 的所有有限子集按从小到大的顺序排列,可以构成一个由有限序偶组成的集合，显然存在由该集合到 $R^{\infty}$ 的一个单射，从而 $\overline{\overline{\Gamma}}\le \overline{\overline{\mathbb{R}^\infty}}=c$</p>
+<p>综上所述：$\overline{\overline{\Gamma}}=c.$</p>
+<p>$\blacksquare$</p>
+<h5 id="题目33"><a href="#题目33" class="headerlink" title="题目33."></a>题目33.</h5><p>证明：平面上存在边界线上不含有理点的正方形。</p>
+<p>$proof.$</p>
+<p>假设平面上所有正方形的边界线上均含有理点。</p>
+<p>下面，我们记 $\Gamma_k$ 为以原点为中心，边长为 $2k$ 的正方形，从而对于每一个 $k$，我们都可以在边界上取到一个各异的有理点 $(a_k,b_k)$。</p>
+<p>下面构造如下映射：$f:(0,+\infty)\rightarrow\mathbb{Q}^2$</p>
+<p>$\qquad\qquad\qquad\qquad\quad k\rightarrow(a_k,b_k)$</p>
+<p>显然这个 $f$ 是单射，即 $c=\overline{\overline{(0,+\infty)}}&gt;\overline{\overline{\mathbb{Q}^2}}=\aleph_0$，矛盾。</p>
+<p>所以，平面上存在边界线上不含有理点的正方形。</p>
+<p>$\blacksquare$</p>
+<h5 id="题目34"><a href="#题目34" class="headerlink" title="题目34."></a>题目34.</h5><p>设 $a,b\in \mathbb{R}^2\verb||\mathbb{Q}^2,a\ne b$，则存在联结 $a,b$ 且不含有理点的折线。</p>
+<p>$proof.$</p>
+<p>假设所有联结 $a,b$ 的折线均含有有理点。</p>
+<p>作线段 $a,b$ 的中垂线，在中垂线上任取一点记为 $c$，分别联结 $a,b$，构成折线 $a-c-b$，由假设可知，该折线上存在有理点 $(a_k,b_k)(k\ 为点\ c\ 到线段 \ ab\ 的距离)$，从中我们可以构建一个从 $k$ 到$(a_k,b_k)$ 的一个单射 $f$，即：</p>
+<p>$f:(0,+\infty)\rightarrow \mathbb{Q}^2$</p>
+<p>$k\rightarrow (a_k,b_k)$</p>
+<p>由此可得：$c=\overline{\overline{(0,+\infty)}}&gt;\overline{\overline{\mathbb{Q}^2}}=\aleph_0$，矛盾。所以存在联结 $a,b$ 且不含有理点的折线。</p>
+<p>$\blacksquare$</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Gifts of roses, hand there are lingering fragrance</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0/" rel="tag"><i class="fa fa-send-o"></i>实变函数</a>
+          
+            <a href="/tags/%E7%BB%83%E4%B9%A0%E9%A2%98/" rel="tag"><i class="fa fa-send-o"></i>练习题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/10/14/Welcome/" rel="next" title="Welcome">
+                <i class="fa fa-chevron-left"></i> Welcome
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/10/16/%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%80/" rel="prev" title="一元线性回归一">
+                一元线性回归一 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f75affde873e08d" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7Carchive">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zijiecheng2020" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zijiecheng2020@outlook.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/xiaofengwinner" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE1"><span class="nav-number">1.</span> <span class="nav-text">题目1.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE2"><span class="nav-number">2.</span> <span class="nav-text">题目2.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE3"><span class="nav-number">3.</span> <span class="nav-text">题目3.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE4"><span class="nav-number">4.</span> <span class="nav-text">题目4.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE5"><span class="nav-number">5.</span> <span class="nav-text">题目5.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE6"><span class="nav-number">6.</span> <span class="nav-text">题目6.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE7"><span class="nav-number">7.</span> <span class="nav-text">题目7.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE8"><span class="nav-number">8.</span> <span class="nav-text">题目8.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE9"><span class="nav-number">9.</span> <span class="nav-text">题目9.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE10"><span class="nav-number">10.</span> <span class="nav-text">题目10.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE11"><span class="nav-number">11.</span> <span class="nav-text">题目11.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE12"><span class="nav-number">12.</span> <span class="nav-text">题目12.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE13"><span class="nav-number">13.</span> <span class="nav-text">题目13.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE14"><span class="nav-number">14.</span> <span class="nav-text">题目14.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE15"><span class="nav-number">15.</span> <span class="nav-text">题目15.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE16"><span class="nav-number">16.</span> <span class="nav-text">题目16.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE17"><span class="nav-number">17.</span> <span class="nav-text">题目17.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE18"><span class="nav-number">18.</span> <span class="nav-text">题目18.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE19"><span class="nav-number">19.</span> <span class="nav-text">题目19.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE20"><span class="nav-number">20.</span> <span class="nav-text">题目20.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE21"><span class="nav-number">21.</span> <span class="nav-text">题目21.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE22"><span class="nav-number">22.</span> <span class="nav-text">题目22.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE23"><span class="nav-number">23.</span> <span class="nav-text">题目23.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE24"><span class="nav-number">24.</span> <span class="nav-text">题目24.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE25"><span class="nav-number">25.</span> <span class="nav-text">题目25.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE26"><span class="nav-number">26.</span> <span class="nav-text">题目26.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE27"><span class="nav-number">27.</span> <span class="nav-text">题目27.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE28"><span class="nav-number">28.</span> <span class="nav-text">题目28.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE29"><span class="nav-number">29.</span> <span class="nav-text">题目29.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE30"><span class="nav-number">30.</span> <span class="nav-text">题目30.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE31"><span class="nav-number">31.</span> <span class="nav-text">题目31.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE32"><span class="nav-number">32.</span> <span class="nav-text">题目32.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE33"><span class="nav-number">33.</span> <span class="nav-text">题目33.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE34"><span class="nav-number">34.</span> <span class="nav-text">题目34.</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">承子杰</span>
+
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'zijiecheng2020',
+            repo: 'COMMENTS# MUST HAVE, The repo you use to store Gitment comments',
+            
+            lang: "en" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'ddf53019a5ffae7a5ae43a8f868d40514f47b2a1',
+            
+                client_id: 'd0211270ff75f22e7ade'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
+    
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'LanC5gNP2geNE64QLVWJsL9v-gzGzoHsz',
+        appKey: 'hVe6L7IQuxAv2C1YJuUbnbn8',
+        placeholder: 'What do you want to say?',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
