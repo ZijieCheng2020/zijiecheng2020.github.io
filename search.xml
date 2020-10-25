@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Welcome</title>
+    <url>/2020/10/14/Welcome/</url>
+    <content><![CDATA[<p>Welcome to my blog! This is my first post. You are able to get some knowledge about Mathematics and Statistics from the blog. Welcome to contact with me through social links on the left. </p>
+]]></content>
+      <categories>
+        <category>简介</category>
+      </categories>
+      <tags>
+        <tag>-简介</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一元线性回归一</title>
     <url>/2020/10/16/%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%80/</url>
     <content><![CDATA[<h4 id="I-引言"><a href="#I-引言" class="headerlink" title="I. 引言"></a>I. 引言</h4><h5 id="1-期望与中位数的另一种定义"><a href="#1-期望与中位数的另一种定义" class="headerlink" title="1. 期望与中位数的另一种定义:"></a>1. 期望与中位数的另一种定义:</h5><p> $<br> \min\limits_{b}E(X-b)^2\Rightarrow E(X)=b<br> $</p>
@@ -77,18 +89,6 @@ $$\quad</script><h5 id="2-MLE下的参数估计"><a href="#2-MLE下的参数估�
       <tags>
         <tag>应用回归分析</tag>
         <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Welcome</title>
-    <url>/2020/10/14/Welcome/</url>
-    <content><![CDATA[<p>Welcome to my blog! This is my first post. You are able to get some knowledge about Mathematics and Statistics from the blog. Welcome to contact with me through social links on the left. </p>
-]]></content>
-      <categories>
-        <category>简介</category>
-      </categories>
-      <tags>
-        <tag>-简介</tag>
       </tags>
   </entry>
   <entry>
@@ -200,6 +200,49 @@ $$\quad</script><h5 id="2-MLE下的参数估计"><a href="#2-MLE下的参数估�
       </tags>
   </entry>
   <entry>
+    <title>数理统计的预备知识一</title>
+    <url>/2020/10/25/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%9A%84%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E4%B8%80/</url>
+    <content><![CDATA[<h4 id="1-总体和样本"><a href="#1-总体和样本" class="headerlink" title="1. 总体和样本"></a>1. 总体和样本</h4><p>$\qquad$<strong>总体</strong>是研究问题所涉及的对象的全体的集合，总体中每个成员称为<strong>个体</strong>，从总体中按一定的规则抽出一些个体的行为叫<strong>抽样</strong>，所得的个体叫<strong>样本</strong>。</p>
+<p>$\qquad$根据总体的个数我们可以分为：</p>
+<p>有限总体：若总体个数数目有限</p>
+<p>无限总体：若总体个数数目无限</p>
+<p>$\qquad$总体可以理解为：<br>(1) 一切可能出现的结果的集合</p>
+<p>(2)所有个体上的某种数量指标构成的集合。</p>
+<p>$\qquad$由于每个个体出现是随机的，所以相应的个体上的数量指标的出现也具有随机性，从而，我们可以将这些数据指标看成是随机变量(r.v.)，随机变量的分布就是该数量指标在总体中的分布。</p>
+<p>$\qquad$此时，总体可以由一个随机变量及其分布来刻画，从而总体可用 $r.v.$来表示，或用分布函数 $F$ 来表示。若 $F$ 有密度，记为 $f$，则此总体也可用密度函数 $f$ 表示。</p>
+<p>$\qquad$若总体分布函数为 $F$，当从该总体中抽取相互独立同分布(i.i.d.)的大小为 $n$ 的样本 $X_1,X_2,\cdots,X_n$，则记为：</p>
+<script type="math/tex; mode=display">
+X_1,X_2,\cdots,X_n\stackrel{i.i.d}{\sim} F</script><p>$\qquad$若分布有密度 $f$，则可记为：</p>
+<script type="math/tex; mode=display">
+X_1.X_2,\cdots,X_n\stackrel{i.i.d}{\sim} f</script><p>$\qquad$若总体用随机变量 $X$ 表示，分布为 $F$，则来自总体 $F$ 的样本 $X_1,X_2,\cdots,X_n$ 也可以看作 $X$ 的观察值，记作：</p>
+<script type="math/tex; mode=display">
+X_1,X_2,
+\cdots,X_n\stackrel{i.i.d}{sim} X</script><p>$\qquad$若个体的数量指标不止一项时，可用随机向量来表示总体。</p>
+<h4 id="2-样本空间与随机样本"><a href="#2-样本空间与随机样本" class="headerlink" title="2. 样本空间与随机样本"></a>2. 样本空间与随机样本</h4><h5 id="2-1-样本空间"><a href="#2-1-样本空间" class="headerlink" title="2.1 样本空间"></a>2.1 样本空间</h5><p>$\qquad$设 $X=(X_1,\cdots,X_n)$ 是从总体中抽取的样本，其<strong>样本空间</strong>定义为：$X=(X_1,\cdots,X_n)$ 可能取值的全体，记为 $\mathcal{X}$</p>
+<h5 id="2-2-样本的两重性"><a href="#2-2-样本的两重性" class="headerlink" title="2.2 样本的两重性"></a>2.2 样本的两重性</h5><p>$\qquad$样本可看作一个随机变量，在取定值后看作一个常量。我们常用大写字母表示随机变量，用小写字母表示随机变量的观察值。</p>
+<h5 id="2-3-简单随机样本"><a href="#2-3-简单随机样本" class="headerlink" title="2.3 简单随机样本"></a>2.3 简单随机样本</h5><p>$\qquad$<strong>简单随机抽样</strong>需要满足如下要求：</p>
+<p>(1) 代表性：总体中每一个个体都有同等的可能被抽到或有相同的概率分布。</p>
+<p>(2) 独立性：样本中的每一个个体取什么值并不影响其它个体取什么值，这意味着样本中各个个体 $X_1,X_2,\cdots,X_n$ 是相互独立的。</p>
+<p>$\qquad$由简单随机抽样获得的样本 $(X_1,X_2,\cdots,X_n)$ 称为简单随机样本。其具体定义如下：</p>
+<p>$\qquad$设有一总体 $F$，$X_1,X_2,\cdots,X_n$ 是从 $F$ 中抽取的容量为 $n$ 的样本，若：</p>
+<p>(1) $X_1,X_2,\cdots,X_n$ 相互独立<br>(2) $X_1,X_2,\cdots,X_n$ 具有相同的分布</p>
+<p>则称 $X_1,X_2,\cdots,X_n$ 为<strong>简单随机样本</strong>。</p>
+<h5 id="2-4-简单随机样本几个结论"><a href="#2-4-简单随机样本几个结论" class="headerlink" title="2.4 简单随机样本几个结论"></a>2.4 简单随机样本几个结论</h5><p>$\qquad$设总体为 $F$，$X_1,X_2,\cdots,X_n$ 为此总体中抽取的随机样本，则 $X_1,X_2,\cdots,X_n$ 的联合分布函数是：</p>
+<script type="math/tex; mode=display">
+F(x_1)F(x_2)\cdots F(x_n)</script><p>若有概率密度，则联合概率密度为：</p>
+<script type="math/tex; mode=display">
+f(x_1)f(x_2)\cdots f(x_n)</script><h5 id="2-5-样本分布"><a href="#2-5-样本分布" class="headerlink" title="2.5 样本分布"></a>2.5 样本分布</h5><p>当样本为随机变量时，就有一定的概率分布，这个概率分布称为样本分布。样本分布式样本所受随机因素影响的最完整的描述。</p>
+]]></content>
+      <categories>
+        <category>数理统计</category>
+        <category>统计</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>数理统计</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>曲面的第二基本形式</title>
     <url>/2020/10/23/%E6%9B%B2%E9%9D%A2%E7%9A%84%E7%AC%AC%E4%BA%8C%E5%9F%BA%E6%9C%AC%E5%BD%A2%E5%BC%8F/</url>
     <content><![CDATA[<p>$\qquad$设 $S:r=r(u,v)$ 是一张正则曲面，曲面在 $P=(u_0,v_0)$ 处的切平面 $\Gamma$ 的单位法向量为 $\boldsymbol{n}=\dfrac{r_u\times r_v}{|r_u\times r_v|}$. </p>
@@ -255,6 +298,122 @@ AX+BY+CZ+D=0</script><p>其中 $A,B,C$ 不全为 $0$.在此我们不妨设 $C\ne
       <tags>
         <tag>笔记</tag>
         <tag>微分几何</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实变函数例题二</title>
+    <url>/2020/10/21/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E4%BE%8B%E9%A2%98%E4%BA%8C/</url>
+    <content><![CDATA[<h5 id="例题-2-1"><a href="#例题-2-1" class="headerlink" title="例题 2.1"></a>例题 2.1</h5><p>证明下列条件等价：<br>(1) $x\in \overline{E};$<br>(2) 对任意 $\delta&gt;0$，有 $B(x,\delta)\bigcap E\ne\varnothing;$<br>(3) 存在 $E$ 中点列 $\{x_k\}$，使 $\lim\limits_{k\rightarrow\infty}x_k=x.$</p>
+<p>$proof.$</p>
+<p>$(1)\Rightarrow (2)$</p>
+<p>$\qquad\forall\, x \in \overline{E}=E\bigcup E’$，若 $x\in E$，有 $\forall\,\delta&gt;0，B(x,\delta)\bigcap E\ne \varnothing.$ 若 $x\notin E$，则 $x\in E’$，根据导集的性质，有 $\forall\, \delta&gt;0,(B(x,\delta)-\{x\})\bigcap E\ne \varnothing.$ </p>
+<p>$\qquad$从而我们有 $\forall\, x\in E,B(x,\delta)\bigcap E\ne \varnothing.$</p>
+<p>$(2)\Rightarrow (3)$</p>
+<p>$\qquad$可以构造如下区间 $B_k=B(x,\dfrac{1}{2^k})$，由于 $B_k\bigcap E\ne \varnothing$，我们从中选取一点记为 $x_k$，从而构造了 $E$ 中的点列 $\{x_k\}$ 且 $\lim\limits_{k\rightarrow \infty}x_k=x.$</p>
+<p>$(3)\Rightarrow (1)$</p>
+<p>$\qquad$ 若点 $x$ 在 $E$ 中存在点列 $\{x_k\}$，使 $\lim\limits_{k\rightarrow\infty}x_k=x.$ 由于 $x_k\in E,\forall\, k$，所以根据闭集的等价条件我们有 $x\in \overline{E}.$</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-2"><a href="#例题-2-2" class="headerlink" title="例题 2.2"></a>例题 2.2</h5><p>设 $A,B\subset\mathbb{R}^n.$ 若 $A\bigcap B=\varnothing$，证明：$\mathring{A}\bigcap \overline{B}=\varnothing.$</p>
+<p>$proof.$</p>
+<p>$\qquad$由于 $A\bigcap B=\varnothing$，所以 $\mathring{A}\bigcap B=\varnothing$，从而 $B\subset (\mathring{A})^c$。由于 $(\mathring{A})^c$ 是闭集，所以有 $\overline{B}\subset\overline{(\mathring{A})^c}=(\mathring{A})^c$，所以 $\mathring{A}\bigcap \overline{B}=\varnothing.$</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-3"><a href="#例题-2-3" class="headerlink" title="例题 2.3"></a>例题 2.3</h5><p>设 $E\subset \mathbb{R}^n$，证明：孤立点集 $E\verb||E’$ 是至多可数集。</p>
+<p>$proof.$</p>
+<p>$\qquad$ 我们记以有理点为中心，以有理数为半径的有理球全体为集合 $\Gamma$，则由第一章结论可知：$\overline{\overline{\Gamma}}=\aleph_0.$ 对于任意的 $x\in E\verb||E’,\exists\, \delta&gt;0$，使得 $B(x,\delta)\bigcap E\verb||E’=\{x\}.$ 注意到，由于有理数的稠密性，我们可以从 $\Gamma$ 中取得一个有理球 $B_x$，使得 $x\in B_x\subset B(x,\delta)$，从而我们可以诱导出一个从 $E\verb||E’$ 到 $\Gamma$ 的映射 $f.$ 对于任意的 $x,y\in E\verb||E’$ 且 $x\ne y,\exists\, \delta_x,\delta_y&gt;0$，使得 $B(x,\delta_x)\bigcap E\verb||E’=\{x\},B(y,\delta_y)\bigcap E\verb||E’=\{y\}$，所以 $B_x\bigcap B_y=\varnothing$，即 $f(x)\ne f(y)$，故 $f$ 是单射，$\overline{\overline{E\verb||E’}}\le \overline{\overline{\Gamma}}=\aleph_0$，这说明孤立点集 $E\verb||E’$ 是至多可数集。</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-4"><a href="#例题-2-4" class="headerlink" title="例题 2.4"></a>例题 2.4</h5><p>设 $E\subset \mathbb{R}^n$，若 $E’$ 是至多可数集，证明：$E$ 是至多可数集。</p>
+<p>$proof.$</p>
+<p>$\qquad$ 注意到，$E\subset (E-E’)\bigcup E’$，其中孤立点集 $E-E’$ 是至多可数集，$E’$ 也是至多可数集，所以 $(E-E’)\bigcup E’$ 也是至多可数集，从而 $E$ 是至多可数集。</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-5"><a href="#例题-2-5" class="headerlink" title="例题 2.5"></a>例题 2.5</h5><p>设 $\overline{A}=\mathbb{R}^n$，开集 $U\subset\mathbb{R}^n$，则 $U\subset \overline{A\bigcap U}.$</p>
+<p>$proof.$</p>
+<p>$\qquad\forall\, x\in U$，由于 $U$ 是开集，所以对于任意的 $\delta&gt;0,\exists\, r&gt;0$，使得 $B(x,r)\subset U$. 由 $\delta$ 的任意性，我们不妨设 $r&lt;\delta$. 由于 $\overline{A}=\mathbb{R}^n$，所以 $A$ 是稠密集，从而 $A\bigcup B(x,r)\ne \varnothing.$ 下面我们考虑 $(A\bigcap U)\bigcap B(x,\delta)\supset A\bigcap(U\bigcap B(x,r))=A\bigcap B(x,r)\ne \varnothing$，根据闭集的等价条件，我们得：$x\in\overline{A\bigcap U}$，即 $U\subset \overline{A\bigcap U}.$</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-6"><a href="#例题-2-6" class="headerlink" title="例题 2.6"></a>例题 2.6</h5><p>设 $G\subset \mathbb{R}^n$，证明 $G$ 是开集当且仅当：对任意的 $E\subset \mathbb{R}^n$，有 $G\bigcap \overline{E}\subset \overline{G\bigcap E}.$</p>
+<p>$proof.$</p>
+<p>$\Leftarrow\quad$ 我们取 $E=G^c$，则有 $G\bigcap \overline{G^c}\subset \overline{G\bigcap G^c}=\varnothing$，从而有 $\overline{G^c}\subset G^c$，而注意到另一方面 $G^c\subset\overline{G^c}$，所以 $G^c=\overline{G^c}$，即 $G^c$ 是闭集，从而 $G$ 是开集。</p>
+<p>$\Rightarrow\quad\forall\, x\in G\bigcap \overline{E}$，有 $x\in G$. 由于 $G$ 是开集，所以存在 $r&gt;0$，使得 $B(x,r)\subset G$，对于任意的 $\delta&gt;0$，取 $\eta=\min\{r,\delta\}$，则由 $x\in \overline{E}$，我们有 $B(x,\eta)\bigcap E\ne \varnothing$，从而有 $B(x,\eta)\bigcap (G\bigcap E)=B(x,\eta)\bigcap E\ne \varnothing$，从而有 $x\in \overline{G\bigcap E}$，即 $G\bigcap\overline{E}\subset \overline{G\bigcap E}$.</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-7"><a href="#例题-2-7" class="headerlink" title="例题 2.7"></a>例题 2.7</h5><p>证明：$\mathbb{R}^n$ 中开集的全体所成之集具有连续基数 $c$.</p>
+<p>$proof.$</p>
+<p>$\qquad$我们记 $\mathbb{R}^n$ 中的所有开集构成的集合为 $H$，记以有理点为中心，以有理数为半径的有理球全体所构成的集合为 $\Gamma$，根据第一章知识可知：$\overline{\overline{\Gamma}}=\aleph_0$，从而 $\Gamma$ 可表示为 $\{B_1,B_2,\cdots\}$。设 $E$ 是 $\mathbb{R}^n$ 中的任一开集，将所有含于 $E$ 内部的有理球取出，将它们记为$B_{k1},B_{k2},\cdots$,下断言 $\bigcup\limits_{i=1}^\infty B_{ki}=E.$</p>
+<p>断言的证明：</p>
+<p>$\qquad$首先由于$B_{ki}\subset E,\forall\, ki$，所以 $\bigcup\limits_{i=1}^\infty B_{ki}\subset E$ 是显然的。另一方面，$\forall\, x\in E$，由于 $E$ 是开集，所以 $\exists\, \delta&gt;0$，使得 $B(x,\delta)\subset E.$ 由于有理数的稠密性，存在有理球 $B_{ki}$，使得$x\in B_{ki}\subset B(X,\delta)\subset E$，从而 $x\in \bigcup\limits_{i=1}^\infty B_{ki}$，即 $\bigcup\limits_{i=1}^\infty B_{ki}\supset E$，综上所述，断言成立。</p>
+<p>$\qquad$根据断言，可以诱导处一个从 $E$ 到 $P(\mathbb{N})$ 的映射 $f$，即 $f(E)=f(\bigcup\limits_{i=1}^\infty B_{ki})=\{k_1,k_2,\cdots\}.$ 注意到，$\mathbb{R}^n$ 中不同的开集所含的有理球是不相同的，所以 $f$ 是单射，从而有 $\overline{\overline{H}}\le \overline{\overline{P(\mathbb{N})}}=c.$</p>
+<p>$\qquad$另一方面，记 $F=\{B(0,r)|r\in(0,+\infty)\}$，则 $F\subset H$，然而 $\overline{\overline{F}}=\overline{\overline{\mathbb{R}^+}}=c$，所以 $\overline{\overline{H}}\ge \overline{\overline{F}}=c.$ 综上所述，$\overline{\overline{H}}=c.$</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-8"><a href="#例题-2-8" class="headerlink" title="例题 2.8"></a>例题 2.8</h5><p>证明：$\mathbb{R}^n$ 中闭集的全体所成之集具连续基数 $c$.</p>
+<p>$proof.$</p>
+<p>$\qquad$我们知道，对于 $\mathbb{R}^n$ 中任一开集 $E$，$E^c$ 是闭集；同样的，对于 $\mathbb{R}^n$ 中任一闭集 $E$，$E^c$ 是开集。所以可以构造从 $\mathbb{R}^n$ 中全体开集构成的集合 $H$ 到 $\mathbb{R}^n$ 中全体闭集构成的集合 $T$ 的一个双射 $f$，从而可得 $\overline{\overline{T}}=\overline{\overline{H}}=c.$</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-9"><a href="#例题-2-9" class="headerlink" title="例题 2.9"></a>例题 2.9</h5><p>设 $f$ 为定义在 $\mathbb{R}^n$ 上的函数，证明下列条件等价：<br>(1) $f$ 是连续函数;<br>(2) 对任意的 $A\in \mathbb{R}^n$，有 $f(\overline{A})\subset \overline{f(A)};$<br>(3) 对任意的 $B\in \mathbb{R}^1$，有 $f^{-1}(\overline{B})\supset \overline{f^{-1}(B).}$</p>
+<p>$proof.$</p>
+<p>$(1)\Rightarrow (2)$ </p>
+<p>$\qquad$设 $A\subset \mathbb{R}^n$，则有 $A\subset f^{-1}(f(A))$，从而有 $A\subset f^{-1}(\overline{f(A)})$，由于 $f$ 是连续函数，所以 $f^{-1}(\overline{f(A)})$ 也是闭集，故 $\overline{A}\subset f^{-1}(\overline{f(A)})$，即 $f(\overline{A})\subset \overline{f(A)}.$</p>
+<p>$(2)\Rightarrow (3)$ </p>
+<p>$\qquad$ 设 $B\subset \mathbb{R}^1$，则有 $f^{-1}(B)\subset \mathbb{R}^n$，从而我们可得 $f(\overline{f^{-1}(B)})\subset \overline{f(f^{-1}(B))}\subset\overline{B}$，所以 $f^{-1}(\overline{B})\supset \overline{f^{-1}(B)}.$</p>
+<p>$(3)\Rightarrow (1)$</p>
+<p>$\qquad$ 设 $B$ 是 $\mathbb{R}^1$ 中的任一闭集，我们有$\overline{f^{-1}(B)}\subset f^{-1}(\overline{B})=f^{-1}(B)$，从另一方面，$f^{-1}(B)\subset \overline{f^{-1}(B)}$，所以 $f^{-1}(B)= \overline{f^{-1}(B)}$，即 $f^{-1}(B)$ 是闭集，$f$ 是连续函数。<br>$\blacksquare$</p>
+<h5 id="例题-2-10"><a href="#例题-2-10" class="headerlink" title="例题 2.10"></a>例题 2.10</h5><p>设 $F\subset \mathbb{R}^n$ 是闭集，证明：存在 $F$ 的至多可数子集 $A$，使得 $\overline{A}=F.$</p>
+<p>$proof.$</p>
+<p>$\qquad$我们记以有理点为中心，以有理数为半径的有理球全体构成的集合为 $\Gamma$，根据第一章的知识，我们已经知道 $\overline{\overline{\Gamma}}=\aleph_0$，所以 $\Gamma$ 可以记为 $\{B_1,B_2,\cdots\}$. 设 $F$ 是 $\mathbb{R}^n$ 中的一个闭集，对于每个 $B_k$，若 $F\bigcap B_k\ne \varnothing$，我们就取点 $x_k\in B_k\bigcap F$，显然所取点列 $\{x_k\}$ 是一个 $F$ 的至多可数子集，我们将其记为 $A$，下证：$F=\overline{A}.$</p>
+<p>$\qquad$任取 $x\in F$，则由闭集的性质，对于任意的 $\delta&gt;0$，存在$B_k\in \Gamma$，我们有 $x\in B_k\subset B(x,\delta)$，使得 $F\bigcap B_k\ne \varnothing$，从而有 $A\bigcap B_k\ne \varnothing$，进而 $A\bigcap B(x,\delta)\ne \varnothing$，即 $x\in\overline{A}$，所以 $F\subset \overline{A}$。另一方面，$A\subset F$，故 $\overline{A}\subset\overline{F}=F$. 综上所述，$F=\overline{A}$.</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-11"><a href="#例题-2-11" class="headerlink" title="例题 2.11"></a>例题 2.11</h5><p>设 $F_1,F_2$ 为 $\mathbb{R}^n$ 中两个互不相交的闭集，则存在 $\mathbb{R}^n$ 中的开集 $G_1,G_2$，满足 $G_1\bigcap G_2=\varnothing$，且 $F_1\subset G_1,F_2\subset G_2.$</p>
+<p>$proof.$</p>
+<p>$\qquad$我们构造距离函数 $f(x)=d(x,F_1)-d(x,F_2)$，则 $f(x)$ 显然是一个连续函数，下面我们记 $G_1=f^{-1}((-\infty,0)),G_2=f^{-1}((0,+\infty))$。首先，由于 $f$ 是连续函数，所以 $G_1,G_2$ 均是开集；其次，由于 $(-\infty,0)$ 和 $(0,+\infty)$ 不相交，所以 $G_1$ 和 $G_2$ 不相交。对于任意的 $x\in F_1,f(x)=-d(x,F_2)&lt;0$，故 $x\in G_1$，从而 $F_1\subset G_1.$ 同样的，我们可以证明，$F_2\subset G_2.$</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-12"><a href="#例题-2-12" class="headerlink" title="例题 2.12"></a>例题 2.12</h5><p>设 $\{F_\lambda\}_{\lambda\in\Lambda}$ 是 $\mathbb{R}^n$ 中的一族有界闭集，若任取其中有限个：$F_{\lambda_1},F_{\lambda_2},\cdots,F_{\lambda_m}$，都有 $\bigcap\limits_{i=1}^m F_{\lambda_i}\ne \varnothing$. 试证明：$\bigcap\limits_{\lambda\in\Lambda}F_\lambda\ne \varnothing.$</p>
+<p>$proof.$</p>
+<p>$\qquad$假若$\bigcap\limits_{\lambda\in\Lambda}F_\lambda= \varnothing$，则 $\bigcup\limits_{\lambda\in\Lambda}F_\lambda^c=\mathbb{R}^n$. 我们取定一个指标 $\mu\in \Lambda$，则有 $F_\mu\subset\bigcup\limits_{\lambda\in\Lambda}F_\lambda^c$. 由于 $\{F_\lambda\}_{\lambda\in\Lambda}$ 是 $\mathbb{R}^n$ 中的一族有界闭集，所以 $F_\lambda^c$ 是开集，从而 $\{F_\lambda^c\}$ 构成了 $F_\mu$ 的一个开覆盖。根据有限开覆盖定理，我们可以从中选取有限子覆盖 $\{F_{\lambda_1}^c,F_{\lambda_2}^c,\cdots,F_{\lambda_m}^c\}$. 由于 $F_\mu \subset \bigcup\limits_{i=1}^m F_{\lambda_i}^c=(\bigcap\limits_{i=1}^m F_{\lambda_i})^c$，从而我们有 $F_\mu\bigcap(\bigcap\limits_{i=1}^m F_{\lambda_i})=\varnothing$，这与题设矛盾，从而 $\bigcap\limits_{\lambda\in\Lambda}F_\lambda\ne \varnothing.$</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-13"><a href="#例题-2-13" class="headerlink" title="例题 2.13"></a>例题 2.13</h5><p>设 $F\subset\mathbb{R}^n,f(x)$ 是 $F$ 上的连续函数。证明：若 $F$ 是 $\mathbb{R}^n$ 中的有界闭集，则 $f(F)$ 也是 $\mathbb{R}^1$ 中的有界闭集。</p>
+<p>$proof.$</p>
+<p>根据延拓定理，我们不妨设 $f$ 在 $\mathbb{R}^n$ 上连续。我们即开集族 $\Gamma=\{G_\lambda\}_{\lambda\in\Lambda}$ 构成了 $f(F)$ 的一个开覆盖，由于 $f$ 是连续函数，故任意的 $G_\lambda\in \Gamma$，我们有 $f^{-1}(G_\lambda)$ 也是开集，同时开集族 $\{f^{-1}(G_\lambda)\}$ 构成了 $F$ 的一个开覆盖。由于 $F$ 是有界闭集，根据有限开覆盖定理，我们可以从中选出有限子覆盖，我们不妨记为 $\{f^{-1}(G_1),f^{-1}(G_2),\cdots,f^{-1}(G_m)\}$，与此同时 $\{G_1,G_2,\cdots,G_m\}$ 构成了 $f(F)$ 的一个子覆盖，所以 $f(F)$ 是有界闭集。</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-14"><a href="#例题-2-14" class="headerlink" title="例题 2.14"></a>例题 2.14</h5><p>设 $f(x)$ 是 $E\subset \mathbb{R}^n$ 上的连续函数，若 $E$ 是紧集，则<br>$(1)\ f(x)$ 是 $E$ 上的有界函数；<br>$(2)\ f(x)$ 在 $E$ 上可以取到最大值与最小值；<br>$(3)\ f(x)$ 是 $E$ 上的一致连续函数。</p>
+<p>$proof.$</p>
+<p>(1) 由例题 2.13 可知，$f(E)$ 是紧集，从而 $f(E)$ 是有界闭集，即 $f(x)$ 是 $\mathbb{R}^n$ 上的有界函数。</p>
+<p>(2) 我们记 $m=\inf\limits_{x\in E}\{f(x)\},M=m=\sup\limits_{x\in E}\{f(x)\}$，由于 $f(E)$ 是 $\mathbb{R}^1$ 中的有界闭集，所以 $m\in f(E),M\in f(E)$，从而存在 $a,b\in E$，使得 $f(a)=m,f(b)=M.$ 故 $f(x)$ 在 $E$ 上可以取到最大值与最小值.</p>
+<p>(3) 由连续的定义可知，对于任意的 $\varepsilon&gt;0$，对每个 $x\in E$，存在 $\delta_x&gt;0$，当 $y\in E\bigcap B(x,\delta_x)$，有 $|f(x)-f(y)|&lt;\dfrac{\varepsilon}{2}$. 现在我们令 $r_x=\dfrac{\delta_x}{2}$，则 $\{B(x,r_x)|x\in E\}$ 构成了 $E$ 的一个开覆盖。由于 $E$ 是紧集，所以可以从中选取一个有限子覆盖 $\{B(x_k,r_{x_k})|x\in E,k=1,2,\cdots,n\}$，我们令 $r=\min\{r_{x_k}|k=1,2,\cdots,n\}$，则当 $x,y\in E$ 且满足 $|x-y|&lt;r$ 时，我们设 $x\in B(x_k,r_{x_k})$，有 $|x_k-y|\le|x_k-x|+|x-y|\le \delta_x$，从而 $|f(x)-f(y)|\le|f(x)-f(x_k)|+|f(x_k)-f(y)|\le \varepsilon.$ 所以 $f(x)$ 是 $E$ 上的一致连续函数。</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-15"><a href="#例题-2-15" class="headerlink" title="例题 2.15"></a>例题 2.15</h5><p>设 $f(x)$ 是 $\mathbb{R}^n$ 上具有紧支集的连续函数，则<br>$(1)\ f(x)$ 是 $\mathbb{R}^n$ 上的有界函数；<br>$(2)\ f(x)$ 在 $\mathbb{R}^n$ 上可以取到最大值与最小值；<br>$(3)\ f(x)$ 是 $\mathbb{R}^n$ 上的一致连续函数。</p>
+<p>$proof.$</p>
+<p>记 $f(x)$ 在 $\mathbb{R}^n$ 上的紧支集为 $H$，由紧支集的定义可知 $H$ 是紧集。</p>
+<p>(1) 由例题 2.15 可知 $f(x)$ 在 $H$ 是有界函数，而 $f$ 在 $\mathbb{R}^n-H$ 上的取值恒为 $0$，故 $f$ 是 $\mathbb{R}^n$ 上的有界函数。</p>
+<p>(2) 由例题 2.15 可知 $f(x)$ 在 $H$ 上可取得最大最小值，而在 $\mathbb{R}^n-H$ 上 $f(x)$ 取值为 $0$，故只需比较 $H$ 上最大最小值和 $0$ 的关系，便可确定最大最小值，且可在 $E$ 中取到。</p>
+<p>(3) 由于 $H$ 是有界闭集，故 $H\subset B(0,k)$，而由于 $f(x)$ 是<br>$\mathbb{R}^n$ 的连续函数，所以 $f(x)$ 在 $\overline{B(0,k+1)}$ 上是一致连续的，即对任意的 $\varepsilon&gt;0$，存在 $\delta&gt;0$，使得当 $x,y\in \overline{B(0,k+1)}$ 且 $|x-y|&lt;\delta$ 时，有 $|f(x)-f(y)|&lt;\varepsilon$，所以当 $x,y\in\mathbb{R}^n$ 且 $|x-y|&lt;\min\{\delta,1\}时$，有 $x,y\in \overline{B(0,k+1)}$ 或 $x,y\in (B(0,k))^c$，所以 $|f(x)-f(y)|&lt;\varepsilon$，即 $f(x)$ 是 $\mathbb{R}^n$ 上的一致连续函数。</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-16"><a href="#例题-2-16" class="headerlink" title="例题 2.16"></a>例题 2.16</h5><p>设 $f(x)$ 是定义在 $\mathbb{R}^1$ 上的可微函数. 若对任意 $t\in \mathbb{R}^1$，点集 $\{x:f’(x)=t\}$ 是闭集，试证明：$f’(x)$ 是 $\mathbb{R}^1$ 上的连续函数。</p>
+<p>$proof.$</p>
+<p>$\qquad$对于任意的 $t\in\mathbb{R}^1$，由于点集 $\{x:f’(x)=t\}$ 是闭集，所以点集 $G=\{x:f’(x)\ne t\}$ 是开集。从而由开区间构造定理可知，$G$ 可表示为可数个互不相交的构成区间的并，即 $G=\bigcup\limits_{k=1}^\infty (a_k,b_k)$。由于 $f$ 是可微函数，根据达布定理我们可知，在每个构成区间 $(a_k,b_k)$ 上 $f(x)-t$ 不改变符号。我们将 $G$ 中满足 $f’(x)&gt;t$ 的那些构成区间取出，记为 $H$，由于 $H$ 也是一些构成区间的并，所以 $H$ 也是开集。同理，$G$ 中满足 $f’(x)&gt;t$ 的那些构成区间组成的集合也是开集。再根据 $t$ 的任意性，我们可以发现，对于 $f’(x)$，任一开区间的原像是开集，从而任一开集的原像是开集，即 $f’(x)$ 是 $\mathbb{R}^1$ 上的连续函数。</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-17"><a href="#例题-2-17" class="headerlink" title="例题 2.17"></a>例题 2.17</h5><p>设 $A,B\subset\mathbb{R}^n$，且 $A\bigcap\overline{B}=\overline{A}\bigcap B=\varnothing$，则存在开集 $U,V$ 满足 $U\bigcap V=\varnothing$，且 $A\subset U,B\subset V.$</p>
+<p>$proof.$</p>
+<p>$\qquad$我们设 $S=(\overline{A}\bigcap\overline{B})^c$，则 $(S\bigcap \overline{A}) \bigcap (S\bigcap \overline{B})=S\bigcap(\overline{A}\bigcap \overline{B})=\varnothing.$ 由此，我们可以构造距离函数 $f(x)=d(x,S\bigcap \overline{A})-d(x,S\bigcap \overline{B})$，显然 $f$ 是 $\mathbb{R}^n$ 上的连续函数，下面我们令 $U=f^{-1}((-\infty,0)),V=f^{-1}(0,+\infty)$,则 $U,V$ 是开集，且 $U\bigcap V=\varnothing.$ 对于任意的 $x\in A$，由于 $A\bigcap S^c=A\bigcap(\overline{A}\bigcap\overline{B})=A\bigcap \overline{B}=\varnothing$，所以 $x\in (A\bigcap S^c)^c=A^c\bigcup S=A^c\bigcap\overline{B}^c$，即 $x\in S,x\notin \overline{B}$，从而 $x\in S\bigcap\overline{A},x\notin S\overline{B}$，即 $f(x)&lt;0,x\in U$。所以 $A\subset U$. 同理可证：$B\subset V$.</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-18"><a href="#例题-2-18" class="headerlink" title="例题 2.18"></a>例题 2.18</h5><p>设 $F$ 是 $\mathbb{R}^n$ 中的有界闭集，$G$ 是 $\mathbb{R}^n$ 中的开集且 $F\subset G$，则存在 $\delta&gt;0$，使得当 $|x|&lt;\delta$ 时，有 $F+\{x\}=\{y+x:y\in F\}\subset G.$</p>
+<p>$proof.$</p>
+<p>$\qquad$由于 $G$ 是 $\mathbb{R}^n$ 中的开集，且$F\subset G$，所以 $G^c$ 是 $\mathbb{R}^n$ 中的闭集，且 $F\bigcap G^c=\varnothing$. 由于 $F$ 是有界闭集，所以 $d(F,G^c)=\delta&gt;0$，下面断言，当 $|x|&lt;\delta$ 时，有 $F+\{x\}=\{y+x:y\in F\}\subset G.$<br>$\qquad$事实上，任意的 $s\in F+\{x\}=\{y+x:y\in F\}$，存在 $y\in F$，使得 $y+x=s$，然而 $|s-y|=|x|&lt;\delta,d(y,G^c)\ge d(F,G^c)=\delta$，所以 $s\notin G^c$，即 $s\in G$，综上所述，$F+\{x\}=\{y+x:y\in F\}\subset G.$</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-19"><a href="#例题-2-19" class="headerlink" title="例题 2.19"></a>例题 2.19</h5><p>设 $C$ 为 $[0,1]$ 中的 $Cantor$ 集，证明：$C+C=\{x+y:x\in C,y<br>\in C\}=[0,2].$</p>
+<p>$proof.$</p>
+<p>$\qquad$由于 $C\subset [0,1]$，所以 $C+C\subset [0,2]$. 另一方面，我们取 $t\in[0,2]$，对于每个 $n$，记 $F_n$ 为第 $n$ 次构造 $Cantor$ 集后剩余的部分。我们构造一个平面的点集 $D_n=(F_n\times F_n)\bigcap\{(x,y)\in\mathbb{R}^2|x+y=t\}$，下断言 $D_n$ 是一个非空有界单调递减的闭集列。<br>$\qquad$ 事实上，由于 $(F_n\times F_n)\subset [0,1]\times [0,1]$ 有界，所以 $D_n$ 有界。由于 $F_n\supset F_{n+1}$，所以 $(F_n\times F_n)\supset(F_{n+1}\times F_{n+1})$，从而 $D_n\supset D_{n+1}.$ 由于 $F_n$ 是闭集，所以$(F_n\times F_n)$ 是闭集，而 $\{(x,y)\in\mathbb{R}^2|x+y=t\}$ 是闭集，所以 $D_n$ 是闭集。最后关于非空，事实上我们只需考虑 $D_1$ 非空。通过他们的几何意义，我们可以将两个集合的交可表示为如下图形的相交。<br><img src="/images/例题2.19.png" alt=""></p>
+<p>$\qquad$注意到，由于相交直线的斜率为 $45^\circ$，所以等价的，我们可以将右下方的小正方形以 $45^\circ$ 角上移到中心，这样正方形的反对角线是完整的含于阴影部分的，其必与相交直线有交点，从而 $D_1$ 是非空的。而 $D_n$ 是将阴影部分的小正方形进行对应操作。完全同样的道理，整个反对角线任含于阴影部分，所以 $D_n$ 也非空。</p>
+<p>$\qquad$ 根据闭集套定理，存在 $(x,y)\in\bigcap\limits_{i=1}^\infty D_i\subset C\times C$，从而有 $t=x+y\in C+C$，即 $C+C\supset [0,2]$。综上所述：$[0,2]=C+C$.</p>
+<p>$\blacksquare$</p>
+<h5 id="例题-2-20"><a href="#例题-2-20" class="headerlink" title="例题 2.20"></a>例题 2.20</h5><p>证明：$A$ 是疏朗集 $\Leftrightarrow\ \overline{A}$ 的余集是稠密集. </p>
+<p>$proof.$</p>
+<p>$\qquad A$是疏朗集 $\Leftrightarrow (\overline{A})^\circ=\varnothing\Leftrightarrow (\overline{A})^{c-c}=\varnothing\Leftrightarrow(\overline{A})^{c-}=\mathbb{R}^n\Leftrightarrow\overline{A}$ 的余集是稠密集.</p>
+<p>$\blacksquare$</p>
+]]></content>
+      <categories>
+        <category>实变函数</category>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>实变函数</tag>
+        <tag>练习题</tag>
       </tags>
   </entry>
   <entry>
@@ -471,122 +630,6 @@ g(x)&x\in S\end{cases}</script><p>$\blacksquare$</p>
 <p>$f:(0,+\infty)\rightarrow \mathbb{Q}^2$</p>
 <p>$k\rightarrow (a_k,b_k)$</p>
 <p>由此可得：$c=\overline{\overline{(0,+\infty)}}&gt;\overline{\overline{\mathbb{Q}^2}}=\aleph_0$，矛盾。所以存在联结 $a,b$ 且不含有理点的折线。</p>
-<p>$\blacksquare$</p>
-]]></content>
-      <categories>
-        <category>实变函数</category>
-        <category>数学</category>
-      </categories>
-      <tags>
-        <tag>实变函数</tag>
-        <tag>练习题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>实变函数例题二</title>
-    <url>/2020/10/21/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E4%BE%8B%E9%A2%98%E4%BA%8C/</url>
-    <content><![CDATA[<h5 id="例题-2-1"><a href="#例题-2-1" class="headerlink" title="例题 2.1"></a>例题 2.1</h5><p>证明下列条件等价：<br>(1) $x\in \overline{E};$<br>(2) 对任意 $\delta&gt;0$，有 $B(x,\delta)\bigcap E\ne\varnothing;$<br>(3) 存在 $E$ 中点列 $\{x_k\}$，使 $\lim\limits_{k\rightarrow\infty}x_k=x.$</p>
-<p>$proof.$</p>
-<p>$(1)\Rightarrow (2)$</p>
-<p>$\qquad\forall\, x \in \overline{E}=E\bigcup E’$，若 $x\in E$，有 $\forall\,\delta&gt;0，B(x,\delta)\bigcap E\ne \varnothing.$ 若 $x\notin E$，则 $x\in E’$，根据导集的性质，有 $\forall\, \delta&gt;0,(B(x,\delta)-\{x\})\bigcap E\ne \varnothing.$ </p>
-<p>$\qquad$从而我们有 $\forall\, x\in E,B(x,\delta)\bigcap E\ne \varnothing.$</p>
-<p>$(2)\Rightarrow (3)$</p>
-<p>$\qquad$可以构造如下区间 $B_k=B(x,\dfrac{1}{2^k})$，由于 $B_k\bigcap E\ne \varnothing$，我们从中选取一点记为 $x_k$，从而构造了 $E$ 中的点列 $\{x_k\}$ 且 $\lim\limits_{k\rightarrow \infty}x_k=x.$</p>
-<p>$(3)\Rightarrow (1)$</p>
-<p>$\qquad$ 若点 $x$ 在 $E$ 中存在点列 $\{x_k\}$，使 $\lim\limits_{k\rightarrow\infty}x_k=x.$ 由于 $x_k\in E,\forall\, k$，所以根据闭集的等价条件我们有 $x\in \overline{E}.$</p>
-<p>$\blacksquare$</p>
-<h5 id="例题-2-2"><a href="#例题-2-2" class="headerlink" title="例题 2.2"></a>例题 2.2</h5><p>设 $A,B\subset\mathbb{R}^n.$ 若 $A\bigcap B=\varnothing$，证明：$\mathring{A}\bigcap \overline{B}=\varnothing.$</p>
-<p>$proof.$</p>
-<p>$\qquad$由于 $A\bigcap B=\varnothing$，所以 $\mathring{A}\bigcap B=\varnothing$，从而 $B\subset (\mathring{A})^c$。由于 $(\mathring{A})^c$ 是闭集，所以有 $\overline{B}\subset\overline{(\mathring{A})^c}=(\mathring{A})^c$，所以 $\mathring{A}\bigcap \overline{B}=\varnothing.$</p>
-<p>$\blacksquare$</p>
-<h5 id="例题-2-3"><a href="#例题-2-3" class="headerlink" title="例题 2.3"></a>例题 2.3</h5><p>设 $E\subset \mathbb{R}^n$，证明：孤立点集 $E\verb||E’$ 是至多可数集。</p>
-<p>$proof.$</p>
-<p>$\qquad$ 我们记以有理点为中心，以有理数为半径的有理球全体为集合 $\Gamma$，则由第一章结论可知：$\overline{\overline{\Gamma}}=\aleph_0.$ 对于任意的 $x\in E\verb||E’,\exists\, \delta&gt;0$，使得 $B(x,\delta)\bigcap E\verb||E’=\{x\}.$ 注意到，由于有理数的稠密性，我们可以从 $\Gamma$ 中取得一个有理球 $B_x$，使得 $x\in B_x\subset B(x,\delta)$，从而我们可以诱导出一个从 $E\verb||E’$ 到 $\Gamma$ 的映射 $f.$ 对于任意的 $x,y\in E\verb||E’$ 且 $x\ne y,\exists\, \delta_x,\delta_y&gt;0$，使得 $B(x,\delta_x)\bigcap E\verb||E’=\{x\},B(y,\delta_y)\bigcap E\verb||E’=\{y\}$，所以 $B_x\bigcap B_y=\varnothing$，即 $f(x)\ne f(y)$，故 $f$ 是单射，$\overline{\overline{E\verb||E’}}\le \overline{\overline{\Gamma}}=\aleph_0$，这说明孤立点集 $E\verb||E’$ 是至多可数集。</p>
-<p>$\blacksquare$</p>
-<h5 id="例题-2-4"><a href="#例题-2-4" class="headerlink" title="例题 2.4"></a>例题 2.4</h5><p>设 $E\subset \mathbb{R}^n$，若 $E’$ 是至多可数集，证明：$E$ 是至多可数集。</p>
-<p>$proof.$</p>
-<p>$\qquad$ 注意到，$E\subset (E-E’)\bigcup E’$，其中孤立点集 $E-E’$ 是至多可数集，$E’$ 也是至多可数集，所以 $(E-E’)\bigcup E’$ 也是至多可数集，从而 $E$ 是至多可数集。</p>
-<p>$\blacksquare$</p>
-<h5 id="例题-2-5"><a href="#例题-2-5" class="headerlink" title="例题 2.5"></a>例题 2.5</h5><p>设 $\overline{A}=\mathbb{R}^n$，开集 $U\subset\mathbb{R}^n$，则 $U\subset \overline{A\bigcap U}.$</p>
-<p>$proof.$</p>
-<p>$\qquad\forall\, x\in U$，由于 $U$ 是开集，所以对于任意的 $\delta&gt;0,\exists\, r&gt;0$，使得 $B(x,r)\subset U$. 由 $\delta$ 的任意性，我们不妨设 $r&lt;\delta$. 由于 $\overline{A}=\mathbb{R}^n$，所以 $A$ 是稠密集，从而 $A\bigcup B(x,r)\ne \varnothing.$ 下面我们考虑 $(A\bigcap U)\bigcap B(x,\delta)\supset A\bigcap(U\bigcap B(x,r))=A\bigcap B(x,r)\ne \varnothing$，根据闭集的等价条件，我们得：$x\in\overline{A\bigcap U}$，即 $U\subset \overline{A\bigcap U}.$</p>
-<p>$\blacksquare$</p>
-<h5 id="例题-2-6"><a href="#例题-2-6" class="headerlink" title="例题 2.6"></a>例题 2.6</h5><p>设 $G\subset \mathbb{R}^n$，证明 $G$ 是开集当且仅当：对任意的 $E\subset \mathbb{R}^n$，有 $G\bigcap \overline{E}\subset \overline{G\bigcap E}.$</p>
-<p>$proof.$</p>
-<p>$\Leftarrow\quad$ 我们取 $E=G^c$，则有 $G\bigcap \overline{G^c}\subset \overline{G\bigcap G^c}=\varnothing$，从而有 $\overline{G^c}\subset G^c$，而注意到另一方面 $G^c\subset\overline{G^c}$，所以 $G^c=\overline{G^c}$，即 $G^c$ 是闭集，从而 $G$ 是开集。</p>
-<p>$\Rightarrow\quad\forall\, x\in G\bigcap \overline{E}$，有 $x\in G$. 由于 $G$ 是开集，所以存在 $r&gt;0$，使得 $B(x,r)\subset G$，对于任意的 $\delta&gt;0$，取 $\eta=\min\{r,\delta\}$，则由 $x\in \overline{E}$，我们有 $B(x,\eta)\bigcap E\ne \varnothing$，从而有 $B(x,\eta)\bigcap (G\bigcap E)=B(x,\eta)\bigcap E\ne \varnothing$，从而有 $x\in \overline{G\bigcap E}$，即 $G\bigcap\overline{E}\subset \overline{G\bigcap E}$.</p>
-<p>$\blacksquare$</p>
-<h5 id="例题-2-7"><a href="#例题-2-7" class="headerlink" title="例题 2.7"></a>例题 2.7</h5><p>证明：$\mathbb{R}^n$ 中开集的全体所成之集具有连续基数 $c$.</p>
-<p>$proof.$</p>
-<p>$\qquad$我们记 $\mathbb{R}^n$ 中的所有开集构成的集合为 $H$，记以有理点为中心，以有理数为半径的有理球全体所构成的集合为 $\Gamma$，根据第一章知识可知：$\overline{\overline{\Gamma}}=\aleph_0$，从而 $\Gamma$ 可表示为 $\{B_1,B_2,\cdots\}$。设 $E$ 是 $\mathbb{R}^n$ 中的任一开集，将所有含于 $E$ 内部的有理球取出，将它们记为$B_{k1},B_{k2},\cdots$,下断言 $\bigcup\limits_{i=1}^\infty B_{ki}=E.$</p>
-<p>断言的证明：</p>
-<p>$\qquad$首先由于$B_{ki}\subset E,\forall\, ki$，所以 $\bigcup\limits_{i=1}^\infty B_{ki}\subset E$ 是显然的。另一方面，$\forall\, x\in E$，由于 $E$ 是开集，所以 $\exists\, \delta&gt;0$，使得 $B(x,\delta)\subset E.$ 由于有理数的稠密性，存在有理球 $B_{ki}$，使得$x\in B_{ki}\subset B(X,\delta)\subset E$，从而 $x\in \bigcup\limits_{i=1}^\infty B_{ki}$，即 $\bigcup\limits_{i=1}^\infty B_{ki}\supset E$，综上所述，断言成立。</p>
-<p>$\qquad$根据断言，可以诱导处一个从 $E$ 到 $P(\mathbb{N})$ 的映射 $f$，即 $f(E)=f(\bigcup\limits_{i=1}^\infty B_{ki})=\{k_1,k_2,\cdots\}.$ 注意到，$\mathbb{R}^n$ 中不同的开集所含的有理球是不相同的，所以 $f$ 是单射，从而有 $\overline{\overline{H}}\le \overline{\overline{P(\mathbb{N})}}=c.$</p>
-<p>$\qquad$另一方面，记 $F=\{B(0,r)|r\in(0,+\infty)\}$，则 $F\subset H$，然而 $\overline{\overline{F}}=\overline{\overline{\mathbb{R}^+}}=c$，所以 $\overline{\overline{H}}\ge \overline{\overline{F}}=c.$ 综上所述，$\overline{\overline{H}}=c.$</p>
-<p>$\blacksquare$</p>
-<h5 id="例题-2-8"><a href="#例题-2-8" class="headerlink" title="例题 2.8"></a>例题 2.8</h5><p>证明：$\mathbb{R}^n$ 中闭集的全体所成之集具连续基数 $c$.</p>
-<p>$proof.$</p>
-<p>$\qquad$我们知道，对于 $\mathbb{R}^n$ 中任一开集 $E$，$E^c$ 是闭集；同样的，对于 $\mathbb{R}^n$ 中任一闭集 $E$，$E^c$ 是开集。所以可以构造从 $\mathbb{R}^n$ 中全体开集构成的集合 $H$ 到 $\mathbb{R}^n$ 中全体闭集构成的集合 $T$ 的一个双射 $f$，从而可得 $\overline{\overline{T}}=\overline{\overline{H}}=c.$</p>
-<p>$\blacksquare$</p>
-<h5 id="例题-2-9"><a href="#例题-2-9" class="headerlink" title="例题 2.9"></a>例题 2.9</h5><p>设 $f$ 为定义在 $\mathbb{R}^n$ 上的函数，证明下列条件等价：<br>(1) $f$ 是连续函数;<br>(2) 对任意的 $A\in \mathbb{R}^n$，有 $f(\overline{A})\subset \overline{f(A)};$<br>(3) 对任意的 $B\in \mathbb{R}^1$，有 $f^{-1}(\overline{B})\supset \overline{f^{-1}(B).}$</p>
-<p>$proof.$</p>
-<p>$(1)\Rightarrow (2)$ </p>
-<p>$\qquad$设 $A\subset \mathbb{R}^n$，则有 $A\subset f^{-1}(f(A))$，从而有 $A\subset f^{-1}(\overline{f(A)})$，由于 $f$ 是连续函数，所以 $f^{-1}(\overline{f(A)})$ 也是闭集，故 $\overline{A}\subset f^{-1}(\overline{f(A)})$，即 $f(\overline{A})\subset \overline{f(A)}.$</p>
-<p>$(2)\Rightarrow (3)$ </p>
-<p>$\qquad$ 设 $B\subset \mathbb{R}^1$，则有 $f^{-1}(B)\subset \mathbb{R}^n$，从而我们可得 $f(\overline{f^{-1}(B)})\subset \overline{f(f^{-1}(B))}\subset\overline{B}$，所以 $f^{-1}(\overline{B})\supset \overline{f^{-1}(B)}.$</p>
-<p>$(3)\Rightarrow (1)$</p>
-<p>$\qquad$ 设 $B$ 是 $\mathbb{R}^1$ 中的任一闭集，我们有$\overline{f^{-1}(B)}\subset f^{-1}(\overline{B})=f^{-1}(B)$，从另一方面，$f^{-1}(B)\subset \overline{f^{-1}(B)}$，所以 $f^{-1}(B)= \overline{f^{-1}(B)}$，即 $f^{-1}(B)$ 是闭集，$f$ 是连续函数。<br>$\blacksquare$</p>
-<h5 id="例题-2-10"><a href="#例题-2-10" class="headerlink" title="例题 2.10"></a>例题 2.10</h5><p>设 $F\subset \mathbb{R}^n$ 是闭集，证明：存在 $F$ 的至多可数子集 $A$，使得 $\overline{A}=F.$</p>
-<p>$proof.$</p>
-<p>$\qquad$我们记以有理点为中心，以有理数为半径的有理球全体构成的集合为 $\Gamma$，根据第一章的知识，我们已经知道 $\overline{\overline{\Gamma}}=\aleph_0$，所以 $\Gamma$ 可以记为 $\{B_1,B_2,\cdots\}$. 设 $F$ 是 $\mathbb{R}^n$ 中的一个闭集，对于每个 $B_k$，若 $F\bigcap B_k\ne \varnothing$，我们就取点 $x_k\in B_k\bigcap F$，显然所取点列 $\{x_k\}$ 是一个 $F$ 的至多可数子集，我们将其记为 $A$，下证：$F=\overline{A}.$</p>
-<p>$\qquad$任取 $x\in F$，则由闭集的性质，对于任意的 $\delta&gt;0$，存在$B_k\in \Gamma$，我们有 $x\in B_k\subset B(x,\delta)$，使得 $F\bigcap B_k\ne \varnothing$，从而有 $A\bigcap B_k\ne \varnothing$，进而 $A\bigcap B(x,\delta)\ne \varnothing$，即 $x\in\overline{A}$，所以 $F\subset \overline{A}$。另一方面，$A\subset F$，故 $\overline{A}\subset\overline{F}=F$. 综上所述，$F=\overline{A}$.</p>
-<p>$\blacksquare$</p>
-<h5 id="例题-2-11"><a href="#例题-2-11" class="headerlink" title="例题 2.11"></a>例题 2.11</h5><p>设 $F_1,F_2$ 为 $\mathbb{R}^n$ 中两个互不相交的闭集，则存在 $\mathbb{R}^n$ 中的开集 $G_1,G_2$，满足 $G_1\bigcap G_2=\varnothing$，且 $F_1\subset G_1,F_2\subset G_2.$</p>
-<p>$proof.$</p>
-<p>$\qquad$我们构造距离函数 $f(x)=d(x,F_1)-d(x,F_2)$，则 $f(x)$ 显然是一个连续函数，下面我们记 $G_1=f^{-1}((-\infty,0)),G_2=f^{-1}((0,+\infty))$。首先，由于 $f$ 是连续函数，所以 $G_1,G_2$ 均是开集；其次，由于 $(-\infty,0)$ 和 $(0,+\infty)$ 不相交，所以 $G_1$ 和 $G_2$ 不相交。对于任意的 $x\in F_1,f(x)=-d(x,F_2)&lt;0$，故 $x\in G_1$，从而 $F_1\subset G_1.$ 同样的，我们可以证明，$F_2\subset G_2.$</p>
-<p>$\blacksquare$</p>
-<h5 id="例题-2-12"><a href="#例题-2-12" class="headerlink" title="例题 2.12"></a>例题 2.12</h5><p>设 $\{F_\lambda\}_{\lambda\in\Lambda}$ 是 $\mathbb{R}^n$ 中的一族有界闭集，若任取其中有限个：$F_{\lambda_1},F_{\lambda_2},\cdots,F_{\lambda_m}$，都有 $\bigcap\limits_{i=1}^m F_{\lambda_i}\ne \varnothing$. 试证明：$\bigcap\limits_{\lambda\in\Lambda}F_\lambda\ne \varnothing.$</p>
-<p>$proof.$</p>
-<p>$\qquad$假若$\bigcap\limits_{\lambda\in\Lambda}F_\lambda= \varnothing$，则 $\bigcup\limits_{\lambda\in\Lambda}F_\lambda^c=\mathbb{R}^n$. 我们取定一个指标 $\mu\in \Lambda$，则有 $F_\mu\subset\bigcup\limits_{\lambda\in\Lambda}F_\lambda^c$. 由于 $\{F_\lambda\}_{\lambda\in\Lambda}$ 是 $\mathbb{R}^n$ 中的一族有界闭集，所以 $F_\lambda^c$ 是开集，从而 $\{F_\lambda^c\}$ 构成了 $F_\mu$ 的一个开覆盖。根据有限开覆盖定理，我们可以从中选取有限子覆盖 $\{F_{\lambda_1}^c,F_{\lambda_2}^c,\cdots,F_{\lambda_m}^c\}$. 由于 $F_\mu \subset \bigcup\limits_{i=1}^m F_{\lambda_i}^c=(\bigcap\limits_{i=1}^m F_{\lambda_i})^c$，从而我们有 $F_\mu\bigcap(\bigcap\limits_{i=1}^m F_{\lambda_i})=\varnothing$，这与题设矛盾，从而 $\bigcap\limits_{\lambda\in\Lambda}F_\lambda\ne \varnothing.$</p>
-<p>$\blacksquare$</p>
-<h5 id="例题-2-13"><a href="#例题-2-13" class="headerlink" title="例题 2.13"></a>例题 2.13</h5><p>设 $F\subset\mathbb{R}^n,f(x)$ 是 $F$ 上的连续函数。证明：若 $F$ 是 $\mathbb{R}^n$ 中的有界闭集，则 $f(F)$ 也是 $\mathbb{R}^1$ 中的有界闭集。</p>
-<p>$proof.$</p>
-<p>根据延拓定理，我们不妨设 $f$ 在 $\mathbb{R}^n$ 上连续。我们即开集族 $\Gamma=\{G_\lambda\}_{\lambda\in\Lambda}$ 构成了 $f(F)$ 的一个开覆盖，由于 $f$ 是连续函数，故任意的 $G_\lambda\in \Gamma$，我们有 $f^{-1}(G_\lambda)$ 也是开集，同时开集族 $\{f^{-1}(G_\lambda)\}$ 构成了 $F$ 的一个开覆盖。由于 $F$ 是有界闭集，根据有限开覆盖定理，我们可以从中选出有限子覆盖，我们不妨记为 $\{f^{-1}(G_1),f^{-1}(G_2),\cdots,f^{-1}(G_m)\}$，与此同时 $\{G_1,G_2,\cdots,G_m\}$ 构成了 $f(F)$ 的一个子覆盖，所以 $f(F)$ 是有界闭集。</p>
-<p>$\blacksquare$</p>
-<h5 id="例题-2-14"><a href="#例题-2-14" class="headerlink" title="例题 2.14"></a>例题 2.14</h5><p>设 $f(x)$ 是 $E\subset \mathbb{R}^n$ 上的连续函数，若 $E$ 是紧集，则<br>$(1)\ f(x)$ 是 $E$ 上的有界函数；<br>$(2)\ f(x)$ 在 $E$ 上可以取到最大值与最小值；<br>$(3)\ f(x)$ 是 $E$ 上的一致连续函数。</p>
-<p>$proof.$</p>
-<p>(1) 由例题 2.13 可知，$f(E)$ 是紧集，从而 $f(E)$ 是有界闭集，即 $f(x)$ 是 $\mathbb{R}^n$ 上的有界函数。</p>
-<p>(2) 我们记 $m=\inf\limits_{x\in E}\{f(x)\},M=m=\sup\limits_{x\in E}\{f(x)\}$，由于 $f(E)$ 是 $\mathbb{R}^1$ 中的有界闭集，所以 $m\in f(E),M\in f(E)$，从而存在 $a,b\in E$，使得 $f(a)=m,f(b)=M.$ 故 $f(x)$ 在 $E$ 上可以取到最大值与最小值.</p>
-<p>(3) 由连续的定义可知，对于任意的 $\varepsilon&gt;0$，对每个 $x\in E$，存在 $\delta_x&gt;0$，当 $y\in E\bigcap B(x,\delta_x)$，有 $|f(x)-f(y)|&lt;\dfrac{\varepsilon}{2}$. 现在我们令 $r_x=\dfrac{\delta_x}{2}$，则 $\{B(x,r_x)|x\in E\}$ 构成了 $E$ 的一个开覆盖。由于 $E$ 是紧集，所以可以从中选取一个有限子覆盖 $\{B(x_k,r_{x_k})|x\in E,k=1,2,\cdots,n\}$，我们令 $r=\min\{r_{x_k}|k=1,2,\cdots,n\}$，则当 $x,y\in E$ 且满足 $|x-y|&lt;r$ 时，我们设 $x\in B(x_k,r_{x_k})$，有 $|x_k-y|\le|x_k-x|+|x-y|\le \delta_x$，从而 $|f(x)-f(y)|\le|f(x)-f(x_k)|+|f(x_k)-f(y)|\le \varepsilon.$ 所以 $f(x)$ 是 $E$ 上的一致连续函数。</p>
-<p>$\blacksquare$</p>
-<h5 id="例题-2-15"><a href="#例题-2-15" class="headerlink" title="例题 2.15"></a>例题 2.15</h5><p>设 $f(x)$ 是 $\mathbb{R}^n$ 上具有紧支集的连续函数，则<br>$(1)\ f(x)$ 是 $\mathbb{R}^n$ 上的有界函数；<br>$(2)\ f(x)$ 在 $\mathbb{R}^n$ 上可以取到最大值与最小值；<br>$(3)\ f(x)$ 是 $\mathbb{R}^n$ 上的一致连续函数。</p>
-<p>$proof.$</p>
-<p>记 $f(x)$ 在 $\mathbb{R}^n$ 上的紧支集为 $H$，由紧支集的定义可知 $H$ 是紧集。</p>
-<p>(1) 由例题 2.15 可知 $f(x)$ 在 $H$ 是有界函数，而 $f$ 在 $\mathbb{R}^n-H$ 上的取值恒为 $0$，故 $f$ 是 $\mathbb{R}^n$ 上的有界函数。</p>
-<p>(2) 由例题 2.15 可知 $f(x)$ 在 $H$ 上可取得最大最小值，而在 $\mathbb{R}^n-H$ 上 $f(x)$ 取值为 $0$，故只需比较 $H$ 上最大最小值和 $0$ 的关系，便可确定最大最小值，且可在 $E$ 中取到。</p>
-<p>(3) 由于 $H$ 是有界闭集，故 $H\subset B(0,k)$，而由于 $f(x)$ 是<br>$\mathbb{R}^n$ 的连续函数，所以 $f(x)$ 在 $\overline{B(0,k+1)}$ 上是一致连续的，即对任意的 $\varepsilon&gt;0$，存在 $\delta&gt;0$，使得当 $x,y\in \overline{B(0,k+1)}$ 且 $|x-y|&lt;\delta$ 时，有 $|f(x)-f(y)|&lt;\varepsilon$，所以当 $x,y\in\mathbb{R}^n$ 且 $|x-y|&lt;\min\{\delta,1\}时$，有 $x,y\in \overline{B(0,k+1)}$ 或 $x,y\in (B(0,k))^c$，所以 $|f(x)-f(y)|&lt;\varepsilon$，即 $f(x)$ 是 $\mathbb{R}^n$ 上的一致连续函数。</p>
-<p>$\blacksquare$</p>
-<h5 id="例题-2-16"><a href="#例题-2-16" class="headerlink" title="例题 2.16"></a>例题 2.16</h5><p>设 $f(x)$ 是定义在 $\mathbb{R}^1$ 上的可微函数. 若对任意 $t\in \mathbb{R}^1$，点集 $\{x:f’(x)=t\}$ 是闭集，试证明：$f’(x)$ 是 $\mathbb{R}^1$ 上的连续函数。</p>
-<p>$proof.$</p>
-<p>$\qquad$对于任意的 $t\in\mathbb{R}^1$，由于点集 $\{x:f’(x)=t\}$ 是闭集，所以点集 $G=\{x:f’(x)\ne t\}$ 是开集。从而由开区间构造定理可知，$G$ 可表示为可数个互不相交的构成区间的并，即 $G=\bigcup\limits_{k=1}^\infty (a_k,b_k)$。由于 $f$ 是可微函数，根据达布定理我们可知，在每个构成区间 $(a_k,b_k)$ 上 $f(x)-t$ 不改变符号。我们将 $G$ 中满足 $f’(x)&gt;t$ 的那些构成区间取出，记为 $H$，由于 $H$ 也是一些构成区间的并，所以 $H$ 也是开集。同理，$G$ 中满足 $f’(x)&gt;t$ 的那些构成区间组成的集合也是开集。再根据 $t$ 的任意性，我们可以发现，对于 $f’(x)$，任一开区间的原像是开集，从而任一开集的原像是开集，即 $f’(x)$ 是 $\mathbb{R}^1$ 上的连续函数。</p>
-<p>$\blacksquare$</p>
-<h5 id="例题-2-17"><a href="#例题-2-17" class="headerlink" title="例题 2.17"></a>例题 2.17</h5><p>设 $A,B\subset\mathbb{R}^n$，且 $A\bigcap\overline{B}=\overline{A}\bigcap B=\varnothing$，则存在开集 $U,V$ 满足 $U\bigcap V=\varnothing$，且 $A\subset U,B\subset V.$</p>
-<p>$proof.$</p>
-<p>$\qquad$我们设 $S=(\overline{A}\bigcap\overline{B})^c$，则 $(S\bigcap \overline{A}) \bigcap (S\bigcap \overline{B})=S\bigcap(\overline{A}\bigcap \overline{B})=\varnothing.$ 由此，我们可以构造距离函数 $f(x)=d(x,S\bigcap \overline{A})-d(x,S\bigcap \overline{B})$，显然 $f$ 是 $\mathbb{R}^n$ 上的连续函数，下面我们令 $U=f^{-1}((-\infty,0)),V=f^{-1}(0,+\infty)$,则 $U,V$ 是开集，且 $U\bigcap V=\varnothing.$ 对于任意的 $x\in A$，由于 $A\bigcap S^c=A\bigcap(\overline{A}\bigcap\overline{B})=A\bigcap \overline{B}=\varnothing$，所以 $x\in (A\bigcap S^c)^c=A^c\bigcup S=A^c\bigcap\overline{B}^c$，即 $x\in S,x\notin \overline{B}$，从而 $x\in S\bigcap\overline{A},x\notin S\overline{B}$，即 $f(x)&lt;0,x\in U$。所以 $A\subset U$. 同理可证：$B\subset V$.</p>
-<p>$\blacksquare$</p>
-<h5 id="例题-2-18"><a href="#例题-2-18" class="headerlink" title="例题 2.18"></a>例题 2.18</h5><p>设 $F$ 是 $\mathbb{R}^n$ 中的有界闭集，$G$ 是 $\mathbb{R}^n$ 中的开集且 $F\subset G$，则存在 $\delta&gt;0$，使得当 $|x|&lt;\delta$ 时，有 $F+\{x\}=\{y+x:y\in F\}\subset G.$</p>
-<p>$proof.$</p>
-<p>$\qquad$由于 $G$ 是 $\mathbb{R}^n$ 中的开集，且$F\subset G$，所以 $G^c$ 是 $\mathbb{R}^n$ 中的闭集，且 $F\bigcap G^c=\varnothing$. 由于 $F$ 是有界闭集，所以 $d(F,G^c)=\delta&gt;0$，下面断言，当 $|x|&lt;\delta$ 时，有 $F+\{x\}=\{y+x:y\in F\}\subset G.$<br>$\qquad$事实上，任意的 $s\in F+\{x\}=\{y+x:y\in F\}$，存在 $y\in F$，使得 $y+x=s$，然而 $|s-y|=|x|&lt;\delta,d(y,G^c)\ge d(F,G^c)=\delta$，所以 $s\notin G^c$，即 $s\in G$，综上所述，$F+\{x\}=\{y+x:y\in F\}\subset G.$</p>
-<p>$\blacksquare$</p>
-<h5 id="例题-2-19"><a href="#例题-2-19" class="headerlink" title="例题 2.19"></a>例题 2.19</h5><p>设 $C$ 为 $[0,1]$ 中的 $Cantor$ 集，证明：$C+C=\{x+y:x\in C,y<br>\in C\}=[0,2].$</p>
-<p>$proof.$</p>
-<p>$\qquad$由于 $C\subset [0,1]$，所以 $C+C\subset [0,2]$. 另一方面，我们取 $t\in[0,2]$，对于每个 $n$，记 $F_n$ 为第 $n$ 次构造 $Cantor$ 集后剩余的部分。我们构造一个平面的点集 $D_n=(F_n\times F_n)\bigcap\{(x,y)\in\mathbb{R}^2|x+y=t\}$，下断言 $D_n$ 是一个非空有界单调递减的闭集列。<br>$\qquad$ 事实上，由于 $(F_n\times F_n)\subset [0,1]\times [0,1]$ 有界，所以 $D_n$ 有界。由于 $F_n\supset F_{n+1}$，所以 $(F_n\times F_n)\supset(F_{n+1}\times F_{n+1})$，从而 $D_n\supset D_{n+1}.$ 由于 $F_n$ 是闭集，所以$(F_n\times F_n)$ 是闭集，而 $\{(x,y)\in\mathbb{R}^2|x+y=t\}$ 是闭集，所以 $D_n$ 是闭集。最后关于非空，事实上我们只需考虑 $D_1$ 非空。通过他们的几何意义，我们可以将两个集合的交可表示为如下图形的相交。<br><img src="/images/例题2.19.png" alt=""></p>
-<p>$\qquad$注意到，由于相交直线的斜率为 $45^\circ$，所以等价的，我们可以将右下方的小正方形以 $45^\circ$ 角上移到中心，这样正方形的反对角线是完整的含于阴影部分的，其必与相交直线有交点，从而 $D_1$ 是非空的。而 $D_n$ 是将阴影部分的小正方形进行对应操作。完全同样的道理，整个反对角线任含于阴影部分，所以 $D_n$ 也非空。</p>
-<p>$\qquad$ 根据闭集套定理，存在 $(x,y)\in\bigcap\limits_{i=1}^\infty D_i\subset C\times C$，从而有 $t=x+y\in C+C$，即 $C+C\supset [0,2]$。综上所述：$[0,2]=C+C$.</p>
-<p>$\blacksquare$</p>
-<h5 id="例题-2-20"><a href="#例题-2-20" class="headerlink" title="例题 2.20"></a>例题 2.20</h5><p>证明：$A$ 是疏朗集 $\Leftrightarrow\ \overline{A}$ 的余集是稠密集. </p>
-<p>$proof.$</p>
-<p>$\qquad A$是疏朗集 $\Leftrightarrow (\overline{A})^\circ=\varnothing\Leftrightarrow (\overline{A})^{c-c}=\varnothing\Leftrightarrow(\overline{A})^{c-}=\mathbb{R}^n\Leftrightarrow\overline{A}$ 的余集是稠密集.</p>
 <p>$\blacksquare$</p>
 ]]></content>
       <categories>
