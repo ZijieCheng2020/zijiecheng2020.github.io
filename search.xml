@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Welcome</title>
-    <url>/2020/10/14/Welcome/</url>
-    <content><![CDATA[<p>Welcome to my blog! This is my first post. You are able to get some knowledge about Mathematics and Statistics from the blog. Welcome to contact with me through social links on the left. </p>
-]]></content>
-      <categories>
-        <category>简介</category>
-      </categories>
-      <tags>
-        <tag>-简介</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2.1正则参数曲线</title>
     <url>/2020/10/30/2-1%E6%AD%A3%E5%88%99%E5%8F%82%E6%95%B0%E6%9B%B2%E7%BA%BF/</url>
     <content><![CDATA[<h5 id="1-参数曲线"><a href="#1-参数曲线" class="headerlink" title="1.参数曲线"></a>1.参数曲线</h5><p>$\qquad E^3$ 中的一条曲线 $C$ 是从区间 $[a,b]$ 到 $E^3$ 中的一个连续映射，记为：</p>
@@ -212,6 +200,61 @@ G_x\cdot x'(t)+G_y\cdot y'(t)+G_z\cdot z'(t)=0
       </tags>
   </entry>
   <entry>
+    <title>Welcome</title>
+    <url>/2020/10/14/Welcome/</url>
+    <content><![CDATA[<p>Welcome to my blog! This is my first post. You are able to get some knowledge about Mathematics and Statistics from the blog. Welcome to contact with me through social links on the left. </p>
+]]></content>
+      <categories>
+        <category>简介</category>
+      </categories>
+      <tags>
+        <tag>-简介</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数理统计的预备知识一</title>
+    <url>/2020/10/25/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%9A%84%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E4%B8%80/</url>
+    <content><![CDATA[<h4 id="1-总体和样本"><a href="#1-总体和样本" class="headerlink" title="1. 总体和样本"></a>1. 总体和样本</h4><p>$\qquad$<strong>总体</strong>是研究问题所涉及的对象的全体的集合，总体中每个成员称为<strong>个体</strong>，从总体中按一定的规则抽出一些个体的行为叫<strong>抽样</strong>，所得的个体叫<strong>样本</strong>。</p>
+<p>$\qquad$根据总体的个数我们可以分为：</p>
+<p>有限总体：若总体个数数目有限</p>
+<p>无限总体：若总体个数数目无限</p>
+<p>$\qquad$总体可以理解为：<br>(1) 一切可能出现的结果的集合</p>
+<p>(2)所有个体上的某种数量指标构成的集合。</p>
+<p>$\qquad$由于每个个体出现是随机的，所以相应的个体上的数量指标的出现也具有随机性，从而，我们可以将这些数据指标看成是随机变量(r.v.)，随机变量的分布就是该数量指标在总体中的分布。</p>
+<p>$\qquad$此时，总体可以由一个随机变量及其分布来刻画，从而总体可用 $r.v.$来表示，或用分布函数 $F$ 来表示。若 $F$ 有密度，记为 $f$，则此总体也可用密度函数 $f$ 表示。</p>
+<p>$\qquad$若总体分布函数为 $F$，当从该总体中抽取相互独立同分布(i.i.d.)的大小为 $n$ 的样本 $X_1,X_2,\cdots,X_n$，则记为：</p>
+<script type="math/tex; mode=display">
+X_1,X_2,\cdots,X_n\stackrel{i.i.d}{\sim} F</script><p>$\qquad$若分布有密度 $f$，则可记为：</p>
+<script type="math/tex; mode=display">
+X_1.X_2,\cdots,X_n\stackrel{i.i.d}{\sim} f</script><p>$\qquad$若总体用随机变量 $X$ 表示，分布为 $F$，则来自总体 $F$ 的样本 $X_1,X_2,\cdots,X_n$ 也可以看作 $X$ 的观察值，记作：</p>
+<script type="math/tex; mode=display">
+X_1,X_2,
+\cdots,X_n\stackrel{i.i.d}{sim} X</script><p>$\qquad$若个体的数量指标不止一项时，可用随机向量来表示总体。</p>
+<h4 id="2-样本空间与随机样本"><a href="#2-样本空间与随机样本" class="headerlink" title="2. 样本空间与随机样本"></a>2. 样本空间与随机样本</h4><h5 id="2-1-样本空间"><a href="#2-1-样本空间" class="headerlink" title="2.1 样本空间"></a>2.1 样本空间</h5><p>$\qquad$设 $X=(X_1,\cdots,X_n)$ 是从总体中抽取的样本，其<strong>样本空间</strong>定义为：$X=(X_1,\cdots,X_n)$ 可能取值的全体，记为 $\mathcal{X}$</p>
+<h5 id="2-2-样本的两重性"><a href="#2-2-样本的两重性" class="headerlink" title="2.2 样本的两重性"></a>2.2 样本的两重性</h5><p>$\qquad$样本可看作一个随机变量，在取定值后看作一个常量。我们常用大写字母表示随机变量，用小写字母表示随机变量的观察值。</p>
+<h5 id="2-3-简单随机样本"><a href="#2-3-简单随机样本" class="headerlink" title="2.3 简单随机样本"></a>2.3 简单随机样本</h5><p>$\qquad$<strong>简单随机抽样</strong>需要满足如下要求：</p>
+<p>(1) 代表性：总体中每一个个体都有同等的可能被抽到或有相同的概率分布。</p>
+<p>(2) 独立性：样本中的每一个个体取什么值并不影响其它个体取什么值，这意味着样本中各个个体 $X_1,X_2,\cdots,X_n$ 是相互独立的。</p>
+<p>$\qquad$由简单随机抽样获得的样本 $(X_1,X_2,\cdots,X_n)$ 称为简单随机样本。其具体定义如下：</p>
+<p>$\qquad$设有一总体 $F$，$X_1,X_2,\cdots,X_n$ 是从 $F$ 中抽取的容量为 $n$ 的样本，若：</p>
+<p>(1) $X_1,X_2,\cdots,X_n$ 相互独立<br>(2) $X_1,X_2,\cdots,X_n$ 具有相同的分布</p>
+<p>则称 $X_1,X_2,\cdots,X_n$ 为<strong>简单随机样本</strong>。</p>
+<h5 id="2-4-简单随机样本几个结论"><a href="#2-4-简单随机样本几个结论" class="headerlink" title="2.4 简单随机样本几个结论"></a>2.4 简单随机样本几个结论</h5><p>$\qquad$设总体为 $F$，$X_1,X_2,\cdots,X_n$ 为此总体中抽取的随机样本，则 $X_1,X_2,\cdots,X_n$ 的联合分布函数是：</p>
+<script type="math/tex; mode=display">
+F(x_1)F(x_2)\cdots F(x_n)</script><p>若有概率密度，则联合概率密度为：</p>
+<script type="math/tex; mode=display">
+f(x_1)f(x_2)\cdots f(x_n)</script><h5 id="2-5-样本分布"><a href="#2-5-样本分布" class="headerlink" title="2.5 样本分布"></a>2.5 样本分布</h5><p>当样本为随机变量时，就有一定的概率分布，这个概率分布称为样本分布。样本分布式样本所受随机因素影响的最完整的描述。</p>
+]]></content>
+      <categories>
+        <category>数理统计</category>
+        <category>统计</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>数理统计</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一元线性回归一</title>
     <url>/2020/10/16/%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%80/</url>
     <content><![CDATA[<h4 id="I-引言"><a href="#I-引言" class="headerlink" title="I. 引言"></a>I. 引言</h4><h5 id="1-期望与中位数的另一种定义"><a href="#1-期望与中位数的另一种定义" class="headerlink" title="1. 期望与中位数的另一种定义:"></a>1. 期望与中位数的另一种定义:</h5><p> $<br> \min\limits_{b}E(X-b)^2\Rightarrow E(X)=b<br> $</p>
@@ -288,49 +331,6 @@ $$\quad</script><h5 id="2-MLE下的参数估计"><a href="#2-MLE下的参数估�
       <tags>
         <tag>笔记</tag>
         <tag>应用回归分析</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数理统计的预备知识一</title>
-    <url>/2020/10/25/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%9A%84%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E4%B8%80/</url>
-    <content><![CDATA[<h4 id="1-总体和样本"><a href="#1-总体和样本" class="headerlink" title="1. 总体和样本"></a>1. 总体和样本</h4><p>$\qquad$<strong>总体</strong>是研究问题所涉及的对象的全体的集合，总体中每个成员称为<strong>个体</strong>，从总体中按一定的规则抽出一些个体的行为叫<strong>抽样</strong>，所得的个体叫<strong>样本</strong>。</p>
-<p>$\qquad$根据总体的个数我们可以分为：</p>
-<p>有限总体：若总体个数数目有限</p>
-<p>无限总体：若总体个数数目无限</p>
-<p>$\qquad$总体可以理解为：<br>(1) 一切可能出现的结果的集合</p>
-<p>(2)所有个体上的某种数量指标构成的集合。</p>
-<p>$\qquad$由于每个个体出现是随机的，所以相应的个体上的数量指标的出现也具有随机性，从而，我们可以将这些数据指标看成是随机变量(r.v.)，随机变量的分布就是该数量指标在总体中的分布。</p>
-<p>$\qquad$此时，总体可以由一个随机变量及其分布来刻画，从而总体可用 $r.v.$来表示，或用分布函数 $F$ 来表示。若 $F$ 有密度，记为 $f$，则此总体也可用密度函数 $f$ 表示。</p>
-<p>$\qquad$若总体分布函数为 $F$，当从该总体中抽取相互独立同分布(i.i.d.)的大小为 $n$ 的样本 $X_1,X_2,\cdots,X_n$，则记为：</p>
-<script type="math/tex; mode=display">
-X_1,X_2,\cdots,X_n\stackrel{i.i.d}{\sim} F</script><p>$\qquad$若分布有密度 $f$，则可记为：</p>
-<script type="math/tex; mode=display">
-X_1.X_2,\cdots,X_n\stackrel{i.i.d}{\sim} f</script><p>$\qquad$若总体用随机变量 $X$ 表示，分布为 $F$，则来自总体 $F$ 的样本 $X_1,X_2,\cdots,X_n$ 也可以看作 $X$ 的观察值，记作：</p>
-<script type="math/tex; mode=display">
-X_1,X_2,
-\cdots,X_n\stackrel{i.i.d}{sim} X</script><p>$\qquad$若个体的数量指标不止一项时，可用随机向量来表示总体。</p>
-<h4 id="2-样本空间与随机样本"><a href="#2-样本空间与随机样本" class="headerlink" title="2. 样本空间与随机样本"></a>2. 样本空间与随机样本</h4><h5 id="2-1-样本空间"><a href="#2-1-样本空间" class="headerlink" title="2.1 样本空间"></a>2.1 样本空间</h5><p>$\qquad$设 $X=(X_1,\cdots,X_n)$ 是从总体中抽取的样本，其<strong>样本空间</strong>定义为：$X=(X_1,\cdots,X_n)$ 可能取值的全体，记为 $\mathcal{X}$</p>
-<h5 id="2-2-样本的两重性"><a href="#2-2-样本的两重性" class="headerlink" title="2.2 样本的两重性"></a>2.2 样本的两重性</h5><p>$\qquad$样本可看作一个随机变量，在取定值后看作一个常量。我们常用大写字母表示随机变量，用小写字母表示随机变量的观察值。</p>
-<h5 id="2-3-简单随机样本"><a href="#2-3-简单随机样本" class="headerlink" title="2.3 简单随机样本"></a>2.3 简单随机样本</h5><p>$\qquad$<strong>简单随机抽样</strong>需要满足如下要求：</p>
-<p>(1) 代表性：总体中每一个个体都有同等的可能被抽到或有相同的概率分布。</p>
-<p>(2) 独立性：样本中的每一个个体取什么值并不影响其它个体取什么值，这意味着样本中各个个体 $X_1,X_2,\cdots,X_n$ 是相互独立的。</p>
-<p>$\qquad$由简单随机抽样获得的样本 $(X_1,X_2,\cdots,X_n)$ 称为简单随机样本。其具体定义如下：</p>
-<p>$\qquad$设有一总体 $F$，$X_1,X_2,\cdots,X_n$ 是从 $F$ 中抽取的容量为 $n$ 的样本，若：</p>
-<p>(1) $X_1,X_2,\cdots,X_n$ 相互独立<br>(2) $X_1,X_2,\cdots,X_n$ 具有相同的分布</p>
-<p>则称 $X_1,X_2,\cdots,X_n$ 为<strong>简单随机样本</strong>。</p>
-<h5 id="2-4-简单随机样本几个结论"><a href="#2-4-简单随机样本几个结论" class="headerlink" title="2.4 简单随机样本几个结论"></a>2.4 简单随机样本几个结论</h5><p>$\qquad$设总体为 $F$，$X_1,X_2,\cdots,X_n$ 为此总体中抽取的随机样本，则 $X_1,X_2,\cdots,X_n$ 的联合分布函数是：</p>
-<script type="math/tex; mode=display">
-F(x_1)F(x_2)\cdots F(x_n)</script><p>若有概率密度，则联合概率密度为：</p>
-<script type="math/tex; mode=display">
-f(x_1)f(x_2)\cdots f(x_n)</script><h5 id="2-5-样本分布"><a href="#2-5-样本分布" class="headerlink" title="2.5 样本分布"></a>2.5 样本分布</h5><p>当样本为随机变量时，就有一定的概率分布，这个概率分布称为样本分布。样本分布式样本所受随机因素影响的最完整的描述。</p>
-]]></content>
-      <categories>
-        <category>数理统计</category>
-        <category>统计</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>数理统计</tag>
       </tags>
   </entry>
   <entry>
