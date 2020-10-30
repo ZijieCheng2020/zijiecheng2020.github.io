@@ -94,7 +94,7 @@
 <meta property="og:description" content="III 回归方程的显著性检验1.  $t$ 检验目的：$t$ 检验是用于检验回归系数的显著性。 步骤： $Step1.$ 建立检验假设。原假设 $H_0:\beta_1&#x3D;0$, 备择假设：$H_1:\beta_1\ne0$ $Step2.$ 构造检验统计量。由于 $\hat{\beta_1}\sim (\beta_1，\dfrac{\sigma^2}{L_{xx}})$，所以当 $H_0:\bet">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-10-16T13:06:17.000Z">
-<meta property="article:modified_time" content="2020-10-16T13:16:49.516Z">
+<meta property="article:modified_time" content="2020-10-30T11:27:29.132Z">
 <meta property="article:author" content="承子杰">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="应用回归分析">
@@ -511,7 +511,7 @@
 </div>
 <h5 id="3-相关系数-r-检验"><a href="#3-相关系数-r-检验" class="headerlink" title="3.相关系数 $r$ 检验"></a>3.相关系数 $r$ 检验</h5><p>目的：检验相关系数 $r$ 的显著性，即通过 $r$ 的大小来衡量变量 $x$ 与 $y$ 之间的线性相关程度。</p>
 <p>构造相关系数：</p>
-<script type="math/tex; mode=display">r=\dfrac{L_{xx}}{\sqrt{L_{xx}L_{yy}}}=\hat{\beta_1}\sqrt{\dfrac{L_{xx}}{L_{yy}}}</script><h5 id="4-三种检验的关系："><a href="#4-三种检验的关系：" class="headerlink" title="4.三种检验的关系："></a>4.三种检验的关系：</h5><p>对于一元线性回归而言，这三种检验的结果是完全一致的。<br>即</p>
+<script type="math/tex; mode=display">r=\dfrac{L_{xy}}{\sqrt{L_{xx}L_{yy}}}=\hat{\beta_1}\sqrt{\dfrac{L_{xx}}{L_{yy}}}</script><h5 id="4-三种检验的关系："><a href="#4-三种检验的关系：" class="headerlink" title="4.三种检验的关系："></a>4.三种检验的关系：</h5><p>对于一元线性回归而言，这三种检验的结果是完全一致的。<br>即</p>
 <p>$(1)\ t=\dfrac{\hat{\beta_1}\sqrt{L_{xx}}}{\hat{\sigma}}=\dfrac{\sqrt{n-2}\ r}{\sqrt{1-r^2}}$</p>
 <p>$(2)\ F=\dfrac{SSR/1}{SSE/(n-2)}=\dfrac{\hat{\beta_1}^2\cdot L_{xx}}{\hat{\sigma}^2}=t^2$</p>
 <p>$proof.$</p>
