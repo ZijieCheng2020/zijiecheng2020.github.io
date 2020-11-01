@@ -92,82 +92,15 @@ G_x\cdot x'(t)+G_y\cdot y'(t)+G_z\cdot z'(t)=0
       </tags>
   </entry>
   <entry>
-    <title>一元线性回归一</title>
-    <url>/2020/10/16/%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%80/</url>
-    <content><![CDATA[<h4 id="I-引言"><a href="#I-引言" class="headerlink" title="I. 引言"></a>I. 引言</h4><h5 id="1-期望与中位数的另一种定义"><a href="#1-期望与中位数的另一种定义" class="headerlink" title="1. 期望与中位数的另一种定义:"></a>1. 期望与中位数的另一种定义:</h5><p> $<br> \min\limits_{b}E(X-b)^2\Rightarrow E(X)=b<br> $</p>
-<p> $\min\limits_bE\ |X-b|\Rightarrow med(X)=b$<br>$\quad$<br>  $proof.$</p>
-<p>  $E(X-b)^2=E(X^2-2bX+b^2)=E(X^2)-2bE(X)+b^2\quad (1)$</p>
-<p>$\ \quad$可将 $(1)$ 式看为 $b$ 的一个一元二次函数,现求 $b$ 的最小值。可由公式得：$b=E(X).$</p>
-<p>$\ \quad$对于中位数，我们只考虑连续的情况，离散时类似可证。令随机变量 $X$ 的概率密度为 $p(x)$, 概率分布为 $F(X)$ ，则有等式成立：</p>
-<p> $E |X-b|=\int_{-\infty}^{\infty}|x-b|\ p(x)dx$<br> $\qquad\qquad\ =\int_{-\infty}^{b}(b-x)p(x)dx+\int_{b}^{\infty}(x-b)p(x)dx$  </p>
-<p>$\ \quad$现要求 $b$ 的最小值，两边对 $b$ 求导，并令导数为 $0$ .</p>
-<script type="math/tex; mode=display">\int_{-\infty}^{b}p(x)dx-\int_{b}^{\infty}p(x)dx=0</script><p>$\Rightarrow F(b)-(1-F(b))=0$ , 即 $F(b)=\dfrac{1}{2},b=med(X).$</p>
-<p>$\quad$</p>
-<h5 id="2-Conditional-Expectation"><a href="#2-Conditional-Expectation" class="headerlink" title="2. Conditional Expectation :"></a>2. Conditional Expectation :</h5><h6 id="i-Law-of-Total-Expectation"><a href="#i-Law-of-Total-Expectation" class="headerlink" title="i.) Law of Total Expectation :"></a>i.) Law of Total Expectation :</h6><script type="math/tex; mode=display">E \ [E(X|Y)]=E(X)</script><h6 id="ii-Law-of-Total-Variance"><a href="#ii-Law-of-Total-Variance" class="headerlink" title="ii.) Law of Total Variance"></a>ii.) Law of Total Variance</h6><script type="math/tex; mode=display">Var(X)=Var\ [E(X|Y)]+E\ [Var(X|Y)]</script><p>$proof.$</p>
-<p>$\ \quad$设随机变量 $X,Y$的联合密度为$f(x,y)$,边缘密度分别为$f_X(x),f_Y(y)$,则成立等式：</p>
-<p>i.) $E(X)=\int xf_X(x)dx$<br>$\qquad\quad\ \ \ =\int\int xf(x,y)dxdy$<br>$\qquad\quad\ \ \ =\int\int x\ [\ f(x|y)\cdot f_Y(y)\ ]\ dx\ dy$<br>$\qquad\quad\ \ \ =\int[\int x\cdot f(x|y)\ dx]\ f_Y(y)\ dy$<br>$\qquad\quad\ \ \ =\int E(X|y)\cdot f_Y(y)\ dy=E[E(X|Y)].$</p>
-<p>ii.)$Var(X)=E(X-E(X))^2$<br>$\qquad\qquad\ \ =E[X-E(X|Y)+E(X|Y)-E(X)]^2$<br>$\qquad\qquad\ \ =E[X-E(X|Y)]^2+E[E(X|Y)-E(X)]^2+2E[(X-E(X|Y))(E(X|Y)-E(X))]\quad\quad (1)$</p>
-<p>$\quad$</p>
-<p>而$E[X-E(X|Y)]^2$<br>$=E\begin{Bmatrix}E[(X-E(X|Y))^2|Y)]\end{Bmatrix}$<br>$=E\begin{Bmatrix}E[(X^2+(E(X|Y))^2-2XE(X|Y))|Y]\end{Bmatrix}$<br>$=E\begin{Bmatrix}E(X^2|Y)+(E(X|Y))^2-2(E(X|Y))^2\end{Bmatrix}$<br>$=E\begin{Bmatrix}E(X^2|Y)-(E(X|Y))^2\end{Bmatrix}$<br>$=E[Var(X|Y)]$</p>
-<p>$\quad$<br>$E[E(X|Y)-E(X)]^2=E\begin{Bmatrix}E(X|Y)-E[E(X|Y)]\end{Bmatrix}^2$<br>$\qquad\qquad\qquad\qquad\quad\ =Var[E(X|Y)]$</p>
-<p>$\quad$</p>
-<p>$E[(X-E(X|Y))(E(X|Y)-E(X))]$<br>$=E\begin{Bmatrix}E[(X-E(X|Y))(E(X|Y)-E(X))]|Y\end{Bmatrix}$<br>$=(E(X|Y))^2-E(X)E(X|Y)-(E(X|Y))^2+E(X|Y)E(X)$<br>$=0$</p>
-<p>$\ \quad$所以 $(1)=Var(E(X|Y))+E(Var(X|Y)).$</p>
-<p>$\quad$</p>
-<h4 id="II-一元回归模型"><a href="#II-一元回归模型" class="headerlink" title="II. 一元回归模型"></a>II. 一元回归模型</h4><h5 id="1-OLSE下的参数估计"><a href="#1-OLSE下的参数估计" class="headerlink" title="1. OLSE下的参数估计"></a>1. <strong>OLSE</strong>下的参数估计</h5><p>$\ \quad$<strong>OLSE</strong>的主要思想是寻找参数 $\beta_0,\beta_1$ 的估计值使离差平方和达到最小。从而可转化为如下问题：</p>
-<script type="math/tex; mode=display">\min\limits_{\beta_0,\beta_1}\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2</script><p>$\ \quad$分别对 $\beta_0,\beta_1$ 求偏导，并令偏导为 $0$，结果如下：</p>
-<script type="math/tex; mode=display">\left\{\begin{array}{l}
--2\sum\limits_{i=1}^n(y_i-\hat{\beta_0}-\hat{\beta_1}x_i)=0
-\\-2\sum\limits_{i=1}^n(y_i-\hat{\beta_0}-\hat{\beta_1}x_i)x_i=0
-\end{array}\right.</script><p>$\ \quad$整理后可得：</p>
-<script type="math/tex; mode=display">\left\{\begin{array}{l}
-n\hat{\beta_0}+(\sum_{i=1}^nx_i)\hat{\beta_1}=\sum\limits_{i=1}^ny_i\quad\quad (1)
-\\(\sum_{i=1}^nx_i)\hat{\beta_0}+(\sum\limits_{i=1}^nx_i^2)\hat{\beta_1}=\sum\limits_{i=1}^nx_iy_i\quad\quad (2)
-\end{array}\right.</script><p>$\ \quad$对 $(1)$ 两边同时除以 $n$ ，整理后可得：</p>
-<script type="math/tex; mode=display">\hat{\beta_0}=\bar{y}-\bar{x}\hat{\beta_1}</script><p>$\ \quad$对于 $(2)$ 注意到有如下两个等式：<br>i. ) $\sum\limits_{i=1}^n(x_i-\bar{x})^2=\sum\limits_{i=1}^n(x_i^2-2x_i\cdot\bar{x}+\bar{x}^2)$<br>$\quad\quad\qquad\qquad\ \  =\sum\limits_{i=1}^nx_i^2+n\bar{x}^2-2\bar{x}\sum\limits_{i=1}^nx_i$<br>$\quad\quad\qquad\qquad\ \  =\sum\limits_{i=1}^nx_i^2-n\bar{x}^2.$</p>
-<p>ii. ) $\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})=\sum\limits_{i=1}^n(x_iy_i+\bar{x}\bar{y}-\bar{x}y_i-\bar{y}x_i)$<br>$\qquad\qquad\qquad\qquad\quad\  \ =\sum\limits_{i=1}^nx_iy_i+n\bar{x}\bar{y}-\bar{x}\sum\limits_{i=1}^ny_i-\bar{y}\sum\limits_{i=1}^nx_i$<br>$\qquad\qquad\qquad\qquad\quad\  \ =\sum\limits_{i=1}^nx_iy_i+n\bar{x}\bar{y}-n\bar{x}\bar{y}-n\bar{x}\bar{y}$<br>$\qquad\qquad\qquad\qquad\quad\  \ =\sum\limits_{i=1}^nx_iy_i-n\bar{x}\bar{y}$</p>
-<p>$\ \quad$由上述公式，$(2)$ 变为：</p>
-<script type="math/tex; mode=display">n\bar{x}\hat{\beta_0}+(\sum\limits_{i=1}^n(x_i-\bar{x})^2+n\bar{x}^2)\hat{\beta_1}=\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})+n\bar{x}\bar{y}</script><p>$\ \quad$再由 $(1)$ 整理后可得：</p>
-<script type="math/tex; mode=display">\left\{\begin{array}{l}
-\hat{\beta_0}=\bar{y}-\hat{\beta_1}\bar{x}
-\\\hat{\beta_1}=\dfrac{\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}
-\end{array}\right.</script><script type="math/tex; mode=display">$$
-$$\quad</script><h5 id="2-MLE下的参数估计"><a href="#2-MLE下的参数估计" class="headerlink" title="2. MLE下的参数估计"></a>2. <strong>MLE</strong>下的参数估计</h5><p>$\ \quad$<strong>MLE</strong>的主要思想是利用总体的概率密度及其样本提供的信息构造似然函数，通过似然函数取值最大得到对应参数的估计。</p>
-<p>$\ \quad$对于一元线性回归模型参数的MLE，我们假设 $\varepsilon_i\sim N(0,\sigma^2)$ 时，$y_i$ 服从如下正态分布：</p>
-<script type="math/tex; mode=display">y_i\sim N(\beta_0+\beta_1x_i,\sigma^2)</script><p>$\ \quad$则 $y_i$的概率密度为:</p>
-<script type="math/tex; mode=display">f_i(y_i)=\dfrac{1}{\sqrt{2\pi}\sigma}e^{-\dfrac{(y_i-\beta_0-\beta_1x_i)^2}{2\sigma^2}}</script><p>$\ \quad$构造似然函数：</p>
-<script type="math/tex; mode=display">L(\beta_0,\beta_1,\sigma)=\prod\limits_{i=1}^nf_i(y_i)</script><p>$\qquad\qquad\quad\ \ \ \ =\dfrac{1}{(\sqrt{2\pi}\sigma)^{n}}e^{-\dfrac{\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2}{2\sigma^2}}$</p>
-<p>$\ \quad$对似然函数取对数：</p>
-<script type="math/tex; mode=display">ln(L)=-nln((\sqrt{2\pi}\sigma))-\dfrac{\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2}{2\sigma^2}</script><p>$\ \quad$为了使似然函数 $L$取得最大值,等价的我们只需使<br>$\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2$ 取得最小值，即</p>
-<script type="math/tex; mode=display">\min\limits_{\beta_0,\beta_1}\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2</script><p>至此与<strong>OLSE</strong>一致。</p>
-<script type="math/tex; mode=display">\quad</script><h5 id="3-OLSE估计的性质"><a href="#3-OLSE估计的性质" class="headerlink" title="3. OLSE估计的性质"></a>3. <strong>OLSE</strong>估计的性质</h5><h6 id="i-线性"><a href="#i-线性" class="headerlink" title="i. ) 线性"></a>i. ) 线性</h6><script type="math/tex; mode=display">\hat{\beta_1}=\dfrac{\sum\limits_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}y_i-\bar{y}\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}</script><p>$\ \quad$注意到：</p>
-<script type="math/tex; mode=display">\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=\dfrac{n\bar{x}-n\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=0</script><p>所以</p>
-<script type="math/tex; mode=display">\hat{\beta_1}=\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}y_j</script><p>是关于 $y_j$ 的线性组合。</p>
-<p>$\ \quad$由于 $\hat{\beta_0}=\bar{y}-\hat{\beta_1}\bar{x}$ 且 $\bar{x}$ 是常数，结合上式可得：</p>
-<script type="math/tex; mode=display">\beta_0=\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})y_j</script><p>也是关于 $y_j$ 的线性组合。</p>
-<p>$\quad$</p>
-<h6 id="ii-无偏性"><a href="#ii-无偏性" class="headerlink" title="ii. ) 无偏性"></a>ii. ) 无偏性</h6><p>$\ \quad$注意到由 $y_i=\beta_0+\beta_1x_i+\varepsilon_i$ 可得:</p>
-<script type="math/tex; mode=display">E(y_i)=\beta_0+\beta_1x_i\ \ (Markov-Gauss\ Condition)</script><p>所以</p>
-<p>$E(\hat{\beta_1})=\sum\limits_{j=1}^n\dfrac{x_j-\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}E(y_j)$<br>$\qquad\ \ \ =\sum\limits_{j=1}^n\dfrac{x_j-\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}(\beta_0+\beta_1x_j)$<br>$\qquad\ \ \ =\beta_0\cdot \sum\limits_{j=1}^n\dfrac{x_j-\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}+\beta_1\cdot\sum\limits_{j=1}^n\dfrac{x_j^2-x_j\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2} \qquad (1)$</p>
-<p>$\qquad$注意到</p>
-<p>$\sum\limits_{j=1}^n\dfrac{x_j-\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=\dfrac{n\bar{x}-n\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=0 $</p>
-<p>$\sum\limits_{j=1}^n\dfrac{x_j^2-x_j\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=\dfrac{\sum\limits_{j=1}^nx_j^2-n\bar{x}^2}{\sum\limits_{i=1}^nx_i^2+n\bar{x}^2-2\bar{x}\sum\limits_{i=1}^nx_i}$<br>$\qquad\qquad\quad\quad\ \ \ \ =\dfrac{\sum\limits_{j=1}^nx_j^2-n\bar{x}^2}{\sum\limits_{i=1}^nx_i^2-n\bar{x}^2}=1$</p>
-<p>所以 </p>
-<script type="math/tex; mode=display">E(\hat{\beta_1})=(1)=\beta_1.</script><p>$\quad$<br>$E(\hat{\beta_0})=\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})E(y_j)$<br>$\quad\quad\ \ \ =\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})(\beta_0+\beta_1x_j)$<br>$\quad\quad\ \ \ =\beta_0-\beta_0\bar{x}\cdot\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}+\beta_1\bar{x}-\beta_1\bar{x}\sum\limits_{j=1}^n\dfrac{x_j^2-x_j\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}$</p>
-<p>$\quad\quad$由上述两个已证公式,可得 :</p>
-<script type="math/tex; mode=display">E(\hat{\beta_0})=\beta_0-\beta_0\bar{x}\cdot 0+\beta_1\bar{x}-\beta_{1}\bar{x}\cdot 1=\beta_0.</script><script type="math/tex; mode=display">\quad</script><h6 id="iii-hat-beta-0-hat-beta-1-的方差"><a href="#iii-hat-beta-0-hat-beta-1-的方差" class="headerlink" title="iii. ) $\hat{\beta_0},\hat{\beta_1}$ 的方差 :"></a>iii. ) $\hat{\beta_0},\hat{\beta_1}$ 的方差 :</h6><p>$Var(\hat{\beta_1})$<br>$=Var(\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}y_j)$<br>$=\sum\limits_{j=1}^n(\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})^2Var(y_j)\qquad(Markov-Gauss\ Condition)$<br>$=\dfrac{\sum\limits_{j=1}^n(x_j-\bar{x})^2}{(\sum\limits_{i=1}^n(x_i-\bar{x})^2)^2}\sigma^2$<br>$=\dfrac{\sigma^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}$</p>
-<script type="math/tex; mode=display">\quad</script><p>$Var(\hat{\beta_0})$<br>$=Var(\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})y_j)$<br>$=\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})^2Var(y_i)\quad (Markov-Gauss\ Condition)$<br>$=\sum(\dfrac{1}{n^2}+(\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})^2-\dfrac{2}{n}\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})\sigma^2$<br>$=\sigma^2(\sum\dfrac{1}{n^2}+\dfrac{\bar{x}^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}-\dfrac{2\bar{x}}{n}\sum\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}$<br>$=\sigma^2(\dfrac{1}{n}+\dfrac{\bar{x}^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}).$</p>
-<script type="math/tex; mode=display">\quad</script><h6 id="beta-1-与-beta-0-的协方差："><a href="#beta-1-与-beta-0-的协方差：" class="headerlink" title="$\beta_1$ 与 $\beta_0$ 的协方差："></a>$\beta_1$ 与 $\beta_0$ 的协方差：</h6><p>$\quad\quad$由于 $y_i\sim N(\beta_0+\beta_1x_i,\sigma^2)$,故对于统计量 $\bar{y}$ 有：</p>
-<p>$Var(\bar{y})=Var(\hat{\beta_0}+\hat{\beta_1}\bar{x})$<br>$\qquad\quad\ \ =Var(\hat{\beta_0})+\bar{x}^2Var(\hat{\beta_1})+2\bar{x}Cov(\hat{\beta_1},\hat{\beta_0})$<br>$\Rightarrow \quad \dfrac{\sigma^2}{n}=\sigma^2(\dfrac{1}{n}+\dfrac{\bar{x}^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})+\dfrac{\bar{x}^2\sigma^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}+2\bar{x}Cov(\hat{\beta_1},\hat{\beta_0})$<br>$\Rightarrow \quad Cov(\hat{\beta_1},\hat{\beta_0})=-\dfrac{\bar{x}\sigma^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}$<br>$\Rightarrow \quad Cov(\hat{\beta_1},\hat{\beta_0})=-\dfrac{\bar{x}\sigma^2}{L_{xx}}$</p>
-<script type="math/tex; mode=display">\quad</script><p>$\qquad$由于 $\hat{\beta_0}$ 和 $\hat{\beta_1}$ 都是 $y_i$ 的线性组合，且 $y_i$ 间独立同分布，故 $\hat{\beta_0}$ 和 $\hat{\beta_1}$ 也服从正态分布，即：</p>
-<script type="math/tex; mode=display">\hat{\beta_0}\sim N(\beta_0,(\dfrac{1}{n}+\dfrac{\bar{x}^2}{L_{xx}})\sigma^2)</script><script type="math/tex; mode=display">\hat{\beta_1}\sim N(\beta_1,\dfrac{\sigma^2}{L_{xx}})</script>]]></content>
+    <title>Welcome</title>
+    <url>/2020/10/14/Welcome/</url>
+    <content><![CDATA[<p>Welcome to my blog! This is my first post. You are able to get some knowledge about Mathematics and Statistics from the blog. Welcome to contact with me through social links on the left. </p>
+]]></content>
       <categories>
-        <category>应用回归分析</category>
-        <category>统计</category>
+        <category>简介</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
-        <tag>应用回归分析</tag>
+        <tag>-简介</tag>
       </tags>
   </entry>
   <entry>
@@ -203,18 +136,6 @@ s&=\int_a^b |r'(t)|dt\\
       <tags>
         <tag>微分几何</tag>
         <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Welcome</title>
-    <url>/2020/10/14/Welcome/</url>
-    <content><![CDATA[<p>Welcome to my blog! This is my first post. You are able to get some knowledge about Mathematics and Statistics from the blog. Welcome to contact with me through social links on the left. </p>
-]]></content>
-      <categories>
-        <category>简介</category>
-      </categories>
-      <tags>
-        <tag>-简介</tag>
       </tags>
   </entry>
   <entry>
@@ -326,46 +247,272 @@ s&=\int_a^b |r'(t)|dt\\
       </tags>
   </entry>
   <entry>
-    <title>数理统计的预备知识一</title>
-    <url>/2020/10/25/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%9A%84%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E4%B8%80/</url>
-    <content><![CDATA[<h4 id="1-总体和样本"><a href="#1-总体和样本" class="headerlink" title="1. 总体和样本"></a>1. 总体和样本</h4><p>$\qquad$<strong>总体</strong>是研究问题所涉及的对象的全体的集合，总体中每个成员称为<strong>个体</strong>，从总体中按一定的规则抽出一些个体的行为叫<strong>抽样</strong>，所得的个体叫<strong>样本</strong>。</p>
-<p>$\qquad$根据总体的个数我们可以分为：</p>
-<p>有限总体：若总体个数数目有限</p>
-<p>无限总体：若总体个数数目无限</p>
-<p>$\qquad$总体可以理解为：<br>(1) 一切可能出现的结果的集合</p>
-<p>(2)所有个体上的某种数量指标构成的集合。</p>
-<p>$\qquad$由于每个个体出现是随机的，所以相应的个体上的数量指标的出现也具有随机性，从而，我们可以将这些数据指标看成是随机变量(r.v.)，随机变量的分布就是该数量指标在总体中的分布。</p>
-<p>$\qquad$此时，总体可以由一个随机变量及其分布来刻画，从而总体可用 $r.v.$来表示，或用分布函数 $F$ 来表示。若 $F$ 有密度，记为 $f$，则此总体也可用密度函数 $f$ 表示。</p>
-<p>$\qquad$若总体分布函数为 $F$，当从该总体中抽取相互独立同分布(i.i.d.)的大小为 $n$ 的样本 $X_1,X_2,\cdots,X_n$，则记为：</p>
-<script type="math/tex; mode=display">
-X_1,X_2,\cdots,X_n\stackrel{i.i.d}{\sim} F</script><p>$\qquad$若分布有密度 $f$，则可记为：</p>
-<script type="math/tex; mode=display">
-X_1.X_2,\cdots,X_n\stackrel{i.i.d}{\sim} f</script><p>$\qquad$若总体用随机变量 $X$ 表示，分布为 $F$，则来自总体 $F$ 的样本 $X_1,X_2,\cdots,X_n$ 也可以看作 $X$ 的观察值，记作：</p>
-<script type="math/tex; mode=display">
-X_1,X_2,
-\cdots,X_n\stackrel{i.i.d}{sim} X</script><p>$\qquad$若个体的数量指标不止一项时，可用随机向量来表示总体。</p>
-<h4 id="2-样本空间与随机样本"><a href="#2-样本空间与随机样本" class="headerlink" title="2. 样本空间与随机样本"></a>2. 样本空间与随机样本</h4><h5 id="2-1-样本空间"><a href="#2-1-样本空间" class="headerlink" title="2.1 样本空间"></a>2.1 样本空间</h5><p>$\qquad$设 $X=(X_1,\cdots,X_n)$ 是从总体中抽取的样本，其<strong>样本空间</strong>定义为：$X=(X_1,\cdots,X_n)$ 可能取值的全体，记为 $\mathcal{X}$</p>
-<h5 id="2-2-样本的两重性"><a href="#2-2-样本的两重性" class="headerlink" title="2.2 样本的两重性"></a>2.2 样本的两重性</h5><p>$\qquad$样本可看作一个随机变量，在取定值后看作一个常量。我们常用大写字母表示随机变量，用小写字母表示随机变量的观察值。</p>
-<h5 id="2-3-简单随机样本"><a href="#2-3-简单随机样本" class="headerlink" title="2.3 简单随机样本"></a>2.3 简单随机样本</h5><p>$\qquad$<strong>简单随机抽样</strong>需要满足如下要求：</p>
-<p>(1) 代表性：总体中每一个个体都有同等的可能被抽到或有相同的概率分布。</p>
-<p>(2) 独立性：样本中的每一个个体取什么值并不影响其它个体取什么值，这意味着样本中各个个体 $X_1,X_2,\cdots,X_n$ 是相互独立的。</p>
-<p>$\qquad$由简单随机抽样获得的样本 $(X_1,X_2,\cdots,X_n)$ 称为简单随机样本。其具体定义如下：</p>
-<p>$\qquad$设有一总体 $F$，$X_1,X_2,\cdots,X_n$ 是从 $F$ 中抽取的容量为 $n$ 的样本，若：</p>
-<p>(1) $X_1,X_2,\cdots,X_n$ 相互独立<br>(2) $X_1,X_2,\cdots,X_n$ 具有相同的分布</p>
-<p>则称 $X_1,X_2,\cdots,X_n$ 为<strong>简单随机样本</strong>。</p>
-<h5 id="2-4-简单随机样本几个结论"><a href="#2-4-简单随机样本几个结论" class="headerlink" title="2.4 简单随机样本几个结论"></a>2.4 简单随机样本几个结论</h5><p>$\qquad$设总体为 $F$，$X_1,X_2,\cdots,X_n$ 为此总体中抽取的随机样本，则 $X_1,X_2,\cdots,X_n$ 的联合分布函数是：</p>
-<script type="math/tex; mode=display">
-F(x_1)F(x_2)\cdots F(x_n)</script><p>若有概率密度，则联合概率密度为：</p>
-<script type="math/tex; mode=display">
-f(x_1)f(x_2)\cdots f(x_n)</script><h5 id="2-5-样本分布"><a href="#2-5-样本分布" class="headerlink" title="2.5 样本分布"></a>2.5 样本分布</h5><p>当样本为随机变量时，就有一定的概率分布，这个概率分布称为样本分布。样本分布式样本所受随机因素影响的最完整的描述。</p>
-]]></content>
+    <title>一元线性回归一</title>
+    <url>/2020/10/16/%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%80/</url>
+    <content><![CDATA[<h4 id="I-引言"><a href="#I-引言" class="headerlink" title="I. 引言"></a>I. 引言</h4><h5 id="1-期望与中位数的另一种定义"><a href="#1-期望与中位数的另一种定义" class="headerlink" title="1. 期望与中位数的另一种定义:"></a>1. 期望与中位数的另一种定义:</h5><p> $<br> \min\limits_{b}E(X-b)^2\Rightarrow E(X)=b<br> $</p>
+<p> $\min\limits_bE\ |X-b|\Rightarrow med(X)=b$<br>$\quad$<br>  $proof.$</p>
+<p>  $E(X-b)^2=E(X^2-2bX+b^2)=E(X^2)-2bE(X)+b^2\quad (1)$</p>
+<p>$\ \quad$可将 $(1)$ 式看为 $b$ 的一个一元二次函数,现求 $b$ 的最小值。可由公式得：$b=E(X).$</p>
+<p>$\ \quad$对于中位数，我们只考虑连续的情况，离散时类似可证。令随机变量 $X$ 的概率密度为 $p(x)$, 概率分布为 $F(X)$ ，则有等式成立：</p>
+<p> $E |X-b|=\int_{-\infty}^{\infty}|x-b|\ p(x)dx$<br> $\qquad\qquad\ =\int_{-\infty}^{b}(b-x)p(x)dx+\int_{b}^{\infty}(x-b)p(x)dx$  </p>
+<p>$\ \quad$现要求 $b$ 的最小值，两边对 $b$ 求导，并令导数为 $0$ .</p>
+<script type="math/tex; mode=display">\int_{-\infty}^{b}p(x)dx-\int_{b}^{\infty}p(x)dx=0</script><p>$\Rightarrow F(b)-(1-F(b))=0$ , 即 $F(b)=\dfrac{1}{2},b=med(X).$</p>
+<p>$\quad$</p>
+<h5 id="2-Conditional-Expectation"><a href="#2-Conditional-Expectation" class="headerlink" title="2. Conditional Expectation :"></a>2. Conditional Expectation :</h5><h6 id="i-Law-of-Total-Expectation"><a href="#i-Law-of-Total-Expectation" class="headerlink" title="i.) Law of Total Expectation :"></a>i.) Law of Total Expectation :</h6><script type="math/tex; mode=display">E \ [E(X|Y)]=E(X)</script><h6 id="ii-Law-of-Total-Variance"><a href="#ii-Law-of-Total-Variance" class="headerlink" title="ii.) Law of Total Variance"></a>ii.) Law of Total Variance</h6><script type="math/tex; mode=display">Var(X)=Var\ [E(X|Y)]+E\ [Var(X|Y)]</script><p>$proof.$</p>
+<p>$\ \quad$设随机变量 $X,Y$的联合密度为$f(x,y)$,边缘密度分别为$f_X(x),f_Y(y)$,则成立等式：</p>
+<p>i.) $E(X)=\int xf_X(x)dx$<br>$\qquad\quad\ \ \ =\int\int xf(x,y)dxdy$<br>$\qquad\quad\ \ \ =\int\int x\ [\ f(x|y)\cdot f_Y(y)\ ]\ dx\ dy$<br>$\qquad\quad\ \ \ =\int[\int x\cdot f(x|y)\ dx]\ f_Y(y)\ dy$<br>$\qquad\quad\ \ \ =\int E(X|y)\cdot f_Y(y)\ dy=E[E(X|Y)].$</p>
+<p>ii.)$Var(X)=E(X-E(X))^2$<br>$\qquad\qquad\ \ =E[X-E(X|Y)+E(X|Y)-E(X)]^2$<br>$\qquad\qquad\ \ =E[X-E(X|Y)]^2+E[E(X|Y)-E(X)]^2+2E[(X-E(X|Y))(E(X|Y)-E(X))]\quad\quad (1)$</p>
+<p>$\quad$</p>
+<p>而$E[X-E(X|Y)]^2$<br>$=E\begin{Bmatrix}E[(X-E(X|Y))^2|Y)]\end{Bmatrix}$<br>$=E\begin{Bmatrix}E[(X^2+(E(X|Y))^2-2XE(X|Y))|Y]\end{Bmatrix}$<br>$=E\begin{Bmatrix}E(X^2|Y)+(E(X|Y))^2-2(E(X|Y))^2\end{Bmatrix}$<br>$=E\begin{Bmatrix}E(X^2|Y)-(E(X|Y))^2\end{Bmatrix}$<br>$=E[Var(X|Y)]$</p>
+<p>$\quad$<br>$E[E(X|Y)-E(X)]^2=E\begin{Bmatrix}E(X|Y)-E[E(X|Y)]\end{Bmatrix}^2$<br>$\qquad\qquad\qquad\qquad\quad\ =Var[E(X|Y)]$</p>
+<p>$\quad$</p>
+<p>$E[(X-E(X|Y))(E(X|Y)-E(X))]$<br>$=E\begin{Bmatrix}E[(X-E(X|Y))(E(X|Y)-E(X))]|Y\end{Bmatrix}$<br>$=(E(X|Y))^2-E(X)E(X|Y)-(E(X|Y))^2+E(X|Y)E(X)$<br>$=0$</p>
+<p>$\ \quad$所以 $(1)=Var(E(X|Y))+E(Var(X|Y)).$</p>
+<p>$\quad$</p>
+<h4 id="II-一元回归模型"><a href="#II-一元回归模型" class="headerlink" title="II. 一元回归模型"></a>II. 一元回归模型</h4><h5 id="1-OLSE下的参数估计"><a href="#1-OLSE下的参数估计" class="headerlink" title="1. OLSE下的参数估计"></a>1. <strong>OLSE</strong>下的参数估计</h5><p>$\ \quad$<strong>OLSE</strong>的主要思想是寻找参数 $\beta_0,\beta_1$ 的估计值使离差平方和达到最小。从而可转化为如下问题：</p>
+<script type="math/tex; mode=display">\min\limits_{\beta_0,\beta_1}\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2</script><p>$\ \quad$分别对 $\beta_0,\beta_1$ 求偏导，并令偏导为 $0$，结果如下：</p>
+<script type="math/tex; mode=display">\left\{\begin{array}{l}
+-2\sum\limits_{i=1}^n(y_i-\hat{\beta_0}-\hat{\beta_1}x_i)=0
+\\-2\sum\limits_{i=1}^n(y_i-\hat{\beta_0}-\hat{\beta_1}x_i)x_i=0
+\end{array}\right.</script><p>$\ \quad$整理后可得：</p>
+<script type="math/tex; mode=display">\left\{\begin{array}{l}
+n\hat{\beta_0}+(\sum_{i=1}^nx_i)\hat{\beta_1}=\sum\limits_{i=1}^ny_i\quad\quad (1)
+\\(\sum_{i=1}^nx_i)\hat{\beta_0}+(\sum\limits_{i=1}^nx_i^2)\hat{\beta_1}=\sum\limits_{i=1}^nx_iy_i\quad\quad (2)
+\end{array}\right.</script><p>$\ \quad$对 $(1)$ 两边同时除以 $n$ ，整理后可得：</p>
+<script type="math/tex; mode=display">\hat{\beta_0}=\bar{y}-\bar{x}\hat{\beta_1}</script><p>$\ \quad$对于 $(2)$ 注意到有如下两个等式：<br>i. ) $\sum\limits_{i=1}^n(x_i-\bar{x})^2=\sum\limits_{i=1}^n(x_i^2-2x_i\cdot\bar{x}+\bar{x}^2)$<br>$\quad\quad\qquad\qquad\ \  =\sum\limits_{i=1}^nx_i^2+n\bar{x}^2-2\bar{x}\sum\limits_{i=1}^nx_i$<br>$\quad\quad\qquad\qquad\ \  =\sum\limits_{i=1}^nx_i^2-n\bar{x}^2.$</p>
+<p>ii. ) $\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})=\sum\limits_{i=1}^n(x_iy_i+\bar{x}\bar{y}-\bar{x}y_i-\bar{y}x_i)$<br>$\qquad\qquad\qquad\qquad\quad\  \ =\sum\limits_{i=1}^nx_iy_i+n\bar{x}\bar{y}-\bar{x}\sum\limits_{i=1}^ny_i-\bar{y}\sum\limits_{i=1}^nx_i$<br>$\qquad\qquad\qquad\qquad\quad\  \ =\sum\limits_{i=1}^nx_iy_i+n\bar{x}\bar{y}-n\bar{x}\bar{y}-n\bar{x}\bar{y}$<br>$\qquad\qquad\qquad\qquad\quad\  \ =\sum\limits_{i=1}^nx_iy_i-n\bar{x}\bar{y}$</p>
+<p>$\ \quad$由上述公式，$(2)$ 变为：</p>
+<script type="math/tex; mode=display">n\bar{x}\hat{\beta_0}+(\sum\limits_{i=1}^n(x_i-\bar{x})^2+n\bar{x}^2)\hat{\beta_1}=\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})+n\bar{x}\bar{y}</script><p>$\ \quad$再由 $(1)$ 整理后可得：</p>
+<script type="math/tex; mode=display">\left\{\begin{array}{l}
+\hat{\beta_0}=\bar{y}-\hat{\beta_1}\bar{x}
+\\\hat{\beta_1}=\dfrac{\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}
+\end{array}\right.</script><script type="math/tex; mode=display">$$
+$$\quad</script><h5 id="2-MLE下的参数估计"><a href="#2-MLE下的参数估计" class="headerlink" title="2. MLE下的参数估计"></a>2. <strong>MLE</strong>下的参数估计</h5><p>$\ \quad$<strong>MLE</strong>的主要思想是利用总体的概率密度及其样本提供的信息构造似然函数，通过似然函数取值最大得到对应参数的估计。</p>
+<p>$\ \quad$对于一元线性回归模型参数的MLE，我们假设 $\varepsilon_i\sim N(0,\sigma^2)$ 时，$y_i$ 服从如下正态分布：</p>
+<script type="math/tex; mode=display">y_i\sim N(\beta_0+\beta_1x_i,\sigma^2)</script><p>$\ \quad$则 $y_i$的概率密度为:</p>
+<script type="math/tex; mode=display">f_i(y_i)=\dfrac{1}{\sqrt{2\pi}\sigma}e^{-\dfrac{(y_i-\beta_0-\beta_1x_i)^2}{2\sigma^2}}</script><p>$\ \quad$构造似然函数：</p>
+<script type="math/tex; mode=display">L(\beta_0,\beta_1,\sigma)=\prod\limits_{i=1}^nf_i(y_i)</script><p>$\qquad\qquad\quad\ \ \ \ =\dfrac{1}{(\sqrt{2\pi}\sigma)^{n}}e^{-\dfrac{\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2}{2\sigma^2}}$</p>
+<p>$\ \quad$对似然函数取对数：</p>
+<script type="math/tex; mode=display">ln(L)=-nln((\sqrt{2\pi}\sigma))-\dfrac{\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2}{2\sigma^2}</script><p>$\ \quad$为了使似然函数 $L$取得最大值,等价的我们只需使<br>$\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2$ 取得最小值，即</p>
+<script type="math/tex; mode=display">\min\limits_{\beta_0,\beta_1}\sum\limits_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2</script><p>至此与<strong>OLSE</strong>一致。</p>
+<script type="math/tex; mode=display">\quad</script><h5 id="3-OLSE估计的性质"><a href="#3-OLSE估计的性质" class="headerlink" title="3. OLSE估计的性质"></a>3. <strong>OLSE</strong>估计的性质</h5><h6 id="i-线性"><a href="#i-线性" class="headerlink" title="i. ) 线性"></a>i. ) 线性</h6><script type="math/tex; mode=display">\hat{\beta_1}=\dfrac{\sum\limits_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}y_i-\bar{y}\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}</script><p>$\ \quad$注意到：</p>
+<script type="math/tex; mode=display">\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=\dfrac{n\bar{x}-n\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=0</script><p>所以</p>
+<script type="math/tex; mode=display">\hat{\beta_1}=\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}y_j</script><p>是关于 $y_j$ 的线性组合。</p>
+<p>$\ \quad$由于 $\hat{\beta_0}=\bar{y}-\hat{\beta_1}\bar{x}$ 且 $\bar{x}$ 是常数，结合上式可得：</p>
+<script type="math/tex; mode=display">\beta_0=\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})y_j</script><p>也是关于 $y_j$ 的线性组合。</p>
+<p>$\quad$</p>
+<h6 id="ii-无偏性"><a href="#ii-无偏性" class="headerlink" title="ii. ) 无偏性"></a>ii. ) 无偏性</h6><p>$\ \quad$注意到由 $y_i=\beta_0+\beta_1x_i+\varepsilon_i$ 可得:</p>
+<script type="math/tex; mode=display">E(y_i)=\beta_0+\beta_1x_i\ \ (Markov-Gauss\ Condition)</script><p>所以</p>
+<p>$E(\hat{\beta_1})=\sum\limits_{j=1}^n\dfrac{x_j-\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}E(y_j)$<br>$\qquad\ \ \ =\sum\limits_{j=1}^n\dfrac{x_j-\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}(\beta_0+\beta_1x_j)$<br>$\qquad\ \ \ =\beta_0\cdot \sum\limits_{j=1}^n\dfrac{x_j-\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}+\beta_1\cdot\sum\limits_{j=1}^n\dfrac{x_j^2-x_j\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2} \qquad (1)$</p>
+<p>$\qquad$注意到</p>
+<p>$\sum\limits_{j=1}^n\dfrac{x_j-\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=\dfrac{n\bar{x}-n\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=0 $</p>
+<p>$\sum\limits_{j=1}^n\dfrac{x_j^2-x_j\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}=\dfrac{\sum\limits_{j=1}^nx_j^2-n\bar{x}^2}{\sum\limits_{i=1}^nx_i^2+n\bar{x}^2-2\bar{x}\sum\limits_{i=1}^nx_i}$<br>$\qquad\qquad\quad\quad\ \ \ \ =\dfrac{\sum\limits_{j=1}^nx_j^2-n\bar{x}^2}{\sum\limits_{i=1}^nx_i^2-n\bar{x}^2}=1$</p>
+<p>所以 </p>
+<script type="math/tex; mode=display">E(\hat{\beta_1})=(1)=\beta_1.</script><p>$\quad$<br>$E(\hat{\beta_0})=\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})E(y_j)$<br>$\quad\quad\ \ \ =\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})(\beta_0+\beta_1x_j)$<br>$\quad\quad\ \ \ =\beta_0-\beta_0\bar{x}\cdot\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}+\beta_1\bar{x}-\beta_1\bar{x}\sum\limits_{j=1}^n\dfrac{x_j^2-x_j\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}$</p>
+<p>$\quad\quad$由上述两个已证公式,可得 :</p>
+<script type="math/tex; mode=display">E(\hat{\beta_0})=\beta_0-\beta_0\bar{x}\cdot 0+\beta_1\bar{x}-\beta_{1}\bar{x}\cdot 1=\beta_0.</script><script type="math/tex; mode=display">\quad</script><h6 id="iii-hat-beta-0-hat-beta-1-的方差"><a href="#iii-hat-beta-0-hat-beta-1-的方差" class="headerlink" title="iii. ) $\hat{\beta_0},\hat{\beta_1}$ 的方差 :"></a>iii. ) $\hat{\beta_0},\hat{\beta_1}$ 的方差 :</h6><p>$Var(\hat{\beta_1})$<br>$=Var(\sum\limits_{j=1}^n\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}y_j)$<br>$=\sum\limits_{j=1}^n(\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})^2Var(y_j)\qquad(Markov-Gauss\ Condition)$<br>$=\dfrac{\sum\limits_{j=1}^n(x_j-\bar{x})^2}{(\sum\limits_{i=1}^n(x_i-\bar{x})^2)^2}\sigma^2$<br>$=\dfrac{\sigma^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}$</p>
+<script type="math/tex; mode=display">\quad</script><p>$Var(\hat{\beta_0})$<br>$=Var(\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})y_j)$<br>$=\sum\limits_{j=1}^n(\dfrac{1}{n}-\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})^2Var(y_i)\quad (Markov-Gauss\ Condition)$<br>$=\sum(\dfrac{1}{n^2}+(\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})^2-\dfrac{2}{n}\dfrac{(x_j-\bar{x})\bar{x}}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})\sigma^2$<br>$=\sigma^2(\sum\dfrac{1}{n^2}+\dfrac{\bar{x}^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}-\dfrac{2\bar{x}}{n}\sum\dfrac{(x_j-\bar{x})}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}$<br>$=\sigma^2(\dfrac{1}{n}+\dfrac{\bar{x}^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}).$</p>
+<script type="math/tex; mode=display">\quad</script><h6 id="beta-1-与-beta-0-的协方差："><a href="#beta-1-与-beta-0-的协方差：" class="headerlink" title="$\beta_1$ 与 $\beta_0$ 的协方差："></a>$\beta_1$ 与 $\beta_0$ 的协方差：</h6><p>$\quad\quad$由于 $y_i\sim N(\beta_0+\beta_1x_i,\sigma^2)$,故对于统计量 $\bar{y}$ 有：</p>
+<p>$Var(\bar{y})=Var(\hat{\beta_0}+\hat{\beta_1}\bar{x})$<br>$\qquad\quad\ \ =Var(\hat{\beta_0})+\bar{x}^2Var(\hat{\beta_1})+2\bar{x}Cov(\hat{\beta_1},\hat{\beta_0})$<br>$\Rightarrow \quad \dfrac{\sigma^2}{n}=\sigma^2(\dfrac{1}{n}+\dfrac{\bar{x}^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2})+\dfrac{\bar{x}^2\sigma^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}+2\bar{x}Cov(\hat{\beta_1},\hat{\beta_0})$<br>$\Rightarrow \quad Cov(\hat{\beta_1},\hat{\beta_0})=-\dfrac{\bar{x}\sigma^2}{\sum\limits_{i=1}^n(x_i-\bar{x})^2}$<br>$\Rightarrow \quad Cov(\hat{\beta_1},\hat{\beta_0})=-\dfrac{\bar{x}\sigma^2}{L_{xx}}$</p>
+<script type="math/tex; mode=display">\quad</script><p>$\qquad$由于 $\hat{\beta_0}$ 和 $\hat{\beta_1}$ 都是 $y_i$ 的线性组合，且 $y_i$ 间独立同分布，故 $\hat{\beta_0}$ 和 $\hat{\beta_1}$ 也服从正态分布，即：</p>
+<script type="math/tex; mode=display">\hat{\beta_0}\sim N(\beta_0,(\dfrac{1}{n}+\dfrac{\bar{x}^2}{L_{xx}})\sigma^2)</script><script type="math/tex; mode=display">\hat{\beta_1}\sim N(\beta_1,\dfrac{\sigma^2}{L_{xx}})</script>]]></content>
       <categories>
-        <category>数理统计</category>
+        <category>应用回归分析</category>
         <category>统计</category>
       </categories>
       <tags>
         <tag>笔记</tag>
-        <tag>数理统计</tag>
+        <tag>应用回归分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>多元线性回归一</title>
+    <url>/2020/11/01/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%80/</url>
+    <content><![CDATA[<h4 id="I-多元线性回归模型"><a href="#I-多元线性回归模型" class="headerlink" title="I. 多元线性回归模型"></a>I. 多元线性回归模型</h4><h5 id="1-多元线性回归模型的一般形式"><a href="#1-多元线性回归模型的一般形式" class="headerlink" title="1.多元线性回归模型的一般形式"></a>1.多元线性回归模型的一般形式</h5><p>通常情况下，用矩阵形式表示如下：</p>
+<script type="math/tex; mode=display">y=X\beta+\varepsilon</script><p>其中：</p>
+<p>$y=\begin{pmatrix}<br>   y_1 \\<br>   y_2\\<br>   \vdots\\<br>   y_n<br>\end{pmatrix}\quad X=\begin{pmatrix}<br>    1&amp;x_{11}&amp;x_{12}&amp;\cdots&amp;x_{1p}\\<br>    1&amp;x_{21}&amp;x_{22}&amp;\cdots&amp;x_{2p}\\<br>    \vdots&amp;\vdots&amp;\vdots&amp;&amp;\vdots\\<br>    1&amp;x_{n1}&amp;x_{n2}&amp;\cdots&amp;x_{np}<br>\end{pmatrix}(设计矩阵)$</p>
+<p>$\beta=\begin{pmatrix}<br>    \beta_0\\<br>    \beta_1\\<br>    \vdots\\<br>    \beta_p<br>\end{pmatrix}\quad \varepsilon=\begin{pmatrix}<br>\varepsilon_1\\<br>\varepsilon_2\\<br>\vdots\\<br>\varepsilon_n<br>\end{pmatrix}$</p>
+<h5 id="2-多元线性回归模型的基本假设"><a href="#2-多元线性回归模型的基本假设" class="headerlink" title="2.多元线性回归模型的基本假设"></a>2.多元线性回归模型的基本假设</h5><p>(1.) 解释变量 $x_1,x_2,\cdots,x_p$ 是确定变量，不是随机变量，且要求 $rank(X)=p+1&lt;n$。这表明设计矩阵 $X$ 中的自变量列之间不相关，$X$ 是列满秩矩阵。</p>
+<p>(2.) 随机误差项具有 $0$ 均值和等方差，即</p>
+<script type="math/tex; mode=display">
+\left\{\begin{matrix}
+E(\varepsilon_i)=0 &i=1,2,\cdots,n \\ 
+ Cov(\varepsilon_i,\varepsilon_j)=\left\{\begin{matrix}
+\sigma^2 & i=j\\ 
+ 0&i\ne j 
+\end{matrix}\right.& i,j=1,2\cdots,n
+\end{matrix}\right.</script><p>该假定称为 $Gauss-Markov$ 条件。</p>
+<p>(3.) 正态分布条件假定：</p>
+<script type="math/tex; mode=display">
+\left\{\begin{matrix}
+    \varepsilon_i\sim N(0,\sigma^2)\\
+    \varepsilon_1,\varepsilon_2,\cdots\varepsilon_n 相互独立
+\end{matrix}\right.</script><p>即 $\varepsilon\sim N(0,\sigma^2 I_n)$</p>
+<p>在该条件下，我们有：</p>
+<p>$\quad i.)\ y \sim N(X\beta,\sigma^2I_n)$</p>
+<p>$\quad ii.)\ E(y)=X\beta$</p>
+<p>$\quad iii.)\ Var(y)=\sigma^2I_n$</p>
+<h4 id="II-回归参数的估计"><a href="#II-回归参数的估计" class="headerlink" title="II. 回归参数的估计"></a>II. 回归参数的估计</h4><h5 id="1-OLSE-估计"><a href="#1-OLSE-估计" class="headerlink" title="1. $OLSE$ 估计"></a>1. $OLSE$ 估计</h5><p>如同一元线性回归的情形，我们要求残差平方和达到最小：</p>
+<script type="math/tex; mode=display">
+Q(\hat{\beta_0},\hat{\beta_1},\cdots,\hat{\beta_p})=\sum\limits_{i=1}^n(y_i-\hat{\beta_0}-\hat{\beta_1}x_{i1}-\cdots-\hat{\beta_p}x_{ip})^2</script><p>即只需求下式：</p>
+<script type="math/tex; mode=display">
+\min\limits_{\hat{\beta_0},\hat{\beta_1},\cdots,\hat{\beta_p}}\sum\limits_{i=1}^n(y_i-\hat{\beta_0}-\hat{\beta_1}x_{i1}-\cdots-\hat{\beta_p}x_{ip})^2</script><p>故分别对 $\beta_0,\beta_1,\cdots,\beta_p$ 求偏导，令其为 $0$ 求极值点：</p>
+<script type="math/tex; mode=display">
+\left\{
+    \begin{array}{l}
+            \dfrac{\partial Q}{\partial \hat{\beta_0}}=-2\sum\limits_{i=1}^n(y_i-\hat{\beta_0}-\hat{\beta_1}x_{i1}-\cdots-\hat{\beta_p}x_{ip})=0 \\
+            \\ 
+             \dfrac{\partial Q}{\partial \hat{\beta_1}}-2\sum\limits_{i=1}^nx_{i1}(y_i-\hat{\beta_0}-\hat{\beta_1}x_{i1}-\cdots-\hat{\beta_p}x_{ip})=0\\
+             \\
+             \cdots \\
+             \\
+             \dfrac{\partial Q}{\partial \hat{\beta_p}}-2\sum\limits_{i=1}^nx_{ip}(y_i-\hat{\beta_0}-\hat{\beta_1}x_{i1}-\cdots-\hat{\beta_p}x_{ip})=0
+        \end{array}
+\right.</script><p>整理后得矩阵形势下的正规方程组：</p>
+<script type="math/tex; mode=display">
+X'(y-X\hat{\beta})=0</script><p>移项得：</p>
+<script type="math/tex; mode=display">
+X'X\hat{\beta}=X'y</script><p>当 $|X’X|\ne 0$ 时(基本假设1)，可以得到回归参数 $\beta$ 的最小二乘估计：</p>
+<script type="math/tex; mode=display">
+\hat{\beta}=(X'X)^{-1}X'y</script><p>$\quad$</p>
+<h5 id="2-OLSE-下的回归值与残差"><a href="#2-OLSE-下的回归值与残差" class="headerlink" title="2. $OLSE$ 下的回归值与残差"></a>2. $OLSE$ 下的回归值与残差</h5><p>在 $OLSE$ 的估计下，我们有：</p>
+<script type="math/tex; mode=display">
+\hat{y}=X\hat{\beta}=X(X'X)^{-1}X'y</script><p>我们记 </p>
+<script type="math/tex; mode=display">
+H=X(X'X)^{-1}X'</script><p>为帽子矩阵，其主对角线元素记为 $h_{ii}$。</p>
+<p>注意到，根据矩阵迹的性质：$tr(AB)=tr(BA)$，帽子矩阵 $H$ 有如下性质：</p>
+<script type="math/tex; mode=display">
+tr(H)=tr(X(X'X)^{-1}X')=tr(X'X(X'X)^{-1})=tr(I_{p+1})=p+1</script><p>$\quad$</p>
+<p>$proof.(tr(AB)=tr(BA))$</p>
+<p>$\qquad tr(AB)=\sum\limits_{i=1}^n(AB)_{ii}$，其中 $(AB)_{ii}$ 表示 $AB$ 矩阵第 $i$ 行上主对角线元素的值。</p>
+<p>$\qquad$而 $(AB)_{ii}$ 又等于 $A$ 的第 $i$ 行与 $B$ 的第 $j$ 列元素对应相乘，故 $(AB)_{ii}=\sum\limits_{j=1}^n a_{ij}b_{ji}.$</p>
+<p>$\qquad$所以，$tr(AB)=\sum\limits_{i=1}^n(\sum\limits_{j=1}^n a_{ij}b_{ji})=\sum\limits_{j=1}^n(\sum\limits_{i=1}^n b_{ji}a_{ij})=tr(BA)$</p>
+<p>$\blacksquare$</p>
+<p>$\quad$</p>
+<p>对于残差向量 $e=(e_1,e_2,\cdots,e_n)’=y-\hat{y}=(I-H)y$</p>
+<p>我们有相关矩阵：</p>
+<p>$<br>D(e)=Cov(e,e)<br>$<br>$\quad\quad\ \, =Cov((I-H)y,(I-H)y)$<br>$\quad\quad\ \, =(I-H)Cov(y,y)(I-H)’$<br>$\quad\quad\ \, =(I-H)\sigma^2I_n(I-H)’$<br>$\quad\quad\ \, =\sigma^2(I-H)(I-H)’$</p>
+<p>注意到：</p>
+<p>$(I-H)’=(I-X(X’X)^{-1}X’)’=I-X(X’X)^{-1}X’$</p>
+<p>$(I-H)^2=(I-I-X(X’X)^{-1}X’)(I-I-X(X’X)^{-1}X’)$<br>$\qquad\quad\ \ \ \ = I-X(X’X)^{-1}X’-X(X’X)^{-1}X’+X(X’X)^{-1}X’$<br>$\qquad\quad\ \ \ \ =I-X(X’X)^{-1}X’=I-H$</p>
+<p>故：</p>
+<p>$D(e)=\sigma^2(I-H)(I-H)’=\sigma^2(I-H)^2=\sigma^2(I-H)$</p>
+<p>从而：</p>
+<script type="math/tex; mode=display">
+D(e_i)=(1-h_{ii})\sigma^2</script><p>下面我们考虑：</p>
+<p>$E(\sum\limits_{i=1}^n e_i^2)=\sum\limits_{i=1}^n E(e_i^2)=\sum\limits_{i=1}^n [E(e_i^2)-(E(e_i))^2]=\sum\limits_{i=1}^n D(e_i)=(n-p-1)\sigma^2$</p>
+<p>我们用 $e_i^2$ 代替 $E(e_i^2)$，得到 $\sigma^2$ 的估计值：</p>
+<p>$\hat{\sigma^2}=\dfrac{1}{n-p-1}SSE=\dfrac{1}{n-p-1}\sum\limits_{i=1}^n e_i^2$</p>
+<h5 id="3-回归参数的-MLE-估计"><a href="#3-回归参数的-MLE-估计" class="headerlink" title="3. 回归参数的 $MLE$ 估计"></a>3. 回归参数的 $MLE$ 估计</h5><p>在基本假设2的条件下，我们有：</p>
+<script type="math/tex; mode=display">
+y\sim N(X\beta,\sigma^2I_n)</script><p>从而可以构造似然函数如下：</p>
+<script type="math/tex; mode=display">
+L=(\dfrac{1}{\sqrt{2\pi}\sigma})^n e^{-\dfrac{(y-X\beta)'(y-X\beta)}{2\sigma^2}}</script><p>两边取对数，有</p>
+<script type="math/tex; mode=display">
+\ln L=-\dfrac{n}{2}\ln(2\pi\sigma^2)-\dfrac{1}{2\sigma^2}(y-X\beta)'(y-X\beta)</script><p>根据 $MLE$ 的思想，要使似然函数取得最大，对于 $\beta$ 则要让 $(y-X\beta)’(y-X\beta)$ 取得最小，至此后与 $OLSE$ 相同。</p>
+<h4 id="III-参数估计量的性质"><a href="#III-参数估计量的性质" class="headerlink" title="III 参数估计量的性质"></a>III 参数估计量的性质</h4><h5 id="性质-1"><a href="#性质-1" class="headerlink" title="性质 1."></a>性质 1.</h5><p>$\hat{\beta}$ 是随机向量 $y$ 的一个线性变换。</p>
+<p>注意到：$\hat{\beta}=(X^TX)^{-1}X^Ty$，所以 $\hat{\beta}$ 是随机向量 $y$ 的一个线性变换。</p>
+<h5 id="性质-2"><a href="#性质-2" class="headerlink" title="性质 2."></a>性质 2.</h5><p>$\hat{\beta}$ 是 $\beta$ 的无偏估计。</p>
+<p>$E(\hat{\beta})=E((X^TX)^{-1}X^Ty)$<br>$\qquad\ \ =(X^TX)^{-1}X^TE(y)$<br>$\qquad\ \ =(X^TX)^{-1}X^T(X\beta)\qquad(基本假设 2)$<br>$\qquad\ \ =(X^TX)^{-1}(X^TX)\beta$<br>$\qquad\ \ =\beta$</p>
+<p>所以 $\hat{\beta}$ 是 $\beta$ 的无偏估计。</p>
+<h5 id="性质-3"><a href="#性质-3" class="headerlink" title="性质 3."></a>性质 3.</h5><script type="math/tex; mode=display">D(\hat{\beta})=\sigma^2(X^TX)^{-1}</script><p>$D(\hat{\beta})=D((X^TX)^{-1}X^Ty)$<br>$\qquad\ \ =(X^TX)^{-1}X^TCov(y,y)((X^TX)^{-1}X^T)^{-1}$<br>$\qquad\ \ =(X^TX)^{-1}X^T\sigma^2I_nX(X^TX)^{-1}$<br>$\qquad\ \ =\sigma^2(X^TX)^{-1}$</p>
+<h5 id="性质-4"><a href="#性质-4" class="headerlink" title="性质 4."></a>性质 4.</h5><p>预测函数 $\hat{y_0}=\hat{\beta_0}+\hat{\beta_1}x_{10}+\hat{\beta_2}x_{20}+\cdots+\hat{\beta_p}x_{p0}$ 是 $\hat{\beta}$ 的线性函数。</p>
+<p>$Gauss-Markov$ 定理：</p>
+<p>在假定 $E(Y)=X\beta,D(y)=\sigma^2I$时，$\beta$ 的任一线性函数 $c’\beta$ 的<strong>最小方差线性无偏估计</strong>(BLUE) 为 $c’\hat{\beta}$，其中，$c$ 是任一维常数向量，$\hat{\beta}$ 是 $\beta$ 的 $OLSE$.</p>
+<p>对于上述定理有如下几条解释与注意：</p>
+<p>(1) 若 $c_j$ 表示的是第 $j$ 个分量为 $1$，其余分量为 $0$ 的常向量，则 $Gauss-Markov$ 定理表明，$\beta_j$ 的最小方差线性无偏估计即为其 $OLSE$ 下的 $\hat{\beta_j}$</p>
+<p>(2) 可能存在 $c’\beta$ 的<strong>非线性</strong>估计 $\widetilde{\beta}$，一方面它是无偏估计，另一方面它的方差更小。</p>
+<p>(3) 可能存在 $c’\beta$ 的<strong>有偏</strong>估计，在某种意义下比 $OLSE$ 更加好。</p>
+<p>(4) 在基本假设 2 下，$c’\hat{\beta}(OLSE)$ 是 $c’\beta$ 的最小方差无偏估计。即不管 $c’\beta$ 的线性估计还是非线性估计，在无偏性与方差意义下，$OLSE$ 是 $c’\beta$ 的最佳估计。</p>
+<p>$proof.$</p>
+<p>设 $\alpha^TY$ 是 $c’\beta$ 的任意一线性无偏估计，根据其无偏性，我么有：对于任意的 $\beta$</p>
+<script type="math/tex; mode=display">
+c'\beta=E(a^TY)=\alpha^TX\beta</script><p>从而有 $c’=\alpha^TX$.对于任意一个向量，我们定义$||Z||^2=Z^TZ$，从而 $||Z||^2=0$，当且仅当 $||Z||=0.$</p>
+<p>下面我们来计算其方差：</p>
+<p>$<br>Var(\alpha^TY)=\alpha^TVar(Y)\alpha<br>$<br>$\qquad\quad\quad\ \ \ \, =\sigma^2||\alpha||^2$<br>$\qquad\quad\quad\ \ \ \, =\sigma^2||\alpha-X(X^TX)^{-1}c+X(X^TX)^{-1}c||^2$<br>$\qquad\quad\quad\ \ \ \, =\sigma^2||\alpha-X(X^TX)^{-1}c||^2+\sigma^2||X(X^TX)^{-1}c||^2+2\sigma^2c^T(X^TX)^{-1}X^T(\alpha-X(X^TX)^{-1}c)$</p>
+<p>其中</p>
+<p>$\sigma^2||X(X^TX)^{-1}c||^2=\sigma^2(c’(X^TX)^{-1}X^T)(X(X^TX)^{-1}c)$<br>$\qquad\qquad\qquad\qquad\ =\sigma^2c’(X^TX)^{-1}c$</p>
+<p>$2\sigma^2c^T(X^TX)^{-1}X^T(\alpha-X(X^TX)^{-1}c)$<br>$=2\sigma^2\alpha^T X(X^TX)^{-1}X^T(\alpha-X(X^TX)^{-1}X^T\alpha)$<br>$=2\sigma^2\alpha^T X(X^TX)^{-1}X^T\alpha-2\sigma^2\alpha^T X(X^TX)^{-1}X^TX(X^TX)^{-1}X^T\alpha$<br>$=2\sigma^2\alpha^T X(X^TX)^{-1}X^T\alpha-2\sigma^2\alpha^T X(X^TX)^{-1}X^T\alpha=0$</p>
+<p>所以</p>
+<p>$<br>Var(\alpha^TY)=\sigma^2||\alpha-X(X^TX)^{-1}c||^2+\sigma^2c’(X^TX)^{-1}c<br>$</p>
+<p>注意到 $Var(c’\hat{\beta})=c’\sigma^2(X^TX)^{-1}c$，所以 $Var(c’\hat{\beta})\le Var(\alpha^TY)$，且等号成立当且仅当 $\alpha=X(X^TX)^{-1}c$，即 $\alpha^TY=c’(X^TX)^{-1}X^TY=c’\hat{\beta}$</p>
+<p>$\blacksquare$</p>
+<h5 id="性质-5"><a href="#性质-5" class="headerlink" title="性质 5."></a>性质 5.</h5><script type="math/tex; mode=display">Cov(\hat{\beta},e)=0</script><p>$proof.$</p>
+<p>$Cov(\hat{\beta},e)$<br>$=Cov((X^TX)^{-1}X^Ty,(I-H)y)$<br>$=\sigma^2(X^TX)^{-1}X^T(I-H)$<br>$=\sigma^2(X^TX)^{-1}X^T-(X^TX)^{-1}X^TX(X^TX)^{-1}X^T)$<br>$=0$</p>
+<p>$\blacksquare$</p>
+<p>$\qquad$注意到，此性质说明 $\hat{\beta}$ 与 $e$ 不相关，在正态假定下，该性质也等价于 $\hat{\beta}$ 与 $SSE$ 独立。</p>
+<h5 id="性质-6"><a href="#性质-6" class="headerlink" title="性质 6."></a>性质 6.</h5><p>当 $y\sim N(\beta,\sigma^2I_n)$ 时，则<br>(1) $\hat{\beta}\sim N(\beta,\sigma^2(X’X)^{-1})$<br>(2) $\dfrac{SSE}{\sigma^2}\sim \chi^2(n-p-1)$<br>(3) $\hat{\beta}$ 与 $\dfrac{SSE}{\sigma^2}$ 相互独立。</p>
+<p>$proof.$</p>
+<p>(1) 由于 $E(\hat{\beta})=\beta，D(\hat{\beta})=\sigma^2(X’X)^{-1}$，假设正态假定，可得：</p>
+<script type="math/tex; mode=display">
+\hat{\beta}\sim N(\beta,\sigma^2(X'X)^{-1})</script><p>(2) 由于 $e=(I-H)y=(I-H)(X\beta+\varepsilon)=(I-H)\varepsilon$，所以 $SSE=\varepsilon’(I-H)\varepsilon$</p>
+<p>根据前面的结果，我们已经知道 $I-H$ 是一个对称幂等阵，且 $r(I-H)=n-p-1$. 则存在正交阵 $P$，使 $I-H$可以对角化，由于其幂等性质，我们知道 $I-H$只有特征值 $0,1$，再结合其矩阵的秩，我们有：</p>
+<script type="math/tex; mode=display">P^T(I-H)P=
+\begin{pmatrix}
+    I_{n-p-1}&0\\
+    0&0
+\end{pmatrix}</script><p>下面我们令:<br>$\eta=(\eta_1,\eta_2,\cdots,\eta_n)’=P^T\varepsilon$</p>
+<p>从而，</p>
+<script type="math/tex; mode=display">
+SSE=\eta'P'(I-H)P\eta=\eta'\begin{pmatrix}
+    I_{n-p-1}&0\\
+    0&0
+\end{pmatrix}\eta=\eta_1+\cdots+\eta_{n-p-1}</script><p>注意到：</p>
+<script type="math/tex; mode=display">
+E(\eta)=E(P\varepsilon)=PE(\varepsilon)=0</script><p>而：</p>
+<script type="math/tex; mode=display">
+Var(\eta)=Var(P\varepsilon)=P'Var(\varepsilon)P=\sigma^2I_n</script><p>所以，$\eta\sim N(0,\sigma^2I_n)$，且 $\eta_1,\cdots,\eta_n$ 之间相互独立。</p>
+<p>那么，$\dfrac{\eta_i}{\sigma^2}\sim N(0,1).$</p>
+<p>故 $\dfrac{SSE}{\sigma^2}=\dfrac{\eta_1}{\sigma^2}+\cdots+\dfrac{\eta_{n-p-1}}{\sigma^2}\sim \chi^2(n-p-1)$</p>
+<p>(3) 我们将正交阵进行拆分 $P=(P_1,P_2)$，其中 $P_1$ 是 $n-p-1$ 列，$P_2$ 是剩余的 $p+1$ 列</p>
+<p>从而：</p>
+<script type="math/tex; mode=display">
+\eta=\begin{pmatrix}
+    \eta_1\\
+    \\
+    \eta_2\\
+\end{pmatrix}P'\varepsilon=\begin{pmatrix}
+    P_1'\varepsilon\\
+    \\
+    P_2'\varepsilon
+\end{pmatrix}</script><p>由于 $\eta\sim N(0,\sigma^2I_n)$，所以 $\eta_1\sim N(0,\sigma^2 I_{n-p-1}),\eta_2\sim N(0,\sigma^2 I_{p+1})$，且 $\eta_1$ 与 $\eta_2$ 之间相互独立。</p>
+<p>注意到：</p>
+<p>$\hat{\beta}-\beta=(X’X)^{-1}X’(X\beta+\varepsilon)-\beta$<br>$\qquad\ \ \;=(X’X)^{-1}X’\varepsilon$<br>$\qquad\ \ \;=(X’X)^{-1}X’P\eta$</p>
+<p>我们记 $D=(X’X)^{-1}X’P$，并将 $D$ 分拆为 $(D_1,D_2)$，其中 $D_1$ 是前 $n-p-1$ 列，$D_2$ 是剩余的 $p+1$ 列.</p>
+<p>所以：</p>
+<script type="math/tex; mode=display">
+\begin{array}{ll}
+    D\begin{pmatrix}
+        I_{n-p-1}&0\\
+        0&0\\
+    \end{pmatrix}D'&=DP'(I-H)PD'\\
+    &=(X'X)^{-1}X'(I-H)X(X'X)^{-1}\\
+    &=(X'X)^{-1}-(X'X)^{-1}\\
+    &=0\\
+\end{array}</script><p>从而有：$||D_1||=0\Rightarrow D_1=0$</p>
+<p>而 </p>
+<script type="math/tex; mode=display">
+\hat{\beta}-\beta=D\eta=D_2\eta_2</script><p>再根据 $\eta_1$ 和 $\eta_2$ 的独立性，我们可以知道：$\hat{\beta}-\beta$ 与 $SSE$ 独立，从而 $\hat{\beta}$ 与 $SSE$ 独立。</p>
+<p>$\blacksquare$</p>
+<h5 id="性质-7"><a href="#性质-7" class="headerlink" title="性质 7."></a>性质 7.</h5><p>当 $y\sim N(X\beta,\sigma^2I_n)$ 时，则：<br>(1) $E(e)=0$<br>(2) $Var(e)=\sigma^2(I-H)$<br>(3) $e\sim N(0,\sigma^2(I-H))$</p>
+<p>$proof.$</p>
+<p>(1)</p>
+<script type="math/tex; mode=display">
+\begin{array}{ll}
+    E(e)&=E((I-H)y)\\
+    &=(I-H)E(y)\\
+    &=X\beta-X(X'X)^{-1}X'X\beta
+    &=0\\
+\end{array}</script><p>(2) 前面均已证过，(3) 由正态假设可得。</p>
+<p>$\blacksquare$</p>
+]]></content>
+      <categories>
+        <category>应用回归分析</category>
+        <category>统计</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>应用回归分析</tag>
       </tags>
   </entry>
   <entry>
@@ -424,6 +571,49 @@ AX+BY+CZ+D=0</script><p>其中 $A,B,C$ 不全为 $0$.在此我们不妨设 $C\ne
       <tags>
         <tag>微分几何</tag>
         <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数理统计的预备知识一</title>
+    <url>/2020/10/25/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%9A%84%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E4%B8%80/</url>
+    <content><![CDATA[<h4 id="1-总体和样本"><a href="#1-总体和样本" class="headerlink" title="1. 总体和样本"></a>1. 总体和样本</h4><p>$\qquad$<strong>总体</strong>是研究问题所涉及的对象的全体的集合，总体中每个成员称为<strong>个体</strong>，从总体中按一定的规则抽出一些个体的行为叫<strong>抽样</strong>，所得的个体叫<strong>样本</strong>。</p>
+<p>$\qquad$根据总体的个数我们可以分为：</p>
+<p>有限总体：若总体个数数目有限</p>
+<p>无限总体：若总体个数数目无限</p>
+<p>$\qquad$总体可以理解为：<br>(1) 一切可能出现的结果的集合</p>
+<p>(2)所有个体上的某种数量指标构成的集合。</p>
+<p>$\qquad$由于每个个体出现是随机的，所以相应的个体上的数量指标的出现也具有随机性，从而，我们可以将这些数据指标看成是随机变量(r.v.)，随机变量的分布就是该数量指标在总体中的分布。</p>
+<p>$\qquad$此时，总体可以由一个随机变量及其分布来刻画，从而总体可用 $r.v.$来表示，或用分布函数 $F$ 来表示。若 $F$ 有密度，记为 $f$，则此总体也可用密度函数 $f$ 表示。</p>
+<p>$\qquad$若总体分布函数为 $F$，当从该总体中抽取相互独立同分布(i.i.d.)的大小为 $n$ 的样本 $X_1,X_2,\cdots,X_n$，则记为：</p>
+<script type="math/tex; mode=display">
+X_1,X_2,\cdots,X_n\stackrel{i.i.d}{\sim} F</script><p>$\qquad$若分布有密度 $f$，则可记为：</p>
+<script type="math/tex; mode=display">
+X_1.X_2,\cdots,X_n\stackrel{i.i.d}{\sim} f</script><p>$\qquad$若总体用随机变量 $X$ 表示，分布为 $F$，则来自总体 $F$ 的样本 $X_1,X_2,\cdots,X_n$ 也可以看作 $X$ 的观察值，记作：</p>
+<script type="math/tex; mode=display">
+X_1,X_2,
+\cdots,X_n\stackrel{i.i.d}{sim} X</script><p>$\qquad$若个体的数量指标不止一项时，可用随机向量来表示总体。</p>
+<h4 id="2-样本空间与随机样本"><a href="#2-样本空间与随机样本" class="headerlink" title="2. 样本空间与随机样本"></a>2. 样本空间与随机样本</h4><h5 id="2-1-样本空间"><a href="#2-1-样本空间" class="headerlink" title="2.1 样本空间"></a>2.1 样本空间</h5><p>$\qquad$设 $X=(X_1,\cdots,X_n)$ 是从总体中抽取的样本，其<strong>样本空间</strong>定义为：$X=(X_1,\cdots,X_n)$ 可能取值的全体，记为 $\mathcal{X}$</p>
+<h5 id="2-2-样本的两重性"><a href="#2-2-样本的两重性" class="headerlink" title="2.2 样本的两重性"></a>2.2 样本的两重性</h5><p>$\qquad$样本可看作一个随机变量，在取定值后看作一个常量。我们常用大写字母表示随机变量，用小写字母表示随机变量的观察值。</p>
+<h5 id="2-3-简单随机样本"><a href="#2-3-简单随机样本" class="headerlink" title="2.3 简单随机样本"></a>2.3 简单随机样本</h5><p>$\qquad$<strong>简单随机抽样</strong>需要满足如下要求：</p>
+<p>(1) 代表性：总体中每一个个体都有同等的可能被抽到或有相同的概率分布。</p>
+<p>(2) 独立性：样本中的每一个个体取什么值并不影响其它个体取什么值，这意味着样本中各个个体 $X_1,X_2,\cdots,X_n$ 是相互独立的。</p>
+<p>$\qquad$由简单随机抽样获得的样本 $(X_1,X_2,\cdots,X_n)$ 称为简单随机样本。其具体定义如下：</p>
+<p>$\qquad$设有一总体 $F$，$X_1,X_2,\cdots,X_n$ 是从 $F$ 中抽取的容量为 $n$ 的样本，若：</p>
+<p>(1) $X_1,X_2,\cdots,X_n$ 相互独立<br>(2) $X_1,X_2,\cdots,X_n$ 具有相同的分布</p>
+<p>则称 $X_1,X_2,\cdots,X_n$ 为<strong>简单随机样本</strong>。</p>
+<h5 id="2-4-简单随机样本几个结论"><a href="#2-4-简单随机样本几个结论" class="headerlink" title="2.4 简单随机样本几个结论"></a>2.4 简单随机样本几个结论</h5><p>$\qquad$设总体为 $F$，$X_1,X_2,\cdots,X_n$ 为此总体中抽取的随机样本，则 $X_1,X_2,\cdots,X_n$ 的联合分布函数是：</p>
+<script type="math/tex; mode=display">
+F(x_1)F(x_2)\cdots F(x_n)</script><p>若有概率密度，则联合概率密度为：</p>
+<script type="math/tex; mode=display">
+f(x_1)f(x_2)\cdots f(x_n)</script><h5 id="2-5-样本分布"><a href="#2-5-样本分布" class="headerlink" title="2.5 样本分布"></a>2.5 样本分布</h5><p>当样本为随机变量时，就有一定的概率分布，这个概率分布称为样本分布。样本分布式样本所受随机因素影响的最完整的描述。</p>
+]]></content>
+      <categories>
+        <category>数理统计</category>
+        <category>统计</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>数理统计</tag>
       </tags>
   </entry>
   <entry>
