@@ -171,6 +171,41 @@ $$\quad</script><h5 id="2-MLE下的参数估计"><a href="#2-MLE下的参数估�
       </tags>
   </entry>
   <entry>
+    <title>2-2曲线的弧长</title>
+    <url>/2020/11/01/2-2%E6%9B%B2%E7%BA%BF%E7%9A%84%E5%BC%A7%E9%95%BF/</url>
+    <content><![CDATA[<p>$\qquad$设 $E^3$ 中的一条正则参数曲线 $C$ 的参数方程是 $r=r(t),a\le t\le b$，下面我们考察如下一个变量：</p>
+<script type="math/tex; mode=display">
+s=\int_a^b |r'(t)|dt</script><p>注意到，一方面，$r’|t|$ 是曲线在一点处切向量的长度，与空间 $E^3$ 中笛卡尔直角坐标系的选取无关，从而 $s$ 的取值与空间 $E^3$ 中的笛卡尔直角坐标系的选取也无关。另一方面，设 $t=t(u)$ 是任一容许的参数变换，则有 $t’(u)&gt;0$，从而：</p>
+<script type="math/tex; mode=display">
+\begin{array}{ll} 
+s&=\int_a^b |r'(t)|dt\\
+\\
+&=\int_a^b|\dfrac{dr(t(u))}{dt}|\cdot \dfrac{dt}{du}du\\
+\\
+&=\int_a^b |\dfrac{dr(t(u))}{du}|du\\
+\end{array}</script><p>由此可知：$s$ 取值与参数变换也无关。</p>
+<p>$\qquad$到此为止，我们可以得到，$s$ 在<strong>参数变换</strong>与<strong>笛卡尔标架选取</strong>的意义下是一个<strong>不变量</strong>。</p>
+<p>$\qquad$事实上，通过积分的几何意义：</p>
+<script type="math/tex; mode=display">
+\int_a^b|r'(t)|dt=\lim\limits_{\Delta\rightarrow 0} \sum\limits_{i=1}^n|r(t_i)-r(t_{i-1})|(\Delta 为 \max\limits_{i=1,\cdots,n}\{|\Delta t_i|\})</script><div align="center">
+    <img src="\images\2-1.png" width="70%">
+</div>
+
+<p>可以看出：$s$ 代表的在区间 $[a,b]$ 上曲线的<strong>弧长</strong>。</p>
+<p>$\qquad$此外，注意到 $s(t)=\int_a^t|r’(x)|dx$ 是 $t$ 的三次以上连续可微函数，且 $\dfrac{ds}{dt}=|r’(t)|&gt;0$.故我们可以把 $s$ 看成 $t$ 做参数变换后得到的新参数，通常将其称为<strong>弧长参数</strong>。由弧长参数的两个不变性可知，它是由曲线自身确定的一个参数。</p>
+<p>$\qquad$考虑到一般情况下，积分不能显示表示，将一般参数转化为弧长参数会变的很困难，所以如何识别一个参数是弧长参数将变得很重要。下面的定理给我们提供一种判断的方法：</p>
+<p>$\mathrm{Thm}\ 2.1$ 设 $r=r(t)(a\le t\le b)$ 是 $E^3$ 中的一条正则曲线，则 $t$ 是它的弧长参数当且仅当 $|r’(t)|\equiv 1.$ </p>
+]]></content>
+      <categories>
+        <category>微分几何</category>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>微分几何</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Welcome</title>
     <url>/2020/10/14/Welcome/</url>
     <content><![CDATA[<p>Welcome to my blog! This is my first post. You are able to get some knowledge about Mathematics and Statistics from the blog. Welcome to contact with me through social links on the left. </p>
