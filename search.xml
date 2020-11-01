@@ -92,6 +92,18 @@ G_x\cdot x'(t)+G_y\cdot y'(t)+G_z\cdot z'(t)=0
       </tags>
   </entry>
   <entry>
+    <title>Welcome</title>
+    <url>/2020/10/14/Welcome/</url>
+    <content><![CDATA[<p>Welcome to my blog! This is my first post. You are able to get some knowledge about Mathematics and Statistics from the blog. Welcome to contact with me through social links on the left. </p>
+]]></content>
+      <categories>
+        <category>简介</category>
+      </categories>
+      <tags>
+        <tag>-简介</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2-2曲线的弧长</title>
     <url>/2020/11/01/2-2%E6%9B%B2%E7%BA%BF%E7%9A%84%E5%BC%A7%E9%95%BF/</url>
     <content><![CDATA[<p>$\qquad$设 $E^3$ 中的一条正则参数曲线 $C$ 的参数方程是 $r=r(t),a\le t\le b$，下面我们考察如下一个变量：</p>
@@ -124,18 +136,6 @@ s&=\int_a^b |r'(t)|dt\\
       <tags>
         <tag>微分几何</tag>
         <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Welcome</title>
-    <url>/2020/10/14/Welcome/</url>
-    <content><![CDATA[<p>Welcome to my blog! This is my first post. You are able to get some knowledge about Mathematics and Statistics from the blog. Welcome to contact with me through social links on the left. </p>
-]]></content>
-      <categories>
-        <category>简介</category>
-      </categories>
-      <tags>
-        <tag>-简介</tag>
       </tags>
   </entry>
   <entry>
